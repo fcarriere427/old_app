@@ -5,7 +5,7 @@
  <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no" />
  <title>IDF-Widgets Démo</title>
  <!-- Insérez vos imports de scripts JS ici -->
- <script type="module" src="https://widgets.smartidf.services/idf-widget-multiservices/idf-widget-multiservices.js"></script>
+ <script type="module" src="https://widgets.smartidf.services/idf-widget-service/idf-widget-service.js"></script>
  <style>
  html {
  font-size: 14px;
@@ -24,18 +24,18 @@
  <main>
  <h1>IDF Widgets</h1>
  <!-- Ajoutez vos widgets ici -->
- <idf-widget-multiservices
- lang="fr"
- title="Tous ensemble à Nanterre pour l'environnement"
- services='["mon-potentiel-solaire", "ma-nature-en-ile-de-france", "mon-reflexe-zero-dechet"]'
- x="2.215331"
- y="48.892423"
- zoom="14"
+ <idf-widget-service lang="fr"
+ title="À Nanterre, le solaire pourrait fournir 32 % de la consommation électrique !"
+ service="mon-potentiel-solaire"
+ buttonLabel="Découvrir"
+ primaryColor="#5448A9"
+ secondaryColor="#FFFFFF"
+ img="https://widgets.smartidf.services/idf-widget-service/assets/mps.svg"
  location="Nanterre"
  campaign="campaign-nant"
- source="partenaire-xx"
->
-</idf-widget-multiservices>
+ source="partenaire-xx">
+</idf-widget-service>
+
  </main>
 </body>
 </html>
