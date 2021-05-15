@@ -5,8 +5,8 @@
  <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no" />
  <title>IDF-Widgets Démo</title>
  <!-- Insérez vos imports de scripts JS ici -->
- <script type="module" src="https://widgets.smartidf.services/idf-widget-service/idf-widget-service.js"></script>
- <style>
+<script type="module" src="https://widgets.smartidf.services/idf-widget-mnidf-carto/idf-widget-mnidf-carto.js"></script>
+<style>
  html {
  font-size: 14px;
  background: rgb(181, 201, 200)
@@ -24,17 +24,14 @@
  <main>
  <h1>IDF Widgets</h1>
  <!-- Ajoutez vos widgets ici -->
- <idf-widget-service lang="fr"
- title="À Nanterre, le solaire pourrait fournir 32 % de la consommation électrique !"
- service="mon-potentiel-solaire"
- buttonLabel="Découvrir"
- primaryColor="#5448A9"
- secondaryColor="#FFFFFF"
- img="https://widgets.smartidf.services/idf-widget-service/assets/mps.svg"
- location="Nanterre"
+ <idf-widget-mnidf-carto
+ layerstoshow='["sports_nautiques", "espacesVertsMilieuxJardinsBotanique"]'
+ x="2.215331"
+ y="48.892423"
+ zoom="10"
  campaign="campaign-nant"
- source="partenaire-xx">
-</idf-widget-service>
+ source="partenaire-xx"
+ ></idf-widget-mnidf-carto>
 
  </main>
 </body>
