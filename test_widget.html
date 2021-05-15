@@ -1,43 +1,72 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
- <meta charset="utf-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no" />
- <title>IDF-Widgets Démo</title>
- <!-- Insérez vos imports de scripts JS ici -->
-<script type="module" src="https://widgets.smartidf.services/idf-widget-mnidf-carto/idf-widget-mnidf-carto.js"></script>
-<style>
- html {
- font-size: 14px;
- background: rgb(181, 201, 200)
- }
- main {
- font-family: sans-serif;
- margin: 50px;
- padding: 30px;
- background: white;
- border-radius: 10px;
- }
- </style>
-</head>
-<body>
- <main>
- <h1>IDF Widgets</h1>
- <!-- Ajoutez vos widgets ici -->
- <idf-widget-mnidf-carto
- layerstoshow='["sports_nautiques", "espacesVertsMilieuxJardinsBotanique"]'
- x="2.215331"
- y="48.892423"
- zoom="10"
- campaign="campaign-nant"
- source="partenaire-xx"
- ></idf-widget-mnidf-carto>
 
- <a href="https://manatureeniledefrance.smartidf.services/explorer-territoire?x=2.215331&y=48.892423&zoom=14&address-label=Nanterre&mtm_cpn=campaign-nant&mtm_source=partenaire-xx&mtm_kwd=redirect_service" target="_blank">
- <img src="https://widgets.smartidf.services/idf-mnidf/assets/350_550_Banner-MNIDF.png" />
-</a>
-<img src="https://matomo.backoffice.smartidf.services/matomo.php?rec=1&idsite=24&mtm_cpn=campaign-nant&mtm_source=partenaire-xx&mtm_kwd=affichage" style="border:0" alt="" />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no" />
+    <title>IDF-Widgets Démo</title>
+    <!-- Insérez vos imports de scripts JS ici -->
+    <script type="module" src="https://widgets.smartidf.services/idf-widget-multiservices/idf-widget-multiservices.js"></script>
+    <script type="module" src="https://widgets.smartidf.services/idf-widget-service/idf-widget-service.js"></script>
+    <script type="module" src="https://widgets.smartidf.services/idf-widget-mnidf-carto/idf-widget-mnidf-carto.js"></script>
+    <style>
+      html {
+        font-size: 14px;
+        background: rgb(181, 201, 200)
+      }
+      main {
+        font-family: sans-serif;
+        margin: 50px;
+        padding: 30px;
+        background: white;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
 
- </main>
-</body>
+  <body>
+    <main>
+      <h1>IDF Widgets</h1>
+      <!-- Ajoutez vos widgets ici -->
+
+      <idf-widget-multiservices
+        lang="fr"
+        title="Tous ensemble à Nanterre pour l'environnement"
+        services='["mon-potentiel-solaire", "ma-nature-en-ile-de-france", "mon-reflexe-zero-dechet"]'
+        x="2.215331"
+        y="48.892423"
+        zoom="14"
+        location="Nanterre"
+        campaign="campaign-nant"
+        source="partenaire-xx">
+      </idf-widget-multiservices>
+
+      <idf-widget-service lang="fr"
+         title="À Nanterre, le solaire pourrait fournir 32 % de la consommation électrique !"
+         service="mon-potentiel-solaire"
+         buttonLabel="Découvrir"
+         primaryColor="#5448A9"
+         secondaryColor="#FFFFFF"
+         img="https://widgets.smartidf.services/idf-widget-service/assets/mps.svg"
+         location="Nanterre"
+         campaign="campaign-nant"
+         source="partenaire-xx">
+      </idf-widget-service>
+
+      <idf-widget-mnidf-carto
+        layerstoshow='["sports_nautiques", "espacesVertsMilieuxJardinsBotanique"]'
+        x="2.215331"
+        y="48.892423"
+        zoom="10"
+        campaign="campaign-nant"
+        source="partenaire-xx">
+      </idf-widget-mnidf-carto>
+
+      <a href="https://manatureeniledefrance.smartidf.services/explorer-territoire?x=2.215331&y=48.892423&zoom=14&address-label=Nanterre&mtm_cpn=campaign-nant&mtm_source=partenaire-xx&mtm_kwd=redirect_service" target="_blank">
+        <img src="https://widgets.smartidf.services/idf-mnidf/assets/350_550_Banner-MNIDF.png" />
+      </a>
+      <img src="https://matomo.backoffice.smartidf.services/matomo.php?rec=1&idsite=24&mtm_cpn=campaign-nant&mtm_source=partenaire-xx&mtm_kwd=affichage" style="border:0" alt="" />
+
+    </main>
+  </body>
 </html>
