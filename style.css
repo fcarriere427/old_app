@@ -13,6 +13,12 @@ body {
   border-radius: 10px;
 }
 
+.intro {
+  padding: 10px;
+  margin: auto;
+  color: #666;
+}
+
 .footer {
   padding: 10px;
   margin: auto;
