@@ -4,6 +4,7 @@ html {
   color: black;
 }
 
+/*
 body {
   font: 16px/134% Helvetica Neue, sans-serif;
   margin: 0 auto;
@@ -11,9 +12,8 @@ body {
   width: 900px;
   padding-left: 40px;
   padding-right: 40px;
-  background-color: #eee; */
-  /* couleur pink "letsq"
-  background-color: #780039; */
+  background-color: #eee;
+
 }
 
 .intro, .list {
@@ -22,8 +22,7 @@ body {
   width: 900px;
   padding-left: 40px;
   padding-right: 40px;
-  background-color: #fff; */
-  /** background-color: #780039; **/
+  background-color: #fff;
 }
 
 .item {
@@ -79,3 +78,4 @@ a:hover {
   font-size: 11px;
   text-align: right;
 }
+*/
