@@ -4,12 +4,11 @@ html {
   color: black;
 }
 
-/*
 body {
   font: 16px/134% Helvetica Neue, sans-serif;
   margin: 0 auto;
   padding: 20px;
-  width: 900px;
+  width: 80%;
   padding-left: 40px;
   padding-right: 40px;
   background-color: #eee;
@@ -19,7 +18,7 @@ body {
 .intro, .list {
   margin: 0 auto;
   padding: 1px;
-  width: 900px;
+  width: 80%;
   padding-left: 40px;
   padding-right: 40px;
   background-color: #fff;
@@ -27,7 +26,7 @@ body {
 
 .item {
   float: left;
-  width: 200px;
+  width: 20%;
   height: 190px;
   font-size: 13px;
   color: black;
@@ -69,7 +68,7 @@ a:hover {
 
 .footer {
   padding: 10px;
-  width: 900px;
+  width: 80%;
   margin: auto;
   padding-left: 40px;
   padding-right: 40px;
@@ -78,4 +77,3 @@ a:hover {
   font-size: 11px;
   text-align: right;
 }
-*/
