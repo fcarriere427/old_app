@@ -1,4 +1,4 @@
-let element = document.getElementById("suivi");
+let element = document.getElementById("body");
 element.addEventListener('mousemove', function(event) {
     const x = event.offsetX; // Coordonnée X de la souris dans l'élément
     const y = event.offsetY; // Coordonnée Y de la souris dans l'élément
