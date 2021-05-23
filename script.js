@@ -2,9 +2,9 @@ let element = document.getElementById("main");
 element.addEventListener('mousemove', function(event) {
     const x1 = event.offsetX; // Coordonnée X de la souris dans l'élément
     const y1 = event.offsetY; // Coordonnée Y de la souris dans l'élément
-    const x2 = event.offsetX; // Coordonnée X de la souris dans le document
-    const y2 = event.offsetY; // Coordonnée Y de la souris dans le document
-    element.innerHTML = "Offset : X  = " + x1 + " ; Y = " + y1 + "Doc : X  = " + x2 + " ; Y = " + y2;
+    const x2 = event.pageX; // Coordonnée X de la souris dans le document
+    const y2 = event.pageY; // Coordonnée Y de la souris dans le document
+    element.innerHTML = "Offset : X  = " + x1 + " ; Y = " + y1 + "  // Doc : X  = " + x2 + " ; Y = " + y2;
 
 });
 
