@@ -6,14 +6,10 @@ function changeP() {
 }
 
 
-function addP() {
+function addP(color) {
   // ajoute un nouveau paragraphe
   let p = document.createElement("p");
   document.getElementById("main").appendChild(p);
   p.innerHTML = "nouveau paragraphe !";
-}
-
-function removeP() {
-  // enlève le dernier § de main
-  document.getElementById("main").removeChild();
+  p.style.color = color;
 }
