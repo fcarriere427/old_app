@@ -13,3 +13,10 @@ function addP() {
   p.innerHTML = "nouveau paragraphe !";
   p.style.color = "#FF0000";
 }
+
+function followPointer() {
+  let element = document.getElementById("new");
+  element.addEventListener('click', function() {
+    elt.innerHTML = "C'est cliqué !";
+  });
+}
