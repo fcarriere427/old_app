@@ -6,10 +6,10 @@ function changeP() {
 }
 
 
-function addP(color) {
+function addP() {
   // ajoute un nouveau paragraphe
   let p = document.createElement("p");
   document.getElementById("main").appendChild(p);
   p.innerHTML = "nouveau paragraphe !";
-  p.style.color = color;
+  p.style.color = "#FF0000";
 }
