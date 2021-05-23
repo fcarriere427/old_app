@@ -2,7 +2,7 @@ let element = document.getElementById("suivi");
 element.addEventListener('mousemove', function(event) {
     const x = event.offsetX; // Coordonnée X de la souris dans l'élément
     const y = event.offsetY; // Coordonnée Y de la souris dans l'élément
-    element.innerHTML = "X = " & x & " ; Y = " & y;
+    element.innerHTML = "X = " + x + " ; Y = " + y;
 });
 
 // function changeP() {
