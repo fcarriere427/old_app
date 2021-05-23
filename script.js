@@ -6,8 +6,7 @@ function myFunction() {
   element.style.color = "blue";
 
   // ajoute un nouveau paragraphe
-  const newElt = document.createElement("p");
-  let elt = document.getElementById("main");
-  elt.appendChild(newElt);
-  elt.innerHTML = "nouveau paragraphe !";
+  let p = document.createElement("p");
+  document.getElementById("main").appendChild(p);
+  p.innerHTML = "nouveau paragraphe !";
 }
