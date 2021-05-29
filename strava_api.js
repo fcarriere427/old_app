@@ -1,4 +1,4 @@
-require('dotenv').config()
+require("dotenv").config()
 
 function getActivities(res){
   // appelle API strava avec l'access token qu'on vient de renouveller
