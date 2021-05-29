@@ -19,8 +19,8 @@ body {
   color: #666;
 }
 
-.header {
-  padding: 300px;
+.header, .main {
+  padding: 3000px;
   margin: auto;
   color: #aaa;
 }
