@@ -19,8 +19,9 @@ body {
   color: #666;
 }
 
-.header, .main {
-  padding: 300px;
+/* in test only */
+.main {
+  padding: 50px;
   margin: auto;
   color: #aaa;
 }
