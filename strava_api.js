@@ -17,11 +17,8 @@ function appendData(data) {
 }
 
 function reAuthorize(){
-
+  require('dotenv').config()
   const auth_link = "https://www.strava.com/oauth/token"
-  var id = config.client_id;
-  var secret = config.client_secret;
-  var token = config.refresh_token;
 
   fetch(auth_link,{
     method: 'post',
@@ -30,9 +27,9 @@ function reAuthorize(){
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      client_id: id,
-      client_secret: secret,
-      refresh_token: token,
+      client_id: process.env.id,
+      client_secret:process.env.secret,
+      refresh_token: process.env.token,
       grant_type: 'refresh_token'
     })
   })
