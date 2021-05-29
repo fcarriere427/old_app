@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 function getActivities(res){
   // appelle API strava avec l'access token qu'on vient de renouveller
   const activities_link = `https://www.strava.com/api/v3/athlete/activities?access_token=${res.access_token}`
@@ -17,7 +19,6 @@ function appendData(data) {
 }
 
 function reAuthorize(){
-  require('dotenv').config()
   const auth_link = "https://www.strava.com/oauth/token"
 
   fetch(auth_link,{
