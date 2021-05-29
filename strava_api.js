@@ -18,8 +18,9 @@ function appendData(data) {
 
 function reAuthorize(){
   const auth_link = "https://www.strava.com/oauth/token"
-  fetch('strava_keys.js')
-    .then(function (keys) {console.log('API key:', keys.id);})
+  var id = keys.client_id;
+  var secret = keys.client_secret;
+  var token = keys.refresh_token;
 
   fetch(auth_link,{
     method: 'post',
@@ -28,9 +29,9 @@ function reAuthorize(){
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      client_id: keys.id,
-      client_secret:keys.secret,
-      refresh_token: keys.token,
+      client_id: id,
+      client_secret: secret,
+      refresh_token: token,
       grant_type: 'refresh_token'
     })
   })
