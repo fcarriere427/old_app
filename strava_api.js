@@ -2,10 +2,8 @@ function getActivities(res){
     // appelle API strava avec l'access token qu'on vient de renouveller
     const activities_link = `https://www.strava.com/api/v3/athlete/activities?access_token=${res.access_token}`
     fetch(activities_link)
-        .then((res) => console.log(res.json()))
     // affiche le contenu
-    let element = document.getElementById("main");
-    element.innerHTML = res.json();
+      .then(res => document.getElementById("main").innerHTML = res.json())  
 }
 
 function reAuthorize(){
