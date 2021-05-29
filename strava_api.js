@@ -11,7 +11,7 @@ function appendData(data) {
   var mainContainer = document.getElementById("main");
   for (var i = 0; i < data.length; i++) {
     var div = document.createElement("div");
-    div.innerHTML = 'Name: ' + data[i].name + '  //  Distance: ' + data[i].distance;
+    div.innerHTML = 'Name: ' + data[i].name + '  //  Distance: ' + data[i].distance / 1000 + "km // Time: " + data[i].moving_time/60 + "mn";
     mainContainer.appendChild(div);
   }
 }
