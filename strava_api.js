@@ -17,7 +17,12 @@ function appendData(data) {
 }
 
 function reAuthorize(){
+
   const auth_link = "https://www.strava.com/oauth/token"
+  var id = config.client_id;
+  var secret = config.client_secret;
+  var token = config.refresh_token;
+
   fetch(auth_link,{
     method: 'post',
     headers: {
@@ -25,9 +30,9 @@ function reAuthorize(){
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      client_id: '60862',
-      client_secret: '2de20b9281f033da472a94eb775743eaa95bd49d',
-      refresh_token: '1fa2b3a8d0efb1df86c7f4ed1d67fc03e89ea3ac',
+      client_id: id,
+      client_secret: secret,
+      refresh_token: token,
       grant_type: 'refresh_token'
     })
   })
