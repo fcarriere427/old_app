@@ -18,6 +18,8 @@ function appendData(data) {
 
 function reAuthorize(){
   const auth_link = "https://www.strava.com/oauth/token"
+  fetch('strava_keys.js')
+    .then(function (keys) {console.log('API key:', keys.id);})
 
   fetch(auth_link,{
     method: 'post',
