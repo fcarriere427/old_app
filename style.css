@@ -19,6 +19,12 @@ body {
   color: #666;
 }
 
+.header {
+  padding: 300px;
+  margin: auto;
+  color: #aaa;
+}
+
 .footer {
   padding: 10px;
   margin: auto;
