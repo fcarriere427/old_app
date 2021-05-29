@@ -1,5 +1,3 @@
-require("dotenv").config()
-
 function getActivities(res){
   // appelle API strava avec l'access token qu'on vient de renouveller
   const activities_link = `https://www.strava.com/api/v3/athlete/activities?access_token=${res.access_token}`
@@ -28,9 +26,9 @@ function reAuthorize(){
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      client_id: process.env.id,
-      client_secret:process.env.secret,
-      refresh_token: process.env.token,
+      client_id: keys.id,
+      client_secret:keys.secret,
+      refresh_token: keys.token,
       grant_type: 'refresh_token'
     })
   })
