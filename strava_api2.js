@@ -39,5 +39,5 @@ function reAuthorize(){
     .then(res => getActivities(res))
 }
 
-const src="strava_keys.js"
+//const src="strava_keys.js"
 reAuthorize()
