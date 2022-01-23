@@ -1,11 +1,4 @@
 function getActivities(res){
-  // temp pour voir ce qu'il y a dans res
-  var mainContainer = document.getElementById("main");
-  var div = document.createElement("div");
-  div.innerHTML = 'res: ' + res.access_token;
-  mainContainer.appendChild(div);
-  // fin du tmp
-
   // appelle API strava avec l'access token qu'on vient de renouveller
   const activities_link = `https://www.strava.com/api/v3/athlete/activities?access_token=${res.access_token}`
   fetch(activities_link)
