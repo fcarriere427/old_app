@@ -4,7 +4,7 @@ function getActivities(res){
   // temp pour voir ce qu'il y a dans res
   var mainContainer = document.getElementById("main");
   var div = document.createElement("div");
-  div.innerHTML = 'res: ' + res;
+  div.innerHTML = 'res: ' + res.json();
   mainContainer.appendChild(div);
   // fin du tmp
   fetch(activities_link)
