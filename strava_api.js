@@ -13,9 +13,9 @@ function appendData(data) {
     var div = document.createElement("div");
     div.innerHTML = 'ID: ' + data[i].id
       + '  // Date: ' + data[i].start_date
-      + '  // Distance: ' + math.round(data[i].distance / 1000 * 100) / 100 + 'km'
-      + '  // Time: ' + math.round(data[i].moving_time/60 * 100) / 100 + "mn"
-      + '  // Avg speed: ' + data[i].average_speed * 0.06 + "mn/km";
+      + '  // Distance: ' + Math.round(data[i].distance / 1000 * 100) / 100 + 'km'
+      + '  // Time: ' + Math.round(data[i].moving_time/60 * 100) / 100 + "mn"
+      + '  // Avg speed: ' + Math.round(data[i].average_speed * 0.06 * 100) / 100 + "mn/km";
     mainContainer.appendChild(div);
   }
 }
