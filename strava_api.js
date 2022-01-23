@@ -11,6 +11,7 @@ function appendData(data) {
   var mainContainer = document.getElementById("main");
   for (var i = 0; i < data.length; i++) {
     var div = document.createElement("div");
+    // pour référence : https://developers.strava.com/docs/reference/#api-models-SummaryActivity
     div.innerHTML = 'ID: ' + data[i].id
       + '  // Date: ' + data[i].start_date
       + '  // Distance: ' + Math.round(data[i].distance / 1000 * 100) / 100 + 'km'
