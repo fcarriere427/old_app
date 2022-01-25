@@ -9,6 +9,11 @@ function getActivities(res){
 
 function appendData(data) {
   var mainContainer = document.getElementById("main");
+  // test
+  var test = document.createElement("div");
+  test.innerHTML = 'data = ' + data;
+  mainContainer.appendChild(test);
+
   for (var i = 0; i < data.length; i++) {
     var div = document.createElement("div");
     // pour référence : https://developers.strava.com/docs/reference/#api-models-SummaryActivity
