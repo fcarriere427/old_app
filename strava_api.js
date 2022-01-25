@@ -11,7 +11,7 @@ function appendData(data) {
   var mainContainer = document.getElementById("main");
   // test
   var test = document.createElement("div");
-  test.innerHTML = 'data[1].ID = ' + data[1].ID;
+  test.innerHTML = 'data[0].id = ' + data[0].id;
   mainContainer.appendChild(test);
 
   for (var i = 0; i < data.length; i++) {
