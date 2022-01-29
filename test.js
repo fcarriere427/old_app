@@ -16,7 +16,7 @@ function displayData() {
     })
     .catch((err) => {
       console.log('Fetch problem: ' + err.message);
-    }
+    });
 
 // // test
 //   var test = document.createElement("div");
