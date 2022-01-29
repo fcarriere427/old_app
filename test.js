@@ -7,15 +7,14 @@ function displayData() {
   mainContainer.appendChild(div);
   fetch("/activities")
     // ******* REPRENDRE ICI ************* //
-    // que récupère-t-on de la route activities ??? //
-    //.then(response => console.log("response : " + response))
     .then(response => response.json())
-    .then(json => console.log("response.json = " + json.data))
-    // // .then(json => {
-    //   var div = document.createElement("div");
-    //   div.innerHTML = 'on a bien appelé la route "activities", qui répond : ' + json;
-    //   mainContainer.appendChild(div);
-    // })
+    .then(json => {
+        console.log("response.json = " + json.data))
+        var div = document.createElement("div");
+        div.innerHTML = 'on a bien appelé la route "activities", qui répond : ' + json.data;
+        mainContainer.appendChild(div);
+      }
+    })
     //
     .catch((err) => {
       console.log('Fetch problem: ' + err.message);
