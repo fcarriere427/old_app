@@ -9,7 +9,7 @@ function displayData() {
   fetch("test")
     .then(response=>response.json())
     .then(json => {
-      console.log(json))
+      console.log(json);
       var div = document.createElement("div");
       div.innerHTML = 'on a bien appelé la route "test" + response : ' + json;
       mainContainer.appendChild(div);
