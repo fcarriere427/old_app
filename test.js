@@ -6,7 +6,7 @@ function displayData() {
   var div = document.createElement("div");
   div.innerHTML = 'on va afficher qq chose';
   mainContainer.appendChild(div);
-  fetch("test")
+  fetch("http://localhost:3000")
     .then(response=>response.json())
     .then(json => {
       console.log(json);
