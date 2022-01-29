@@ -8,8 +8,8 @@ function displayData() {
   fetch("/activities")
     .then(response => {
       console.log("on a eu la réponse : " + response.data);
-      console.log(response.data));
-    }
+      console.log(response.data);
+    })
     // .then(response => response.json())
     // .then(json => {
     //   console.log("response.json = " + json.data);
