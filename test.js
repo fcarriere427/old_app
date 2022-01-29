@@ -6,7 +6,7 @@ function displayData() {
   div.innerHTML = 'on va afficher qq chose';
   mainContainer.appendChild(div);
   fetch("/activities")
-    .then(response => console.log(response))
+    .then(response => console.log(response.data))
 
     // .then(response => response.json())
     // .then(json => {
