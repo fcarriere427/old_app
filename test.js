@@ -10,7 +10,7 @@ function displayData() {
     // que récupère-t-on de la route activities ??? //
     //.then(response => console.log("response : " + response))
     .then(response => response.json())
-    .then(json => console.log("response.json = " + json))
+    .then(json => console.log("response.json = " + json.data))
     // // .then(json => {
     //   var div = document.createElement("div");
     //   div.innerHTML = 'on a bien appelé la route "activities", qui répond : ' + json;
