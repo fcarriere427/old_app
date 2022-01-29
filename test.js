@@ -6,15 +6,13 @@ function displayData() {
   div.innerHTML = 'on va afficher qq chose';
   mainContainer.appendChild(div);
   fetch("/activities")
-    // .then(response=>response.json())
-    // .then(json => {
-    .then((response) => {
+    .then(response=>response.json())
+    .then(json => {
       // ******* REPRENDRE ICI ************* //
-
       // que récupère-t-on de la route activities ??? //
       //console.log(json);
       var div = document.createElement("div");
-      div.innerHTML = 'on a bien appelé la route "activities", qui répond : ' + response;
+      div.innerHTML = 'on a bien appelé la route "activities", qui répond : ' + json;
       mainContainer.appendChild(div);
     })
     .catch((err) => {
