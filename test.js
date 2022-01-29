@@ -8,7 +8,7 @@ function displayData() {
   fetch("/activities")
     // ******* REPRENDRE ICI ************* //
     // que récupère-t-on de la route activities ??? //
-    .then(response => consolde.log(response))
+    .then(response => console.log(response))
     // .then(response => response.json())
     // .then(json => console.log(json))
     // // .then(json => {
