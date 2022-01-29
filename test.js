@@ -6,7 +6,7 @@ function displayData() {
   var div = document.createElement("div");
   div.innerHTML = 'on va afficher qq chose';
   mainContainer.appendChild(div);
-  fetch("https://localhost:3000/activities")
+  fetch("https://localhost:3000/")
     .then( (response) => {
       var div = document.createElement("div");
       div.innerHTML = 'on a bien appelé la route "activities" + response : ' + response;
