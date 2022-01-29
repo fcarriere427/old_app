@@ -9,7 +9,7 @@ function displayData() {
     // ******* REPRENDRE ICI ************* //
     .then(response => response.json())
     .then(json => {
-      console.log("response.json = " + json.data))
+      console.log("response.json = " + json.data)
       var div = document.createElement("div");
       div.innerHTML = 'on a bien appelé la route "activities", qui répond : ' + json.data;
       mainContainer.appendChild(div);
