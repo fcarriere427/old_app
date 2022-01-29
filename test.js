@@ -10,9 +10,9 @@ function displayData() {
     // .then(response=>response.json())
     // .then(json => {
     .then((response) => {
-      console.log(json);
+      //console.log(json);
       var div = document.createElement("div");
-      div.innerHTML = 'on a bien appelé la route "test" + response : ' + json;
+      div.innerHTML = 'on a bien appelé la route "activities"';
       mainContainer.appendChild(div);
     })
     .catch((err) => {
