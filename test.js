@@ -17,5 +17,6 @@ function displayData() {
     .catch((err) => {
       console.log('Fetch problem: ' + err.message);
     });
+}
 
 displayData()
