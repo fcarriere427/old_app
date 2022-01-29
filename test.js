@@ -9,7 +9,7 @@ function displayData() {
   fetch("/activities")
     .then(response=>response.json())
     .then(json => {
-      console.log(json);
+      //console.log(json);
       var div = document.createElement("div");
       div.innerHTML = 'on a bien appelé la route "test" + response : ' + json;
       mainContainer.appendChild(div);
@@ -17,23 +17,5 @@ function displayData() {
     .catch((err) => {
       console.log('Fetch problem: ' + err.message);
     });
-
-// // test
-//   var test = document.createElement("div");
-//   test.innerHTML = 'data[0].id = ' + data[0].id;
-//   mainContainer.appendChild(test);
-  }
-
-// function readTextFile(file, callback) {
-//       var rawFile = new XMLHttpRequest();
-//     rawFile.overrideMimeType("application/json");
-//     rawFile.open("GET", file, true);
-//     rawFile.onreadystatechange = function() {
-//         if (rawFile.readyState === 4 && rawFile.status == "200") {
-//             callback(rawFile.responseText);
-//         }
-//     }
-//     rawFile.send(null);
-// }
 
 displayData()
