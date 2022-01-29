@@ -7,9 +7,11 @@ function displayData() {
   div.innerHTML = 'on va afficher qq chose';
   mainContainer.appendChild(div);
   fetch("test")
-    .then( (response) => {
+    .then(response=>response.json())
+    .then(json => {
+      console.log(json))
       var div = document.createElement("div");
-      div.innerHTML = 'on a bien appelé la route "activities" + response : ' + response;
+      div.innerHTML = 'on a bien appelé la route "test" + response : ' + json;
       mainContainer.appendChild(div);
     })
 
