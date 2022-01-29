@@ -14,6 +14,9 @@ function displayData() {
       div.innerHTML = 'on a bien appelé la route "test" + response : ' + json;
       mainContainer.appendChild(div);
     })
+    .catch((err) => {
+      console.log('Fetch problem: ' + err.message);
+    }
 
 // // test
 //   var test = document.createElement("div");
