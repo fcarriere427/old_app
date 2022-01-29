@@ -7,13 +7,11 @@ function displayData() {
   div.innerHTML = 'on va afficher qq chose';
   mainContainer.appendChild(div);
   fetch("http://localhost:3000/activities")
-          // .then((response) => response.json())
-          // .then((responseJson) => {
-          //   setPlayers(responseJson.data);
-          var div = document.createElement("div");
-          div.innerHTML = 'on a bien appelé la route "activities"';
-          mainContainer.appendChild(div);
-    });
+    .then( (response) => {
+      var div = document.createElement("div");
+      div.innerHTML = 'on a bien appelé la route "activities" + response : ' + response;
+      mainContainer.appendChild(div);
+    })
 
 // // test
 //   var test = document.createElement("div");
