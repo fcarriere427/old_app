@@ -7,7 +7,7 @@ function displayData() {
   mainContainer.appendChild(div);
   fetch("/activities")
     .then(response => response.json())
-    .then(json => console.log(json)
+    .then(json => console.log(json))
     // .then(json => {
     //   // ******* REPRENDRE ICI ************* //
     //   // que récupère-t-on de la route activities ??? //
