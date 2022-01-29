@@ -1,7 +1,6 @@
 function displayData() {
   var mainContainer = document.getElementById("main");
 
-// ******* REPRENDRE ICI ************* //
 // On doit appeler le server, puis afficher les données //
   var div = document.createElement("div");
   div.innerHTML = 'on va afficher qq chose';
@@ -10,9 +9,12 @@ function displayData() {
     // .then(response=>response.json())
     // .then(json => {
     .then((response) => {
+      // ******* REPRENDRE ICI ************* //
+
+      // que récupère-t-on de la route activities ??? //
       //console.log(json);
       var div = document.createElement("div");
-      div.innerHTML = 'on a bien appelé la route "activities"';
+      div.innerHTML = 'on a bien appelé la route "activities", qui répond : ' + response;
       mainContainer.appendChild(div);
     })
     .catch((err) => {
