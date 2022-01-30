@@ -10,22 +10,11 @@
   </head>
 
   <body>
-    <div id="loading">
-        <img id="loading-image" src="./img/ajax-loader.gif" alt="Loading..." />
-    </div>
-
     <h1 class="header">Liste des activités Strava (from the backend)</h1>
 
     <div id="main">
       <script src="strava.js"></script>
     </div>
-
-    <!-- Image preload -->
-    <script>
-        $(window).on('load', function () {
-            $('#loading').hide();
-        })
-    </script>
 
     <div class="footer">
       Copyright 2020 <a href="http://www.twitter.com/fcarriere_fr" target="_blank"> Florian CARRIERE</a>
