@@ -7,8 +7,8 @@ function displayData() {
   mainContainer.appendChild(div);
   fetch("/activities")
     .then(response => {
-      console.log("on a eu la réponse : " + response.data);
-      console.log(response.data);
+      console.log("on a eu la réponse : " + response);
+      console.log(response);
     })
     // .then(response => response.json())
     // .then(json => {
