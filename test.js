@@ -6,13 +6,12 @@ function displayData() {
   div.innerHTML = 'code de test.js';
   mainContainer.appendChild(div);
   fetch("/activities")
-    .then(response => {
-      console.log("on a eu la réponse : " + response);
-      console.log(response);
-    })
-    // .then(response => response.json())
-    // .then(json => {
-    //   console.log("response.json = " + json.data);
+    // .then(response => {
+    //   console.log(response);
+    // })
+    .then(response => response.json())
+    .then(json => {
+       console.log("response.json = " + json.data);
     //   // ******* REPRENDRE ICI ************* //
     //   // intégrer la boucle qui affiche toutes les données strava
     //   var div = document.createElement("div");
