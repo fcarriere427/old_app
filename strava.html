@@ -7,9 +7,21 @@
     <title>Let's Q</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/png" href="./img/icons/favicon.ico"/>
+    <!-- pour le preload-->
+    <script>
+    <!-- Wait for window load -->
+	  $(window).load(function() {
+  	   <!-- Animate loader off screen -->
+  	   $(".se-pre-con").fadeOut("slow");;
+  	});
+    </script>
   </head>
 
   <body>
+    <!-- Image preload -->
+    <div class="se-pre-con"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
 
     <h1 class="header">Liste des activités Strava (from the backend)</h1>
 
