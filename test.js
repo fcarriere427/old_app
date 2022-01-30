@@ -10,13 +10,17 @@ function displayData() {
     //   console.log(response);
     // })
     .then(response => response.json())
-    .then(json => {
-       console.log("response.json = " + json);
-    //   // ******* REPRENDRE ICI ************* //
-    //   // intégrer la boucle qui affiche toutes les données strava
-    //   var div = document.createElement("div");
-    //   div.innerHTML = 'on a bien appelé la route "activities", qui répond : ' + json.data;
-    //   mainContainer.appendChild(div);
+    .then(data => {
+       console.log("response.json = " + data);
+
+       //   // ******* REPRENDRE ICI ************* //
+       //   // intégrer la boucle qui affiche toutes les données strava
+
+       var mainContainer = document.getElementById("main");
+       // test
+       var test = document.createElement("div");
+       test.innerHTML = 'data[0].id = ' + data[0].id;
+       mainContainer.appendChild(test);
     })
     .catch((err) => {
       console.log('Fetch problem: ' + err.message);
