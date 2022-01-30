@@ -1,11 +1,5 @@
 function displayData() {
-  var mainContainer = document.getElementById("main");
-
-// On doit appeler le server, puis afficher les données //
   fetch("/activities")
-    // .then(response => {
-    //   console.log(response);
-    // })
     .then(response => response.json())
     .then(data => {
         var mainContainer = document.getElementById("main");
