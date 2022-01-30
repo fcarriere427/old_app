@@ -11,7 +11,7 @@ function displayData() {
     // })
     .then(response => response.json())
     .then(json => {
-       console.log("response.json = " + json.data);
+       console.log("response.json = " + json);
     //   // ******* REPRENDRE ICI ************* //
     //   // intégrer la boucle qui affiche toutes les données strava
     //   var div = document.createElement("div");
