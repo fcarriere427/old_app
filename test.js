@@ -17,7 +17,7 @@ function displayData() {
     //   var div = document.createElement("div");
     //   div.innerHTML = 'on a bien appelé la route "activities", qui répond : ' + json.data;
     //   mainContainer.appendChild(div);
-    // })
+    })
     .catch((err) => {
       console.log('Fetch problem: ' + err.message);
     });
