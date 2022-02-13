@@ -8,7 +8,8 @@ function displayData() {
       // *** pour afficher la liste des activités
         var mainContainer = document.getElementById("main");
         var div = document.createElement("div");
-        div.innerHTML = 'data: ' + JSON.stringify(data);
+        string = JSON.stringify(data);
+        div.innerHTML = 'data: ' + string;
         mainContainer.appendChild(div);
       })
     // .then(data => {
