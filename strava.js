@@ -2,7 +2,7 @@
 
 
 function displayData() {
-  fetch("/activities")
+  fetch("/activities_list")
     .then(response => response.json())
     .then(data => {
       // *** pour afficher la liste des activités
