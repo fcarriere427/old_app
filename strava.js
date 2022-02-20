@@ -2,12 +2,12 @@
 
 function main(){
   var fetch_button = document.getElementById('fetchButton');
-  fetch_button.onclick = fetch();
+  fetch_button.onclick = fetchActivities();
   var display_button = document.getElementById('displayButton');
-  display_button.onclick = display();
+  display_button.onclick = displayActivities();
 }
 
-function fetch() {
+function fetchActivities() {
   var mainContainer = document.getElementById("main");
   // message d'attente
   // var div = document.createElement("div");
@@ -20,7 +20,7 @@ function fetch() {
   })
 }
 
-function display() {
+function displayActivities() {
   //  appel de la route qui va récupérer les données
   fetch("/list_activities")
   .then(response => response.json())
