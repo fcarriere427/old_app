@@ -10,9 +10,9 @@ function main(){
 function fetch() {
   var mainContainer = document.getElementById("main");
   // message d'attente
-  var div = document.createElement("div");
-  div.innerHTML = 'Fetching all activities data from Strava, this may take a while :-) ';
-  mainContainer.appendChild(div);
+  // var div = document.createElement("div");
+  // div.innerHTML = 'Fetching all activities data from Strava, this may take a while :-) ';
+  // mainContainer.appendChild(div);
   fetch("/fetch_activities")
   .then((number) => {
     div.innerHTML = 'OK, database has been updated, and now contains ' + number + 'activities.';
