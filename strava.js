@@ -30,7 +30,7 @@ function displayData() {
            + ' - Date: ' + data[i].start_date
            + ' - Distance: ' + Math.round(data[i].distance / 1000 * 100) / 100 + 'km'
            + ' - Time: ' + mn_moving_time + "mn" + sec_moving_time + "s"
-           + ' - Avg speed: ' + mn_avg_speed + ''' + sec_avg_speed + ''''/km';
+           + ' - Avg speed: ' + mn_avg_speed + ' mn ' + sec_avg_speed + ' sec/km';
           mainContainer.appendChild(div);
         }
       })
