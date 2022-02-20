@@ -17,11 +17,20 @@ function displayData() {
         var mainContainer = document.getElementById("main");
         for (var i = 0; i < data.length; i++) {
           var div = document.createElement("div");
+          // calculs sur le temps
+          moving_time = data[i].moving_time;
+          mn_moving_time = Math.round(data[i].moving_time/60);
+          sec_moving_time = Math.round((moving_time - mn_moving_time) * 100) / 100 ;
+          // calculs sur la vitesse
+          avg_speed = data[i].average_speed;
+          mn_avg_speed = Math.round(1000 / 60 / data[i].average_speed * 100) / 100
+          sec_avg_speed = Math.round((avg_speed - mn_avg_speed) * 100) / 100 ;
+
           div.innerHTML = 'ID: ' + data[i].id
-           + '  // Date: ' + data[i].start_date
-           + '  // Distance: ' + Math.round(data[i].distance / 1000 * 100) / 100 + 'km'
-           + '  // Time: ' + Math.round(data[i].moving_time/60 * 100) / 100 + "mn"
-           + '  // Avg speed: ' + Math.round(1000 / 60 / data[i].average_speed * 100) / 100 + "mn/km";
+           + ' - Date: ' + data[i].start_date
+           + ' - Distance: ' + Math.round(data[i].distance / 1000 * 100) / 100 + 'km'
+           + ' - Time: ' + mn_moving_time + "mn" + sec_moving_time + "s"
+           + ' - Avg speed: ' + mn_avg_speed + ''' + sec_avg_speed + ''''/km';
           mainContainer.appendChild(div);
         }
       })
