@@ -21,7 +21,7 @@ function displayData() {
           moving_time = data[i].moving_time; // en secondes
           h_moving_time = Math.round(moving_time/3600);
           mn_moving_time = Math.round((moving_time - h_moving_time * 3600) / 60);
-          sec_moving_time = Math.round((moving_time - mn_moving_time * 60) / 100) * 100;
+          sec_moving_time = Math.round(moving_time - h_moving_time * 3600 - mn_moving_time * 60);
           if(h_moving_time > 0){
             time_str = h_moving_time + 'h' + mn_moving_time + 'mn' + sec_moving_time + 's';
           } else {
