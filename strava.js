@@ -1,8 +1,9 @@
 // pour référence : https://developers.strava.com/docs/reference/#api-models-SummaryActivity
 
 function main(){
-  //var fetch_button = document.getElementById('fetchButton');
-  //fetch_button.onclick = fetchActivities();
+  fetch("/");
+  var fetch_button = document.getElementById('fetchButton');
+  fetch_button.onclick = fetchActivities();
   var display_button = document.getElementById('displayButton');
   display_button.onclick = displayActivities();
 }
