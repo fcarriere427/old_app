@@ -22,7 +22,7 @@ function fetch() {
 
 function display() {
   //  appel de la route qui va récupérer les données
-  fetch("/activities_list")
+  fetch("/list_activities")
   .then(response => response.json())
   .then(data => {
       // pour afficher la liste des activités
