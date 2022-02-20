@@ -33,7 +33,7 @@ function displayData() {
           sec_avg_speed = Math.round(((1/(60*avg_speed /1000)) - mn_avg_speed) * 60);
           // concaténation de la chaine pour 1 activité
           var str = '[' + data[i].id + '] '
-           + data[i].start_date.substring(0,9)
+           + data[i].start_date.substring(0,10)
            + ' - ' + Math.round(data[i].distance / 1000 * 100) / 100 + 'km'
            + ' - ' + time_str
            + ' - ' + mn_avg_speed + 'mn' + sec_avg_speed + 'sec/km'
