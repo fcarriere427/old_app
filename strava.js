@@ -13,7 +13,7 @@ function displayData() {
     //     mainContainer.appendChild(div);
     //   })
     .then(data => {
-      // pour afficher la liste des activités
+        // pour afficher la liste des activités
         var mainContainer = document.getElementById("main");
         for (var i = 0; i < data.length; i++) {
         var div = document.createElement("div");
@@ -23,7 +23,7 @@ function displayData() {
            + '  // Time: ' + Math.round(data[i].moving_time/60 * 100) / 100 + "mn"
            + '  // Avg speed: ' + Math.round(1000 / 60 / data[i].average_speed * 100) / 100 + "mn/km";
         mainContainer.appendChild(div);
-      }
+      })
     .catch((err) => {
       console.log('"Activities" fetch problem: ' + err.message);
     });
