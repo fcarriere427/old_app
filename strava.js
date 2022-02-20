@@ -24,7 +24,7 @@ function displayData() {
           // calculs sur la vitesse
           avg_speed = data[i].average_speed;
           mn_avg_speed = Math.round(1 / (60 * avg_speed / 1000));
-          sec_avg_speed = Math.round(((1/(60*avg_speed /1000)) - Y) * 60);
+          sec_avg_speed = Math.round(((1/(60*avg_speed /1000)) - mn_avg_speed) * 60);
 
           div.innerHTML = '[' + data[i].id + ']'
            + ' - ' + data[i].start_date
