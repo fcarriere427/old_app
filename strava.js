@@ -1,6 +1,7 @@
 // pour référence : https://developers.strava.com/docs/reference/#api-models-SummaryActivity
 
 function main(){
+  console.log("on rentre dans le main de strava.js");
   fetch("/strava_app");
   //fetch("/list_activities");
   // var fetch_button = document.getElementById('fetchButton');
