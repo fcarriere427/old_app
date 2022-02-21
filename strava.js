@@ -1,27 +1,23 @@
-// pour référence : https://developers.strava.com/docs/reference/#api-models-SummaryActivity
-
 function main(){
   const activitiesDiv = document.getElementById('activitiesDiv');
-  const displayButton = document.getElementById('displayButton');
+  const listButton = document.getElementById('listButton');
   const updateButton = document.getElementById('updateButton');
   const reloadButton = document.getElementById('reloadButton');
   displayButton.addEventListener('click', function(e) {
-    console.log('Display button was clicked');
-    activitiesDiv.innerHTML = 'Display button was clicked';
+    console.log('List button was clicked');
+    activitiesDiv.innerHTML = 'List button was clicked';
+    //fetch("/list_activities");
   });
   updateButton.addEventListener('click', function(e) {
     console.log('Update button was clicked');
     activitiesDiv.innerHTML = 'Update button was clicked';
+    //fetch("/update_activities");
   });
   reloadButton.addEventListener('click', function(e) {
     console.log('Reload button was clicked');
     activitiesDiv.innerHTML = 'Reload button was clicked';
+    //fetch("/reload_activities");
   });
-
-  // var display_button = document.getElementById('displayButton');
-  // display_button.onclick = displayActivities();
-  //fetch("/strava_app");
-  //fetch("/list_activities");
 }
 
 function fetchActivities() {
@@ -46,6 +42,7 @@ function displayActivities() {
       for (var i = 0; i < data.length; i++) {
         var div = document.createElement("div");
         // calculs sur le temps
+        // pour référence : https://developers.strava.com/docs/reference/#api-models-SummaryActivity
         moving_time = data[i].moving_time; // en secondes
         h_moving_time = Math.round(moving_time/3600);
         mn_moving_time = Math.round((moving_time - h_moving_time * 3600) / 60);
