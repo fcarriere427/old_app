@@ -3,7 +3,7 @@ function main(){
   const listButton = document.getElementById('listButton');
   const updateButton = document.getElementById('updateButton');
   const reloadButton = document.getElementById('reloadButton');
-  displayButton.addEventListener('click', function(e) {
+  listButton.addEventListener('click', function(e) {
     console.log('List button was clicked');
     activitiesDiv.innerHTML = 'List button was clicked';
     //fetch("/strava_app/list_activities");
