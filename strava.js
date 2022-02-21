@@ -6,13 +6,13 @@ function main(){
   listButton.addEventListener('click', function(e) {
     console.log('List button was clicked');
     activitiesDiv.innerHTML = 'List button was clicked';
-    fetch("/strava_app/list_activities");
+    fetch("/list_activities");
   });
   updateButton.addEventListener('click', function(e) {
     console.log('Update button was clicked');
     activitiesDiv.innerHTML = 'Update button was clicked';
     //fetch("/update_activities");
-    //**** POUR TEST 
+    //**** POUR TEST
     fetch("/strava_app");
   });
   reloadButton.addEventListener('click', function(e) {
