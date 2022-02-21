@@ -2,7 +2,7 @@
 
 function main(){
   console.log("on rentre dans le main de strava.js");
-  fetch("/strava_app");
+  //fetch("/strava_app");
   //fetch("/list_activities");
   // var fetch_button = document.getElementById('fetchButton');
   // fetch_button.onclick = fetchActivities();
