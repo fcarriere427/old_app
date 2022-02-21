@@ -6,7 +6,7 @@ function main(){
   listButton.addEventListener('click', function(e) {
     console.log('List button was clicked');
     activitiesDiv.innerHTML = 'List button was clicked';
-    //fetch("/strava_app/list_activities");
+    fetch("/strava_app/list_activities");
   });
   updateButton.addEventListener('click', function(e) {
     console.log('Update button was clicked');
