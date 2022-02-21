@@ -1,13 +1,23 @@
 // pour référence : https://developers.strava.com/docs/reference/#api-models-SummaryActivity
 
 function main(){
-  console.log("on rentre dans le main de strava.js");
-  fetch("/strava_app");
-  //fetch("/list_activities");
-  // var fetch_button = document.getElementById('fetchButton');
-  // fetch_button.onclick = fetchActivities();
+  const displayButton = document.getElementById('displayButton');
+  const updateButton = document.getElementById('updateButton');
+  const reloadButton = document.getElementById('reloadButton');
+  displayButton.addEventListener('click', function(e) {
+    console.log('Display button was clicked');
+  });
+  updateButton.addEventListener('click', function(e) {
+    console.log('Update button was clicked');
+  });
+  reloadButton.addEventListener('click', function(e) {
+    console.log('Reload button was clicked');
+  });
+
   // var display_button = document.getElementById('displayButton');
   // display_button.onclick = displayActivities();
+  //fetch("/strava_app");
+  //fetch("/list_activities");
 }
 
 function fetchActivities() {
