@@ -12,6 +12,8 @@ function main(){
     console.log('Update button was clicked');
     activitiesDiv.innerHTML = 'Update button was clicked';
     //fetch("/update_activities");
+    //**** POUR TEST 
+    fetch("/strava_app");
   });
   reloadButton.addEventListener('click', function(e) {
     console.log('Reload button was clicked');
