@@ -1,17 +1,21 @@
 // pour référence : https://developers.strava.com/docs/reference/#api-models-SummaryActivity
 
 function main(){
+  const activitiesDiv = document.getElementById('activitiesDiv');
   const displayButton = document.getElementById('displayButton');
   const updateButton = document.getElementById('updateButton');
   const reloadButton = document.getElementById('reloadButton');
   displayButton.addEventListener('click', function(e) {
     console.log('Display button was clicked');
+    activitiesDiv.innerHTML = 'Display button was clicked';
   });
   updateButton.addEventListener('click', function(e) {
     console.log('Update button was clicked');
+    activitiesDiv.innerHTML = 'Update button was clicked';
   });
   reloadButton.addEventListener('click', function(e) {
     console.log('Reload button was clicked');
+    activitiesDiv.innerHTML = 'Reload button was clicked';
   });
 
   // var display_button = document.getElementById('displayButton');
