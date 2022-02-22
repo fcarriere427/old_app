@@ -3,8 +3,8 @@ function main(){
   const listButton = document.getElementById('listButton');
   listButton.addEventListener('click', function(e) {
     console.log('List button was clicked');
-    activitiesDiv.innerHTML = 'fetch /strava_app/list_activities';
-    fetch("/strava_app/list_activities");
+    activitiesDiv.innerHTML = 'fetch /';
+    fetch("/");
   });
   // bouton "update"
   const updateButton = document.getElementById('updateButton');
