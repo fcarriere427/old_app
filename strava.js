@@ -26,7 +26,7 @@ function main(){
 
 function fetchActivities() {
   // message d'attente
-  activitiesDiv.innerHTML = 'Fetching all activities data from Strava, this may take a while :-) ';
+  //activitiesDiv.innerHTML = 'Fetching all activities data from Strava, this may take a while :-) ';
   fetch("/list_activities")
   // fetch("/fetch_activities")
   // .then((number) => {
