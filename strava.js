@@ -29,8 +29,8 @@ function fetchActivities() {
   activitiesDiv.innerHTML = 'Fetching all activities data from Strava, this may take a while :-) ';
   fetch("/list_activities")
   // fetch("/fetch_activities")
-  .then((number) => {
-    activitiesDiv.innerHTML = 'OK, database has been updated, and now contains ' + number + 'activities.';
+  // .then((number) => {
+  //   activitiesDiv.innerHTML = 'OK, database has been updated, and now contains ' + number + 'activities.';
   })
 }
 
