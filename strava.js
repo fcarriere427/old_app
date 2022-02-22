@@ -3,24 +3,21 @@ function main(){
   const listButton = document.getElementById('listButton');
   listButton.addEventListener('click', function(e) {
     console.log('List button was clicked');
-    activitiesDiv.innerHTML = 'List button was clicked';
+    activitiesDiv.innerHTML = 'fetch /strava_app/list_activities';
     fetch("/strava_app/list_activities");
   });
   // bouton "update"
   const updateButton = document.getElementById('updateButton');
   updateButton.addEventListener('click', function(e) {
     console.log('Update button was clicked');
-    activitiesDiv.innerHTML = 'Update button was clicked';
-    //fetch("/update_activities");
-    //**** POUR TEST
+    activitiesDiv.innerHTML = 'fetch /strava_app';
     fetch("/strava_app");
   });
   // bouton "reload"
   const reloadButton = document.getElementById('reloadButton');
   reloadButton.addEventListener('click', function(e) {
     console.log('Reload button was clicked');
-    activitiesDiv.innerHTML = 'Reload button was clicked';
-    //fetch("/reload_activities");
+    activitiesDiv.innerHTML = 'call fetchActivities, that fetch(/list_activities) by now';
     fetchActivities();
   });
   // Panel d'affichage des données
@@ -30,8 +27,8 @@ function main(){
 function fetchActivities() {
   // message d'attente
   activitiesDiv.innerHTML = 'Fetching all activities data from Strava, this may take a while :-) ';
-  // mainContainer.appendChild(div);
-  fetch("/fetch_activities")
+  fetch("/list_activities")
+  // fetch("/fetch_activities")
   .then((number) => {
     activitiesDiv.innerHTML = 'OK, database has been updated, and now contains ' + number + 'activities.';
   })
