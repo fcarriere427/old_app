@@ -2,22 +2,16 @@ function main(){
   // bouton "List"
   const listButton = document.getElementById('listButton');
   listButton.addEventListener('click', function(e) {
-    console.log('List button was clicked');
-    activitiesDiv.innerHTML = 'list activities: to do :-)';
     listActivities();
   });
   // bouton "update"
   const updateButton = document.getElementById('updateButton');
   updateButton.addEventListener('click', function(e) {
-    console.log('Update button was clicked');
-    activitiesDiv.innerHTML = 'update activities: to do :-)';
     updateActivities();
   });
   // bouton "reload"
   const reloadButton = document.getElementById('reloadButton');
   reloadButton.addEventListener('click', function(e) {
-    console.log('Reload button was clicked');
-    activitiesDiv.innerHTML = 'reload all activities: this may take a while...';
     reloadActivities();
   });
   // Panel d'affichage des données
@@ -25,14 +19,20 @@ function main(){
 }
 
 function listActivities() {
+  console.log('List button was clicked');
+  activitiesDiv.innerHTML = 'list activities: to do :-)';
   fetch("/strava_app")
 }
 
 function updateActivities() {
+  console.log('Update button was clicked');
+  activitiesDiv.innerHTML = 'update activities: to do :-)';
   fetch("/strava_app")
 }
 
 function reloadActivities() {
+  console.log('Reload button was clicked');
+  activitiesDiv.innerHTML = 'reload all activities: this may take a while...';
   fetch("/list_activities")
   // .then(response => response.json())
   // .then(data => {
