@@ -31,7 +31,7 @@ function fetchActivities() {
   // fetch("/fetch_activities")
   // .then((number) => {
   //   activitiesDiv.innerHTML = 'OK, database has been updated, and now contains ' + number + 'activities.';
-  })
+  // })
 }
 
 function displayActivities() {
