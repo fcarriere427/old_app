@@ -1,13 +1,13 @@
 function main(){
-  const activitiesDiv = document.getElementById('activitiesDiv');
+  // bouton "List"
   const listButton = document.getElementById('listButton');
-  const updateButton = document.getElementById('updateButton');
-  const reloadButton = document.getElementById('reloadButton');
   listButton.addEventListener('click', function(e) {
     console.log('List button was clicked');
     activitiesDiv.innerHTML = 'List button was clicked';
     fetch("/strava_app/list_activities");
   });
+  // bouton "update"
+  const updateButton = document.getElementById('updateButton');
   updateButton.addEventListener('click', function(e) {
     console.log('Update button was clicked');
     activitiesDiv.innerHTML = 'Update button was clicked';
@@ -15,23 +15,25 @@ function main(){
     //**** POUR TEST
     fetch("/strava_app");
   });
+  // bouton "reload"
+  const reloadButton = document.getElementById('reloadButton');
   reloadButton.addEventListener('click', function(e) {
     console.log('Reload button was clicked');
     activitiesDiv.innerHTML = 'Reload button was clicked';
     //fetch("/reload_activities");
+    fetchActivities();
   });
+  // Panel d'affichage des données
+  const activitiesDiv = document.getElementById('activitiesDiv');
 }
 
 function fetchActivities() {
-  var mainContainer = document.getElementById("main");
   // message d'attente
-  // var div = document.createElement("div");
-  // div.innerHTML = 'Fetching all activities data from Strava, this may take a while :-) ';
+  activitiesDiv.innerHTML = 'Fetching all activities data from Strava, this may take a while :-) ';
   // mainContainer.appendChild(div);
   fetch("/fetch_activities")
   .then((number) => {
-    div.innerHTML = 'OK, database has been updated, and now contains ' + number + 'activities.';
-    mainContainer.appendChild(div);
+    activitiesDiv.innerHTML = 'OK, database has been updated, and now contains ' + number + 'activities.';
   })
 }
 
