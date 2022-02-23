@@ -66,8 +66,9 @@ function updateActivities() {
 
 function reloadActivities() {
   console.log('Reload button was clicked');
+  activitiesDiv.innerHTML = 'update activities: to do :-)';
   fetch("/strava_app/reload")
-  .then(activitiesDiv.innerHTML = 'reload all activities: this may take a while...')
+  .then((data) => activitiesDiv.innerHTML = 'all' + data + 'reloaded !');
 }
 
 main()
