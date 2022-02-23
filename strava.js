@@ -61,13 +61,13 @@ function listActivities() {
 function updateActivities() {
   console.log('Update button was clicked');
   fetch("/strava_app/update")
-  .then(() => activitiesDiv.innerHTML = 'update activities: to do :-)');
+  .then(() => activitiesDiv.innerHTML = 'update activities: to do :-)')
 }
 
 function reloadActivities() {
   console.log('Reload button was clicked');
   fetch("/strava_app/reload")
-  .then(activitiesDiv.innerHTML = 'reload all activities: this may take a while...';)
+  .then(activitiesDiv.innerHTML = 'reload all activities: this may take a while...')
 }
 
 main()
