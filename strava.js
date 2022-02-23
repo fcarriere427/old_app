@@ -69,7 +69,7 @@ function reloadActivities() {
   activitiesDiv.innerHTML = 'Reload all activities : this may take a while...';
   fetch("/strava_app/reload")
   .then(response => response.json())
-  .then((data) => activitiesDiv.innerHTML = 'All ' + data + ' activities reloaded!');
+  .then((data) => activitiesDiv.innerHTML = 'OK, all ' + data + ' activities reloaded!');
 }
 
 main()
