@@ -52,12 +52,11 @@ function listActivities() {
           // injection dans la page
           div.innerHTML = str;
           mainContainer.appendChild(div);
-        }
+      }
     })
     .catch((err) => {
       console.log('"Activities" fetch problem: ' + err.message);
      });
-  })
   .then(() => activitiesDiv.innerHTML = 'Here are your activities!')
 }
 
