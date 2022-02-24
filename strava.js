@@ -21,10 +21,10 @@ function main(){
 function listActivities() {
   console.log('List button was clicked');
   fetch("/strava_app/list")
-  //.then(response => response.json())
+  .then(response => response.json())
   .then(data => {
       // pour afficher la liste des activités
-      console.log('data = ');
+      console.log('data = ' + data);
       console.log(data);
       for (var i = 0; i < data.length; i++) {
           var div = document.createElement("div");
