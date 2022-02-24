@@ -24,6 +24,8 @@ function listActivities() {
   .then(response => response.json())
   .then(data => {
       // pour afficher la liste des activités
+      console.log('data = ');
+      console.log(data);
       for (var i = 0; i < data.length; i++) {
         var div = document.createElement("div");
         // calculs sur le temps
