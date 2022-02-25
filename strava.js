@@ -14,8 +14,9 @@ function main(){
   reloadButton.addEventListener('click', function(e) {
     reloadActivities();
   });
-  // Panel d'affichage des données
+  // Autres 
   const activitiesDiv = document.getElementById('activitiesDiv');
+  const mainContainer = document.getElementById('main');
 }
 
 function listActivities() {
@@ -49,7 +50,6 @@ function listActivities() {
       //  + ' - ' + time_str
       //  + ' - ' + mn_avg_speed + 'mn' + sec_avg_speed + 'sec/km'
       // // injection dans la page
-
       var str = data[i].id;
       div.innerHTML = str;
       mainContainer.appendChild(div);
