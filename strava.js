@@ -65,7 +65,7 @@ function listActivities() {
     .catch((err) => {
       console.log('"Activities" fetch problem: ' + err.message);
     })
-    .then(() => activitiesDiv.innerHTML = 'Here are your activities!')
+    .then((data) => activitiesDiv.innerHTML = 'Here are your activities ! = ' + data)
 }
 
 function updateActivities() {
