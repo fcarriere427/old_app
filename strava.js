@@ -22,11 +22,12 @@ function listActivities() {
   console.log('List button was clicked');
   fetch("/strava_app/list")
   .then(response => {
-    response.json();
+    //response.json();
+    console.log("data en front = " + data);
   })
-  .then(data => {
-    console.log("data apres response.json en front = " + data);
-  })
+  // .then(data => {
+  //   console.log("data apres response.json en front = " + data);
+  // })
   // .then(data => {
   //     // pour afficher la liste des activités
   //     console.log('data.id = ' + data.id);
