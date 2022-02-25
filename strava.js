@@ -24,6 +24,9 @@ function listActivities() {
   .then(response => {
     //response.json();
     console.log("response en front = " + response);
+    var data = response;
+    console.log("data en front = " + data);
+    console.log(" JSON.stringify(data) = " + JSON.stringify(data));
   })
   // .then(data => {
   //   console.log("data apres response.json en front = " + data);
