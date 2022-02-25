@@ -23,6 +23,8 @@ function listActivities() {
   fetch("/strava_app/list")
   .then(data => {
     console.log('data en front = ' + data);
+    console.log('data.headers en front = ' + data.headers);
+
     //response.json();
   })
   .then(data => {
