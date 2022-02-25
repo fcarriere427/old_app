@@ -21,8 +21,8 @@ function main(){
 function listActivities() {
   console.log('List button was clicked');
   fetch("/strava_app/list")
-  .then(response => {
-    console.log('JSON.stringify(response) dans le front = ' + JSON.stringify(response));
+  .then(data => {
+    console.log('data.id dans le front = ' + data.id);
     //response.json();
   })
   .then(data => {
