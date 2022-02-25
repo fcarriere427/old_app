@@ -64,6 +64,11 @@ function updateActivities() {
   console.log('Update button was clicked');
   fetch("/strava_app/update")
   .then(() => activitiesDiv.innerHTML = 'OK, latest activities updated!')
+  .then(() => {
+    var div = document.createElement("div");
+    div.innerHTML = "salut !";
+    mainContainer.appendChild(div);
+  })
 }
 
 function reloadActivities() {
