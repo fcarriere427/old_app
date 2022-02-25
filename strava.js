@@ -14,7 +14,7 @@ function main(){
   reloadButton.addEventListener('click', function(e) {
     reloadActivities();
   });
-  // Autres 
+  // Autres
   const activitiesDiv = document.getElementById('activitiesDiv');
   const mainContainer = document.getElementById('main');
 }
@@ -25,8 +25,8 @@ function listActivities() {
   .then(response => response.json())
   .then(data => {
     // pour afficher la liste des activités
-      activitiesDiv.innerHTML = 'Voici vos ' + data.length + ' activités : ';
-      for (var i = 0; i < data.length; i++) {
+    activitiesDiv.innerHTML = 'Voici vos ' + data.length + ' activités : ';
+    for (var i = 0; i < data.length; i++) {
       var div = document.createElement("div");
       // // calculs sur le temps
       // // pour référence : https://developers.strava.com/docs/reference/#api-models-SummaryActivity
