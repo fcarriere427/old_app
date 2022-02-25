@@ -21,11 +21,15 @@ function main(){
 function listActivities() {
   console.log('List button was clicked');
   fetch("/strava_app/list")
-  .then(response => response.json())
+  .then(response => {
+    console.log('response = ' + response);
+    console.log('response = ' + response.json());
+    response.json();
+  })
   .then(data => {
       // pour afficher la liste des activités
       console.log('data = ' + data);
-      console.log(data);
+      console.log('data.length = ' + data.length);
       for (var i = 0; i < data.length; i++) {
           var div = document.createElement("div");
           // calculs sur le temps
