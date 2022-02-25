@@ -16,7 +16,6 @@ function main(){
   });
   // Autres
   const activitiesDiv = document.getElementById('activitiesDiv');
-  const mainContainer = document.getElementById('main');
 }
 
 function listActivities() {
@@ -26,6 +25,7 @@ function listActivities() {
   .then(data => {
     // pour afficher la liste des activités
     activitiesDiv.innerHTML = 'Voici vos ' + data.length + ' activités : ';
+    var mainContainer = document.getElementById('main');
     for (var i = 0; i < data.length; i++) {
       var div = document.createElement("div");
       // // calculs sur le temps
@@ -64,11 +64,6 @@ function updateActivities() {
   console.log('Update button was clicked');
   fetch("/strava_app/update")
   .then(() => activitiesDiv.innerHTML = 'OK, latest activities updated!')
-  .then(() => {
-    var div = document.createElement("div");
-    div.innerHTML = "salut !";
-    mainContainer.appendChild(div);
-  })
 }
 
 function reloadActivities() {
