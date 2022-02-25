@@ -21,13 +21,13 @@ function main(){
 function listActivities() {
   console.log('List button was clicked');
   fetch("/strava_app/list")
-  .then(response => {
-    response.json();
-    // console.log("response.json() en front = " + response.json());
+  // .then(response => {
+  //   response.json();
+  //   // console.log("response.json() en front = " + response.json());
     // var data = response;
     // console.log("data en front = " + data);
     // console.log(" JSON.stringify(data) = " + JSON.stringify(data));
-  })
+  // })
   // .then(data => {
   //   console.log("data apres response.json en front = " + data);
   // })
@@ -62,10 +62,10 @@ function listActivities() {
   //         mainContainer.appendChild(div);
   //     }
   //   })
-    .catch((err) => {
-      console.log('"Activities" fetch problem: ' + err.message);
-    })
-    .then((data) => activitiesDiv.innerHTML = 'Here are your activities ! = ' + data)
+  .then((data) => activitiesDiv.innerHTML = 'Here are your activities ! = ' + data)
+  .catch((err) => {
+    console.log('"Activities" fetch problem: ' + err.message);
+  })
 }
 
 function updateActivities() {
