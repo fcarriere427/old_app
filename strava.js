@@ -22,7 +22,7 @@ function listActivities() {
   console.log('List button was clicked');
   fetch("/strava_app/list")
   .then(response => {
-    return response.json();
+    response.json();
     // console.log("response.json() en front = " + response.json());
     // var data = response;
     // console.log("data en front = " + data);
