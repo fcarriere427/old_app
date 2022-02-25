@@ -62,8 +62,8 @@ function listActivities() {
   //         mainContainer.appendChild(div);
   //     }
   //   })
-  .then(response => response.text())
-  .then(data => activitiesDiv.innerHTML = 'Here are your activities ! = ' + data)
+  .then(response => response.json())
+  .then(data => activitiesDiv.innerHTML = 'Here are your activities = ' + data)
   .catch((err) => {
     console.log('"Activities" fetch problem: ' + err.message);
   })
