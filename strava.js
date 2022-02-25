@@ -23,7 +23,6 @@ function listActivities() {
   fetch("/strava_app/list")
   .then(response => {
     console.log('response = ' + response);
-    console.log('response = ' + response.json());
     response.json();
   })
   .then(data => {
