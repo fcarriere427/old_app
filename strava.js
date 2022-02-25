@@ -22,20 +22,9 @@ function listActivities() {
   console.log('List button was clicked');
   fetch("/strava_app/list")
   .then(response => response.json())
-  .then(data => activitiesDiv.innerHTML = 'data[1].id = ' + data[1].id + 'data[2].id = ' + data[2].id)
-  // .then(response => {
-  //   response.json();
-  //   // console.log("response.json() en front = " + response.json());
-    // var data = response;
-    // console.log("data en front = " + data);
-    // console.log(" JSON.stringify(data) = " + JSON.stringify(data));
-  // })
-  // .then(data => {
-  //   console.log("data apres response.json en front = " + data);
-  // })
+  .then(data => activitiesDiv.innerHTML = 'data.length = ' + data.length)
   // .then(data => {
   //     // pour afficher la liste des activités
-  //     console.log('data.id = ' + data.id);
   //     for (var i = 0; i < data.length; i++) {
   //         var div = document.createElement("div");
   //         // calculs sur le temps
