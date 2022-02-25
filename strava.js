@@ -63,7 +63,7 @@ function listActivities() {
   //     }
   //   })
   .then(response => response.json())
-  .then(data => activitiesDiv.innerHTML = 'Here are your activities = ' + data.toString())
+  .then(data => activitiesDiv.innerHTML = 'data.id = ' + data.id)
   .catch((err) => {
     console.log('"Activities" fetch problem: ' + err.message);
   })
