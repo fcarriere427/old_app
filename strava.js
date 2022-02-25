@@ -21,6 +21,8 @@ function main(){
 function listActivities() {
   console.log('List button was clicked');
   fetch("/strava_app/list")
+  .then(response => response.json())
+  .then(data => activitiesDiv.innerHTML = 'data.id = ' + data[1].id)
   // .then(response => {
   //   response.json();
   //   // console.log("response.json() en front = " + response.json());
@@ -62,8 +64,6 @@ function listActivities() {
   //         mainContainer.appendChild(div);
   //     }
   //   })
-  .then(response => response.json())
-  .then(data => activitiesDiv.innerHTML = 'data.id = ' + data.id)
   .catch((err) => {
     console.log('"Activities" fetch problem: ' + err.message);
   })
