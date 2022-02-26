@@ -23,7 +23,8 @@ function main(){
 
 function cleanDiv(){
   i = 0;
-  while div {
+  while (div) {
+    console.log('supprimer la div activity-' + i);
     var div = document.getElementById('activity-'+i);
     div.parentNode.removeChild(div);
     i = i + 1;
