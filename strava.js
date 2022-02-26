@@ -63,7 +63,7 @@ function listActivities() {
 /////
       avg_speed = data[i].doc.average_speed; // en mètres/secondes
       pace = 1 / avg_speed * 1000; // en secondes par km
-      mn_avg_speed = Math.round(pace / 60));
+      mn_avg_speed = Math.round(pace / 60);
       sec_avg_speed = Math.round(pace - 60 * mn_avg_speed);
       // concaténation de la chaine pour 1 activité
       var str = '[' + data[i].doc.id + '] '
