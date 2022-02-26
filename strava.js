@@ -62,8 +62,9 @@ function listActivities() {
 ///// A REVOIR : calcule des vitesses négatives :-/
 /////
       avg_speed = data[i].doc.average_speed; // en mètres/secondes
-      mn_avg_speed = Math.round(1 / (60 * avg_speed / 1000));
-      sec_avg_speed = Math.round(((1/(60*avg_speed /1000)) - mn_avg_speed) * 60);
+      pace = 1 / avg_speed * 1000; // en secondes par km
+      mn_avg_speed = Math.round(pace / 60));
+      sec_avg_speed = Math.round(pace - 60 * mn_avg_speed);
       // concaténation de la chaine pour 1 activité
       var str = '[' + data[i].doc.id + '] '
        + data[i].doc.start_date.substring(0,10)
