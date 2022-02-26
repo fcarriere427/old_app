@@ -42,6 +42,9 @@ function listActivities() {
         time_str = mn_moving_time + 'mn' + sec_moving_time + 's';
       }
       // calculs sur la vitesse
+//////
+///// A REVOIR : calcule des vitesses négatives :-/
+/////
       avg_speed = data[i].doc.average_speed; // en mètres/secondes
       mn_avg_speed = Math.round(1 / (60 * avg_speed / 1000));
       sec_avg_speed = Math.round(((1/(60*avg_speed /1000)) - mn_avg_speed) * 60);
