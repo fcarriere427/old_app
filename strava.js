@@ -48,13 +48,13 @@ function listActivities() {
       // pour référence : https://developers.strava.com/docs/reference/#api-models-SummaryActivity
       moving_time = data[i].doc.moving_time; // en secondes
       if (moving_time > 3600) {
-        h_moving_time = Math.round(moving_time/3600);
-        mn_moving_time = Math.round((moving_time - h_moving_time * 3600) / 60);
-        sec_moving_time = Math.round(moving_time - h_moving_time * 3600 - mn_moving_time * 60);
+        h_moving_time = Math.trunc(moving_time/3600);
+        mn_moving_time = Math.trunc((moving_time - h_moving_time * 3600) / 60);
+        sec_moving_time = Math.trunc(moving_time - h_moving_time * 3600 - mn_moving_time * 60);
         time_str = h_moving_time + 'h' + mn_moving_time + 'mn' + sec_moving_time + 's';
       } else {
-        mn_moving_time = Math.round((moving_time) / 60);
-        sec_moving_time = Math.round(moving_time - mn_moving_time * 60);
+        mn_moving_time = Math.trunc((moving_time) / 60);
+        sec_moving_time = Math.trunc(moving_time - mn_moving_time * 60);
         time_str = mn_moving_time + 'mn' + sec_moving_time + 's';
       }
       // calculs sur la vitesse
@@ -63,8 +63,8 @@ function listActivities() {
 /////
       avg_speed = data[i].doc.average_speed; // en mètres/secondes
       pace = 1 / avg_speed * 1000; // en secondes par km
-      mn_avg_speed = Math.round(pace / 60);
-      sec_avg_speed = Math.round(pace - 60 * mn_avg_speed);
+      mn_avg_speed = Math.trunc(pace / 60);
+      sec_avg_speed = Math.trunc(pace - 60 * mn_avg_speed);
       if(i==6) {
         console.log('avg_speed (en m/s) = ' + avg_speed);
         console.log('pace (en sec/km) = ' + pace);
