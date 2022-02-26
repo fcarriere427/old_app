@@ -2,20 +2,33 @@ function main(){
   // bouton "List"
   const listButton = document.getElementById('listButton');
   listButton.addEventListener('click', function(e) {
+    cleanDiv();
     listActivities();
   });
   // bouton "update"
   const updateButton = document.getElementById('updateButton');
   updateButton.addEventListener('click', function(e) {
+    cleanDiv();
     updateActivities();
   });
   // bouton "reload"
   const reloadButton = document.getElementById('reloadButton');
   reloadButton.addEventListener('click', function(e) {
+    cleanDiv();
     reloadActivities();
   });
   // Autres
   const activitiesDiv = document.getElementById('activitiesDiv');
+}
+
+function cleanDiv(){
+  i = 0;
+  while div {
+    var div = document.getElementById('activity-'+i);
+    div.parentNode.removeChild(div);
+    i = i + 1;
+    div = document.getElementById('activity-'+i);
+  }
 }
 
 function listActivities() {
@@ -27,7 +40,8 @@ function listActivities() {
     activitiesDiv.innerHTML = 'Voici vos ' + data.length + ' activités : ';
     var mainContainer = document.getElementById('main');
     for (var i = 0; i < data.length; i++) {
-      var div = document.createElement("div");
+      var div = document.createElement('div');
+      div.setAttribute('id','activity-' + i);
       // calculs sur le temps
       // pour référence : https://developers.strava.com/docs/reference/#api-models-SummaryActivity
       moving_time = data[i].doc.moving_time; // en secondes
