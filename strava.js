@@ -31,12 +31,14 @@ function listActivities() {
       // calculs sur le temps
       // pour référence : https://developers.strava.com/docs/reference/#api-models-SummaryActivity
       moving_time = data[i].doc.moving_time; // en secondes
-      h_moving_time = Math.round(moving_time/3600);
-      mn_moving_time = Math.round((moving_time - h_moving_time * 3600) / 60);
-      sec_moving_time = Math.round(moving_time - h_moving_time * 3600 - mn_moving_time * 60);
-      if(h_moving_time > 0){
+      if (moving_time > 3600) {
+        h_moving_time = Math.round(moving_time/3600);
+        mn_moving_time = Math.round((moving_time - h_moving_time * 3600) / 60);
+        sec_moving_time = Math.round(moving_time - h_moving_time * 3600 - mn_moving_time * 60);
         time_str = h_moving_time + 'h' + mn_moving_time + 'mn' + sec_moving_time + 's';
       } else {
+        mn_moving_time = Math.round((moving_time - h_moving_time * 3600) / 60);
+        sec_moving_time = Math.round(moving_time - h_moving_time * 3600 - mn_moving_time * 60);
         time_str = mn_moving_time + 'mn' + sec_moving_time + 's';
       }
       // calculs sur la vitesse
