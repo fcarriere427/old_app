@@ -50,7 +50,7 @@ function listActivities() {
       //  + ' - ' + time_str
       //  + ' - ' + mn_avg_speed + 'mn' + sec_avg_speed + 'sec/km'
       // // injection dans la page
-      var str = data[i].tostring();
+      var str = data[i].doc.start_date;
       div.innerHTML = str;
       mainContainer.appendChild(div);
     }
