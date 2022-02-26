@@ -65,12 +65,18 @@ function listActivities() {
       pace = 1 / avg_speed * 1000; // en secondes par km
       mn_avg_speed = Math.round(pace / 60);
       sec_avg_speed = Math.round(pace - 60 * mn_avg_speed);
+      if(i==0) {
+        console.log('avg_speed (en m/s) = ' + pace);
+        console.log('pace (en sec/km) = ' + pace);
+        console.log('mn_avg_speed = ' + mn_avg_speed);
+        console.log('sec_avg_speed = ' + sec_avg_speed);
+      }
       // concaténation de la chaine pour 1 activité
       var str = '[' + data[i].doc.id + '] '
        + data[i].doc.start_date.substring(0,10)
-       + ' - ' + Math.round(data[i].doc.distance / 1000 * 100) / 100 + 'km'
-       + ' - ' + time_str
-       + ' - ' + mn_avg_speed + 'mn' + sec_avg_speed + 'sec/km'
+       + ' _ ' + Math.round(data[i].doc.distance / 1000 * 100) / 100 + 'km'
+       + ' _ ' + time_str
+       + ' _ ' + mn_avg_speed + 'mn' + sec_avg_speed + '/km'
       // injection dans la page
       div.innerHTML = str;
       mainContainer.appendChild(div);
