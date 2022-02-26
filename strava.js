@@ -18,14 +18,14 @@ function main(){
     reloadActivities();
   });
   // Autres
-  const activitiesDiv = document.getElementById('activitiesDiv');
+  const messageDiv = document.getElementById('messageDiv');
 }
 
 function cleanDiv(){
+  var div = document.getElementById('activity-'+ i);
   i = 0;
   var div = document.getElementById('activity-'+ i);
   while (div) {
-    console.log('supprimer la div activity-' + i);
     div.parentNode.removeChild(div);
     i = i + 1;
     div = document.getElementById('activity-'+ i);
@@ -38,7 +38,7 @@ function listActivities() {
   .then(response => response.json())
   .then(data => {
     // pour afficher la liste des activités
-    activitiesDiv.innerHTML = 'Voici vos ' + data.length + ' activités : ';
+    messageDiv.innerHTML = 'Voici vos ' + data.length + ' activités : ';
     var mainContainer = document.getElementById('main');
     for (var i = 0; i < data.length; i++) {
       var div = document.createElement('div');
@@ -82,15 +82,15 @@ function listActivities() {
 function updateActivities() {
   console.log('Update button was clicked');
   fetch("/strava_app/update")
-  .then(() => activitiesDiv.innerHTML = 'OK, latest activities updated!')
+  .then(() => messageDiv.innerHTML = 'OK, les dernières activités ont bien été récupérées !')
 }
 
 function reloadActivities() {
   console.log('Reload button was clicked');
-  activitiesDiv.innerHTML = 'Reload all activities : this may take a while...';
+  messageDiv.innerHTML = 'Remise à zéro de la base de données : ça va prendre un peu de temps...';
   fetch("/strava_app/reload")
   .then(response => response.json())
-  .then((data) => activitiesDiv.innerHTML = 'OK, all ' + data + ' activities reloaded!');
+  .then((data) => messageDiv.innerHTML = 'OK, les ' + data + ' activités ont bien été rechargées !');
 }
 
 main()
