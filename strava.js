@@ -65,8 +65,8 @@ function listActivities() {
       pace = 1 / avg_speed * 1000; // en secondes par km
       mn_avg_speed = Math.round(pace / 60);
       sec_avg_speed = Math.round(pace - 60 * mn_avg_speed);
-      if(i==0) {
-        console.log('avg_speed (en m/s) = ' + pace);
+      if(i==6) {
+        console.log('avg_speed (en m/s) = ' + avg_speed);
         console.log('pace (en sec/km) = ' + pace);
         console.log('mn_avg_speed = ' + mn_avg_speed);
         console.log('sec_avg_speed = ' + sec_avg_speed);
