@@ -23,12 +23,12 @@ function main(){
 
 function cleanDiv(){
   i = 0;
+  var div = document.getElementById('activity-'+ i);
   while (div) {
     console.log('supprimer la div activity-' + i);
-    var div = document.getElementById('activity-'+i);
     div.parentNode.removeChild(div);
     i = i + 1;
-    div = document.getElementById('activity-'+i);
+    div = document.getElementById('activity-'+ i);
   }
 }
 
