@@ -37,8 +37,8 @@ function listActivities() {
         sec_moving_time = Math.round(moving_time - h_moving_time * 3600 - mn_moving_time * 60);
         time_str = h_moving_time + 'h' + mn_moving_time + 'mn' + sec_moving_time + 's';
       } else {
-        mn_moving_time = Math.round((moving_time - h_moving_time * 3600) / 60);
-        sec_moving_time = Math.round(moving_time - h_moving_time * 3600 - mn_moving_time * 60);
+        mn_moving_time = Math.round((moving_time) / 60);
+        sec_moving_time = Math.round(moving_time - mn_moving_time * 60);
         time_str = mn_moving_time + 'mn' + sec_moving_time + 's';
       }
       // calculs sur la vitesse
