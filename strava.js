@@ -34,6 +34,7 @@ function cleanDiv(){
 
 function listActivities() {
   console.log('List button was clicked');
+  messageDiv.innerHTML = 'Préparation des activités...';
   fetch("/strava_app/list")
   .then(response => response.json())
   .then(data => {
@@ -81,13 +82,14 @@ function listActivities() {
 
 function updateActivities() {
   console.log('Update button was clicked');
+  messageDiv.innerHTML = 'Récupération des dernières données...';
   fetch("/strava_app/update")
   .then(() => messageDiv.innerHTML = 'OK, les dernières activités ont bien été récupérées !')
 }
 
 function reloadActivities() {
   console.log('Reload button was clicked');
-  messageDiv.innerHTML = 'Remise à zéro de la base de données : ça va prendre un peu de temps...';
+  messageDiv.innerHTML = 'RAZ des données : ça va prendre un peu de temps...';
   fetch("/strava_app/reload")
   .then(response => response.json())
   .then((data) => messageDiv.innerHTML = 'OK, les ' + data + ' activités ont bien été rechargées !');
