@@ -50,7 +50,7 @@ function listActivities() {
       if (moving_time > 3600) {
         h_moving_time = Math.trunc(moving_time/3600);
         mn_moving_time = Math.trunc((moving_time - h_moving_time * 3600) / 60);
-        sec_moving_time = Math.trunc(moving_time - h_moving_time * 3600 - mn_moving_time * 60);
+        sec_moving_time = Math.round(moving_time - h_moving_time * 3600 - mn_moving_time * 60);
         time_str = h_moving_time + 'h' + mn_moving_time + 'mn' + sec_moving_time + 's';
       } else {
         mn_moving_time = Math.trunc((moving_time) / 60);
@@ -64,13 +64,7 @@ function listActivities() {
       avg_speed = data[i].doc.average_speed; // en mètres/secondes
       pace = 1 / avg_speed * 1000; // en secondes par km
       mn_avg_speed = Math.trunc(pace / 60);
-      sec_avg_speed = Math.trunc(pace - 60 * mn_avg_speed);
-      if(i==6) {
-        console.log('avg_speed (en m/s) = ' + avg_speed);
-        console.log('pace (en sec/km) = ' + pace);
-        console.log('mn_avg_speed = ' + mn_avg_speed);
-        console.log('sec_avg_speed = ' + sec_avg_speed);
-      }
+      sec_avg_speed = Math.round(pace - 60 * mn_avg_speed);
       // concaténation de la chaine pour 1 activité
       var str = '[' + data[i].doc.id + '] '
        + data[i].doc.start_date.substring(0,10)
