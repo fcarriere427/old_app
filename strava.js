@@ -21,6 +21,8 @@ function main(){
   const messageDiv = document.getElementById('messageDiv');
 }
 
+
+
 function cleanDiv(){
   var div = document.getElementById('activity-'+ i);
   var i = 0;
@@ -58,21 +60,21 @@ function listActivities() {
         time_str = mn_moving_time + 'mn' + sec_moving_time + 's';
       }
       // calculs sur la vitesse
-//////
-///// A REVOIR : calcule des vitesses négatives :-/
-/////
       avg_speed = data[i].doc.average_speed; // en mètres/secondes
       pace = 1 / avg_speed * 1000; // en secondes par km
       mn_avg_speed = Math.trunc(pace / 60);
       sec_avg_speed = Math.round(pace - 60 * mn_avg_speed);
+
       // concaténation de la chaine pour 1 activité
-      var str = '[' + data[i].doc.id + '] '
-       + data[i].doc.start_date.substring(0,10)
+      var str =
+      //'[' + data[i].doc.id + '] '+
+       data[i].doc.start_date.substring(0,10)
        + ' _ ' + Math.round(data[i].doc.distance / 1000 * 100) / 100 + 'km'
        + ' _ ' + time_str
        + ' _ ' + mn_avg_speed + 'mn' + sec_avg_speed + '/km'
       // injection dans la page
-      div.innerHTML = str;
+      var rec_ link = "./map.html/?id=" + data[i].doc.id;
+      div.innerHTML = '[' + <a href=rec_link target='_blank'>data[i].doc.id</a> + '] ' + str;
       mainContainer.appendChild(div);
     }
   })
