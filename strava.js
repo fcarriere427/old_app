@@ -74,7 +74,8 @@ function listActivities() {
        + ' _ ' + mn_avg_speed + 'mn' + sec_avg_speed + '/km';
       // injection dans la page
       var rec_link = "./map.html/?id=" + data[i].doc.id;
-      div.innerHTML = "[<a href=rec_link target='_blank'>" + data[i].doc.id + "</a>] " + str;
+      console.log('lien = ' + rec_link);
+      div.innerHTML = "[<a href='rec_link' target='_blank'>" + data[i].doc.id + "</a>] " + str;
       mainContainer.appendChild(div);
     }
   })
