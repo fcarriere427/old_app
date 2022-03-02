@@ -71,8 +71,9 @@ function listActivities() {
        data[i].doc.start_date.substring(0,10)
        + ' _ ' + Math.round(data[i].doc.distance / 1000 * 100) / 100 + 'km'
        + ' _ ' + time_str
-       + ' _ ' + mn_avg_speed + 'mn' + sec_avg_speed + '/km'
+       + ' _ ' + mn_avg_speed + 'mn' + sec_avg_speed + '/km';
       // injection dans la page
+      console.log('On va lancer ouvrir un nouvel onglet pour l\'id = ' + data[i].doc.id);
       var rec_ link = "./map.html/?id=" + data[i].doc.id;
       div.innerHTML = '[' + <a href=rec_link target='_blank'>data[i].doc.id</a> + '] ' + str;
       mainContainer.appendChild(div);
