@@ -66,8 +66,8 @@ function listActivities() {
       sec_avg_speed = Math.round(pace - 60 * mn_avg_speed);
 
       // concaténation de la chaine pour 1 activité
+      var tmp = data[i]._id;
       var str =
-      //'[' + data[i].doc.id + '] '+
        data[i].doc.start_date.substring(0,10)
        + ' _ ' + Math.round(data[i].doc.distance / 1000 * 100) / 100 + 'km'
        + ' _ ' + time_str
@@ -75,7 +75,7 @@ function listActivities() {
       // injection dans la page
       var rec_link = "./map.html?id=" + data[i].doc.id;
       //console.log('lien = ' + rec_link);
-      div.innerHTML = "[<a href=" + rec_link + " target='_blank'>" + data[i].doc.id + "</a>] " + str;
+      div.innerHTML = tmp + "[<a href=" + rec_link + " target='_blank'>" + data[i].doc.id + "</a>] " + str;
       //div.innerHTML = "[<a href=rec_link target='_blank'>" + data[i].doc.id + "</a>] " + str;
       mainContainer.appendChild(div);
     }
