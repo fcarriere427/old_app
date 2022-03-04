@@ -66,7 +66,7 @@ function listActivities() {
       sec_avg_speed = Math.round(pace - 60 * mn_avg_speed);
 
       // concaténation de la chaine pour 1 activité
-      var tmp = data[i]._id;
+      var tmp = data[i];
       var str =
        data[i].doc.start_date.substring(0,10)
        + ' _ ' + Math.round(data[i].doc.distance / 1000 * 100) / 100 + 'km'
