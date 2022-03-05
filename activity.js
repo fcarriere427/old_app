@@ -3,10 +3,9 @@
 // Récupérer les paramètres de la requete URL
 const messageDiv = document.getElementById('messageDiv');
 const queryString = window.location.search;
-console.log('querystring = ' + queryString); // du type "?id=345"
+//console.log('querystring = ' + queryString); // du type "?id=345"
 const urlParams = new URLSearchParams(queryString);
 const id = urlParams.get('id');
-console.log('id de la requete = ' + id);
 messageDiv.innerHTML = 'id de la requete = ' + id ;
 
 var encodedRoutes = [];
