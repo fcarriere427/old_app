@@ -20,6 +20,7 @@ function main(){
   // bouton "updateView"
   const updateView= document.getElementById('updateView');
   reloadButton.addEventListener('click', function(e) {
+    console.log('updateView button was clicked');
     cleanDiv();
     fetch('/strava_app/updateView')
     .then(response => response.json())
