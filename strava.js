@@ -17,6 +17,16 @@ function main(){
     cleanDiv();
     reloadActivities();
   });
+  // bouton "updateView"
+  const updateView= document.getElementById('updateView');
+  reloadButton.addEventListener('click', function(e) {
+    cleanDiv();
+    fetch('/strava_app/updateView')
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+    })
+  });
   // Autres
   const messageDiv = document.getElementById('messageDiv');
 }
