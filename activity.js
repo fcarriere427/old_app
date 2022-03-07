@@ -17,10 +17,11 @@ fetch(`/strava_app/activity?id=${id}`)
   let polyline = data.map.summary_polyline;
   let polyline_corrected = JSON.stringify(polyline);
   //let polyline_corrected = polyline.replace('\','\\');
-  encodedRoutes = '["' + polyline_corrected + '"]';
+  encodedRoutes = '[' + polyline_corrected + ']';
   console.log('encodedRoutes = ' + encodedRoutes);
   // Ajout de la  map
-  var map = L.map('map').setView([48.833, 2.333], 13);
+  // centrée sur le bois de Boulogne
+  var map = L.map('map').setView([48.86427818167459, 2.245533745325779], 13);
   L.tileLayer(
     'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 18,
