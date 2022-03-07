@@ -16,7 +16,7 @@ fetch(`/strava_app/activity?id=${id}`)
   //console.log('Ici on a récupéré l\'activité normalement, par ex data.distance = ' + data.distance)
   let polyline = data.map.summary_polyline;
   //let polyline_corrected = JSON.stringify(polyline);
-  let polyline_corrected = polyline.replace('\\','\\\');
+  let polyline_corrected = polyline.replace('\\','\\\\');
   encodedRoutes = '[' + polyline_corrected + ']';
   console.log('encodedRoutes = ' + encodedRoutes);
   // Ajout de la  map
