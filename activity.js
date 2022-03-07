@@ -18,8 +18,6 @@ fetch(`/strava_app/activity?id=${id}`)
   //****** var encodedRoutes = data.polylines;
   // ici = remplacer encodedRoutes par un extract du champ d'un run, en traitant bien les backlash avant
   encodedRoutes = data.map.summary_polyline;
-})
-.then(data => {
   // Ajout de la  map
   var map = L.map('map').setView([55.609818, 13.003286], 13);
   L.tileLayer(
