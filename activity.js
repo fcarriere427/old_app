@@ -19,25 +19,25 @@ fetch(`/strava_app/activity?id=${id}`)
   // ici = remplacer encodedRoutes par un extract du champ d'un run, en traitant bien les backlash avant
   encodedRoutes = data.map.summary_polyline;
 })
+.then(data => {
+  // Ajout de la  map
+  var map = L.map('map').setView([55.609818, 13.003286], 13);
+  L.tileLayer(
+    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+    }).addTo(map);
 
-// Ajout de la  map
-var map = L.map('map').setView([55.609818, 13.003286], 13);
-L.tileLayer(
-  'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 18,
-  }).addTo(map);
-
-// Ajout des traces
-for (let encoded of encodedRoutes) {
-  var coordinates = L.Polyline.fromEncoded(encoded).getLatLngs();
-  L.polyline(
-    coordinates,
-    {
-        color: 'red',
-        weight: 2,
-        opacity: .7,
-        lineJoin: 'round'
-    }
-  ).addTo(map);
-
-}
+  // Ajout des traces
+  for (let encoded of encodedRoutes) {
+    var coordinates = L.Polyline.fromEncoded(encoded).getLatLngs();
+    L.polyline(
+      coordinates,
+      {
+          color: 'red',
+          weight: 2,
+          opacity: .7,
+          lineJoin: 'round'
+      }
+    ).addTo(map);
+  }
+})
