@@ -15,6 +15,7 @@ fetch(`/strava_app/activity?id=${id}`)
 .then(data => {
   //console.log('Ici on a récupéré l\'activité normalement, par ex data.distance = ' + data.distance)
   encodedRoutes = '["' + data.map.summary_polyline + '"]';
+  console.log('encodedRoutes = ' + encodedRoutes);
   // Ajout de la  map
   var map = L.map('map').setView([48.833, 2.333], 13);
   L.tileLayer(
