@@ -20,7 +20,7 @@ fetch(`/strava_app/activity?id=${id}`)
   let polyline_corrected = polyline.replace('\\','\\\\');
   //encodedRoutes = polyline_corrected;
   //encodedRoutes = polyline;
-  console.log('encodedRoutes = ' + encodedRoutes);
+  //console.log('encodedRoutes = ' + encodedRoutes);
   console.log('encodedRoutes_old = ' + encodedRoutes_old);
   // Ajout de la  map
   // centrée sur le bois de Boulogne : 48.86427818167459, 2.245533745325779
