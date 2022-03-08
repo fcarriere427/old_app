@@ -24,7 +24,8 @@ fetch(`/strava_app/activity?id=${id}`)
   //console.log('polyline = ' + polyline);
   //console.log('polyline_corrected = ' + polyline_corrected);
 
-  polyline_obj = JSON.parse(polyline);
+  //polyline_obj = JSON.parse(polyline);
+  polyline_obj = eval('({' + polyline + '})');
   console.log('typeof encodedRoutes : ' + typeof(encodedRoutes));
   console.log('typeof polyline : ' + typeof(polyline));
   console.log('typeof polyline=obj : ' + typeof(polyline_obj));
