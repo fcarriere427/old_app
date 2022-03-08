@@ -30,7 +30,7 @@ fetch(`/strava_app/activity?id=${id}`)
     }).addTo(map);
 
   // Ajout des traces
-  for (let encoded of encodedRoutes) {
+  for (let encoded of encodedRoutes_old) {
     var coordinates = L.Polyline.fromEncoded(encoded).getLatLngs();
     L.polyline(
       coordinates,
