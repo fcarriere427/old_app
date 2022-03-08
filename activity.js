@@ -23,14 +23,17 @@ fetch(`/strava_app/activity?id=${id}`)
   //console.log('encodedRoutes = ' + encodedRoutes);
   //console.log('polyline = ' + polyline);
   //console.log('polyline_corrected = ' + polyline_corrected);
-  // if (encodedRoutes == polyline){
-  //   console.log('encodedRoutes = polyline !')
-  // } else {
-  //   console.log('encodedRoutes <> polyline !')
-  // }
 
+  polyline_obj = JSON.parse(polyline);
   console.log('typeof encodedRoutes : ' + typeof(encodedRoutes));
   console.log('typeof polyline : ' + typeof(polyline));
+  console.log('typeof polyline=obj : ' + typeof(polyline_obj));
+
+  if (encodedRoutes === polyline_obj){
+    console.log('encodedRoutes = polyline_obj !')
+  } else {
+    console.log('encodedRoutes <> polyline_obj !')
+  }
 
     // Ajout de la  map
   // centrée sur le bois de Boulogne : 48.86427818167459, 2.245533745325779
