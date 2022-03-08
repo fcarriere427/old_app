@@ -21,7 +21,9 @@ fetch(`/strava_app/activity?id=${id}`)
   //encodedRoutes = polyline_corrected;
   //encodedRoutes = polyline;
   console.log('encodedRoutes = ' + encodedRoutes);
-  // Ajout de la  map
+  console.log('polyline = ' + polyline);
+  console.log('polyline_corrected = ' + polyline_corrected);
+    // Ajout de la  map
   // centrée sur le bois de Boulogne : 48.86427818167459, 2.245533745325779
   // centrée sur Malmo : 55.609818, 13.003286
   var map = L.map('map').setView([48.86427818167459, 2.245533745325779], 13);
