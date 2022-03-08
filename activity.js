@@ -26,25 +26,21 @@ fetch(`/strava_app/activity?id=${id}`)
   //console.log('polyline_corrected = ' + polyline_corrected);
 
   polyline_obj = polyline.split();
-  console.log('encodedRoutes = ' + encodedRoutes);
-  console.log('polyline_obj = ' + polyline_obj);
-  console.log('type of encodedRoutes = ' + typeof(encodedRoutes));
-  console.log('type of polyline_obj = ' + typeof(polyline_obj));
+  console.log('encodedRoutes = ' + encodedRoutes[0]);
+  console.log('polyline_obj = ' + polyline_obj[0]);
+  // console.log('type of encodedRoutes = ' + typeof(encodedRoutes));
+  // console.log('type of polyline_obj = ' + typeof(polyline_obj));
+  // if (polyline_obj instanceof Array) {
+  //   console.log('polyline_obj est un Array')
+  // }
+  // if (encodedRoutes instanceof Array) {
+  //   console.log('encodedRoutes est un Array')
+  // }
 
-  if (encodedRoutes === polyline_obj){
-    console.log('encodedRoutes === polyline_obj !')
+  if (encodedRoutes == polyline_obj) {
+    console.log('encodedRoutes == polyline_obj !')
   } else {
-    if (encodedRoutes == polyline_obj) {
-      console.log('encodedRoutes == polyline_obj !')
-    } else {
-      console.log('encodedRoutes <> polyline_obj !')
-      if (polyline_obj instanceof Array) {
-        console.log('polyline_obj est un Array')
-      }
-      if (encodedRoutes instanceof Array) {
-        console.log('encodedRoutes est un Array')
-      }
-    }
+    console.log('encodedRoutes <> polyline_obj !')
   }
 
     // Ajout de la  map
