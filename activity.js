@@ -27,7 +27,7 @@ fetch(`/strava_app/activity?id=${id}`)
 
   polyline_obj = Array.from(polyline);
   console.log('encodedRoutes = ' + encodedRoutes);
-  console.log('polyline_obj = ' + polyline);
+  console.log('polyline_obj = ' + polyline_obj);
 
   if (encodedRoutes === polyline_obj){
     console.log('encodedRoutes === polyline_obj !')
