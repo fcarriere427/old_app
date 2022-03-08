@@ -18,7 +18,7 @@ fetch(`/strava_app/activity?id=${id}`)
   let polyline = data.map.summary_polyline;
   //let polyline_corrected = JSON.stringify(polyline);
   let polyline_corrected = polyline.replace('\\','\\\\');
-  encodedRoutes = polyline_corrected;
+  //encodedRoutes = polyline_corrected;
   console.log('encodedRoutes = ' + encodedRoutes);
   console.log('encodedRoutes_old = ' + encodedRoutes_old);
   // Ajout de la  map
@@ -30,7 +30,7 @@ fetch(`/strava_app/activity?id=${id}`)
     }).addTo(map);
 
   // Ajout des traces
-  for (let encoded of encodedRoutes_old) {
+  for (let encoded of encodedRoutes) {
     var coordinates = L.Polyline.fromEncoded(encoded).getLatLngs();
     L.polyline(
       coordinates,
