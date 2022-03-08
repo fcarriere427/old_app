@@ -38,6 +38,12 @@ fetch(`/strava_app/activity?id=${id}`)
       console.log('encodedRoutes == polyline_obj !')
     } else {
       console.log('encodedRoutes <> polyline_obj !')
+      if (polyline_obj instanceof Array) {
+        console.log('polyline_obj est un Array')
+      }
+      if (encodedRoutes instanceof Array) {
+        console.log('encodedRoutes est un Array')
+      }
     }
   }
 
