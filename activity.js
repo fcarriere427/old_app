@@ -23,7 +23,7 @@ fetch(`/strava_app/activity?id=${id}`)
   console.log('encodedRoutes = ' + encodedRoutes);
   console.log('polyline = ' + polyline);
   console.log('polyline_corrected = ' + polyline_corrected);
-  if (encodedRoutes === polyline){
+  if (encodedRoutes == polyline){
     console.log('encodedRoutes = polyline !')
   } else {
     console.log('encodedRoutes <> polyline !')
