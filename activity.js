@@ -16,33 +16,8 @@ fetch(`/strava_app/activity?id=${id}`)
 .then(response => response.json())
 .then(data => {
   //console.log('Ici on a récupéré l\'activité normalement, par ex data.distance = ' + data.distance)
-  console.log('typeof data : ' + typeof(data));
   let polyline = data.map.summary_polyline;
-  polyline_obj = polyline.split(); // pour convertir en array...
-  encodedRoutes = polyline_obj;
-
-  // let polyline_corrected = polyline.replace('\\','\\\\');
-  //encodedRoutes = polyline_corrected;
-  //console.log('encodedRoutes = ' + encodedRoutes);
-  //console.log('polyline = ' + polyline);
-  //console.log('polyline_corrected = ' + polyline_corrected);
-
-  // console.log('encodedRoutes = ' + encodedRoutes[0]);
-  // console.log('polyline_obj = ' + polyline_obj[0]);
-  // // console.log('type of encodedRoutes = ' + typeof(encodedRoutes));
-  // console.log('type of polyline_obj = ' + typeof(polyline_obj));
-  // if (polyline_obj instanceof Array) {
-  //   console.log('polyline_obj est un Array')
-  // }
-  // if (encodedRoutes instanceof Array) {
-  //   console.log('encodedRoutes est un Array')
-  // }
-
-  // if (encodedRoutes[0] == polyline_obj[0]) {
-  //   console.log('encodedRoutes == polyline_obj !')
-  // } else {
-  //   console.log('encodedRoutes <> polyline_obj !')
-  // }
+  encodedRoutes = polyline.split(); // pour convertir en array...
 
     // Ajout de la  map
   // centrée sur le bois de Boulogne : 48.86427818167459, 2.245533745325779
