@@ -28,6 +28,8 @@ fetch(`/strava_app/activity?id=${id}`)
   polyline_obj = polyline;
   //polyline_obj = polyline.json();
   console.log('typeof encodedRoutes : ' + typeof(encodedRoutes));
+  console.log('encodedRoutes[1] : ' + encodedRoutes[1]);
+
   console.log('typeof polyline : ' + typeof(polyline));
   console.log('typeof polyline_obj : ' + typeof(polyline_obj));
 
