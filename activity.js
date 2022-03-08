@@ -28,6 +28,8 @@ fetch(`/strava_app/activity?id=${id}`)
   polyline_obj = polyline.split();
   console.log('encodedRoutes = ' + encodedRoutes);
   console.log('polyline_obj = ' + polyline_obj);
+  console.log('type of encodedRoutes = ' + typeof(encodedRoutes));
+  console.log('type of polyline_obj = ' + typeof(polyline_obj));
 
   if (encodedRoutes === polyline_obj){
     console.log('encodedRoutes === polyline_obj !')
