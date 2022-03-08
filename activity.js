@@ -15,6 +15,7 @@ fetch(`/strava_app/activity?id=${id}`)
 .then(response => response.json())
 .then(data => {
   //console.log('Ici on a récupéré l\'activité normalement, par ex data.distance = ' + data.distance)
+  console.log('typeof data : ' + typeof(data));
   let polyline = data.map.summary_polyline;
 
   // let polyline_corrected = polyline.replace('\\','\\\\');
