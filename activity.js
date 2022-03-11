@@ -38,6 +38,7 @@ fetch(`/strava_app/activity?id=${id}`)
   ).addTo(map);
 
   const bounds = L.latLngBounds(coordinates);
+  console.log('bounds = ' + bounds);
   map.fitBounds(bounds);
 
 })
