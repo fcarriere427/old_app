@@ -5,7 +5,7 @@ const messageDiv = document.getElementById('messageDiv');
 const queryString = window.location.search; // du type "?id=345"
 const urlParams = new URLSearchParams(queryString);
 const id = urlParams.get('id');
-messageDiv.innerHTML = 'Activité n°' + id ;
+messageDiv.innerHTML = 'Activity:' + id ;
 
 var encodedRoute = [];
 
@@ -40,7 +40,6 @@ fetch(`/strava_app/activity?id=${id}`)
   }
 
   const bounds = L.latLngBounds(coordinates);
-  console.log('bounds = ' + bounds);
   map.fitBounds(bounds);
 
 })
