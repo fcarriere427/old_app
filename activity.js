@@ -26,16 +26,18 @@ fetch(`/strava_app/activity?id=${id}`)
     }).addTo(map);
 
   // Ajout des traces
-  var coordinates = L.Polyline.fromEncoded(encodedRoute).getLatLngs();
-  L.polyline(
-    coordinates,
-    {
-        color: 'red',
-        weight: 2,
-        opacity: .7,
-        lineJoin: 'round'
-    }
-  ).addTo(map);
+  for (let encoded of encodedRoute) {
+    var coordinates = L.Polyline.fromEncoded(encodedRoute).getLatLngs();
+    L.polyline(
+      coordinates,
+      {
+          color: 'red',
+          weight: 2,
+          opacity: .7,
+          lineJoin: 'round'
+      }
+    ).addTo(map);
+  }
 
   const bounds = L.latLngBounds(coordinates);
   console.log('bounds = ' + bounds);
