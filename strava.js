@@ -1,10 +1,16 @@
 import {strDate, strTime, strSpeed } from './functions.js';
 
 function main(){
+  const messageDiv = document.getElementById('messageDiv');
   // bouton "List"
   const listButton = document.getElementById('listButton');
   listButton.addEventListener('click', function(e) {
     cleanDiv();
+    let select = document.createElement('select');
+    select.setAttribute('id','year_filter');
+    select.setAttribute('option','2022');
+    select.setAttribute('option','2021');
+    messageDiv.appendChild(select);
     listActivities();
   });
   // bouton "update"
@@ -19,8 +25,6 @@ function main(){
     cleanDiv();
     reloadActivities();
   });
-  // Autres
-  const messageDiv = document.getElementById('messageDiv');
 }
 
 function listActivities() {
