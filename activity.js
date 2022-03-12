@@ -14,6 +14,7 @@ fetch(`/strava_app/activity?id=${id}`)
   //console.log('Ici on a récupéré l\'activité, par ex data.distance = ' + data.distance)
   ////// DETAILS DES INFOS //////
   // pour référence : https://developers.strava.com/docs/reference/#api-models-SummaryActivity
+  var mainContainer = document.getElementById('main');
   let p_id = document.createElement('p');
   p_id.innerHTML = 'id : ' + data.id;
   mainContainer.appendChild(p_id);
