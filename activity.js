@@ -58,6 +58,6 @@ function addInfo(info, data) {
     str_info = data[info];
   } else {
     str_info ='N/A';}
-  p.innerHTML = '<b>' + ' info ' + '<b>' + ' : ' + str_info;
+  p.innerHTML = '<b>' + info + '</b>' + ' : ' + str_info;
   mainContainer.appendChild(p);
 }
