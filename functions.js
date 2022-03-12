@@ -35,14 +35,14 @@ function addInfo(info, data) {
 function strTime(data) {
   let moving_time = data.moving_time; // en secondes
   if (moving_time > 3600) {
-    h_moving_time = Math.trunc(moving_time/3600);
-    mn_moving_time = Math.trunc((moving_time - h_moving_time * 3600) / 60);
-    sec_moving_time = Math.round(moving_time - h_moving_time * 3600 - mn_moving_time * 60);
-    time_str = h_moving_time + 'h ' + mn_moving_time + 'mn ' + sec_moving_time + 's';
+    let h_moving_time = Math.trunc(moving_time/3600);
+    let mn_moving_time = Math.trunc((moving_time - h_moving_time * 3600) / 60);
+    let sec_moving_time = Math.round(moving_time - h_moving_time * 3600 - mn_moving_time * 60);
+    let time_str = h_moving_time + 'h ' + mn_moving_time + 'mn ' + sec_moving_time + 's';
   } else {
-    mn_moving_time = Math.trunc((moving_time) / 60);
-    sec_moving_time = Math.trunc(moving_time - mn_moving_time * 60);
-    time_str = mn_moving_time + 'mn ' + sec_moving_time + 's';
+    let mn_moving_time = Math.trunc((moving_time) / 60);
+    let sec_moving_time = Math.trunc(moving_time - mn_moving_time * 60);
+    let time_str = mn_moving_time + 'mn ' + sec_moving_time + 's';
   }
   return time_str;
 }
