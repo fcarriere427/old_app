@@ -66,9 +66,9 @@ function strDate(data) {
   return date_str;
 }
 
-module.exports = {
+exports = {
    addInfo,
    strTime,
    strSpeed,
    strDate
- }
+ };
