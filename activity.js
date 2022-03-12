@@ -54,6 +54,10 @@ fetch(`/strava_app/activity?id=${id}`)
 function addInfo(info, data) {
   let mainContainer = document.getElementById('main');
   let p = document.createElement('p');
-  p.innerHTML = '<b>' + ' info ' + '<b>' + ' : ' + if(data[info]) {data[info]} else {'N/A'};
+  if(data[info]) {
+    str_info = data[info];
+  } else {
+    str_info ='N/A';}
+  p.innerHTML = '<b>' + ' info ' + '<b>' + ' : ' + str_info;
   mainContainer.appendChild(p);
 }
