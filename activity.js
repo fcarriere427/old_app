@@ -14,14 +14,14 @@ fetch(`/strava_app/activity?id=${id}`)
   //console.log('Ici on a récupéré l\'activité, par ex data.distance = ' + data.distance)
   ////// DETAILS DES INFOS //////
   // pour référence : https://developers.strava.com/docs/reference/#api-models-SummaryActivity
-  addInfo(id, data);
-  addInfo(name, data);
-  addInfo(moving_time, data);
-  addInfo(total_elevation_gain, data);
-  addInfo(start_date_local, data);
-  addInfo(average_speed, data);
-  addInfo(average_cadence, data);
-  addInfo(average_heartrate, data);
+  addInfo('id', data);
+  addInfo('name', data);
+  addInfo('moving_time', data);
+  addInfo('total_elevation_gain', data);
+  addInfo('start_date_local', data);
+  addInfo('average_speed', data);
+  addInfo('average_cadence', data);
+  addInfo('average_heartrate', data);
 
   ////// MAP //////
   let polyline = data.map.summary_polyline;
