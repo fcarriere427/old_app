@@ -56,6 +56,6 @@ function addInfo(info, data) {
   let p = document.createElement('p');
   console.log('data = ' + data);
   console.log('data = ' + data);
-  p.innerHTML = info + ' : ' + data[info];
+  p.innerHTML = info + ' : ' + if(data[info]) {data[info]} else {'N/A'};
   mainContainer.appendChild(p);
 }
