@@ -26,7 +26,7 @@ fetch(`/strava_app/activity?id=${id}`)
   let polyline = data.map.summary_polyline;
   encodedRoute = polyline.split(); // pour convertir en array...
   // On centre par défaut sur le bois de Boulogne : 48.86427818167459, 2.245533745325779, avec zoom 13 ?
-  var map = L.map('map').setView([0, 0], 1);
+  var map = L.map('map').setView([48, 2], 13);
   L.tileLayer(
     'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 18,
