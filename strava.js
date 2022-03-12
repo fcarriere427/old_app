@@ -41,9 +41,9 @@ function listActivities() {
       // concaténation de la chaine pour 1 activité
       var str =
        data[i].doc.start_date.substring(0,10)
-       + ' _ ' + Math.round(data[i].doc.distance / 1000 * 100) / 100 + 'km'
-       + ' _ ' + time_str
-       + ' _ ' + speed_str;
+       + ' - ' + Math.round(data[i].doc.distance / 1000 * 100) / 100 + 'km'
+       + ' - ' + time_str
+       + ' - ' + speed_str;
       // injection dans la page
       var rec_link = "./activity.html?id=" + data[i].doc.id;
       //console.log('lien = ' + rec_link);
