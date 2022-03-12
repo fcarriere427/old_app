@@ -95,11 +95,11 @@ function strTime(data) {
     h_moving_time = Math.trunc(moving_time/3600);
     mn_moving_time = Math.trunc((moving_time - h_moving_time * 3600) / 60);
     sec_moving_time = Math.round(moving_time - h_moving_time * 3600 - mn_moving_time * 60);
-    time_str = h_moving_time + 'h ' + mn_moving_time + 'mn ' + sec_moving_time;
+    time_str = h_moving_time + 'h ' + mn_moving_time + 'mn ' + sec_moving_time + 's';
   } else {
     mn_moving_time = Math.trunc((moving_time) / 60);
     sec_moving_time = Math.trunc(moving_time - mn_moving_time * 60);
-    time_str = mn_moving_time + 'mn ' + sec_moving_time;
+    time_str = mn_moving_time + 'mn ' + sec_moving_time + 's';
   }
   return time_str;
 }
@@ -110,7 +110,7 @@ function strSpeed(data) {
   let pace = 1 / avg_speed * 1000; // en secondes par km
   let mn_avg_speed = Math.trunc(pace / 60);
   let sec_avg_speed = Math.round(pace - 60 * mn_avg_speed);
-  let speed_str = mn_avg_speed + 'mn ' + sec_avg_speed + ' / km'
+  let speed_str = mn_avg_speed + 'mn' + sec_avg_speed + '/ km'
   return speed_str;
 }
 
@@ -120,6 +120,6 @@ function strDate(data) {
 //  let newDate = new Date(date);
 //  const options = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' };
 
-  let date_str = date.toLocaleDateString()
+  let date_str = date.toLocaleDateString('fr-FR');
   return date_str;
 }
