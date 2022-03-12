@@ -66,7 +66,7 @@ function strDate(data) {
   return date_str;
 }
 
-export = {
+export {
    addInfo,
    strTime,
    strSpeed,
