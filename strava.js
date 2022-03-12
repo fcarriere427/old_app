@@ -1,4 +1,4 @@
-import {strDate, strTime, strSpeed } from './functions';
+import {strDate, strTime, strSpeed } from './functions.js';
 
 function main(){
   // bouton "List"
