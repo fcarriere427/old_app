@@ -33,7 +33,6 @@ function addInfo(info, data) {
 
 // prend un time en absolu en entrée, renvoie une chaine "xh ymn z"
 function strTime(data) {
-  console.log('on entre dans strTime avec data.moving_time = ' + data.moving_time);
   let moving_time = data.moving_time; // en secondes
   let time_str = '';
   if (moving_time > 3600) {
