@@ -15,15 +15,15 @@ fetch(`/strava_app/activity?id=${id}`)
   ////// DETAILS DES INFOS //////
   // pour référence : https://developers.strava.com/docs/reference/#api-models-SummaryActivity
   var mainContainer = document.getElementById('main');
-  addinfo(id);
-  addinfo(name);
-  addinfo(moving_time);
-  addinfo(total_elevation_gain);
-  addinfo(start_date_local);
-  addinfo(average_speed);
-  addinfo(average_cadence);
-  addinfo(average_heartrate);
-  
+  addInfo(id);
+  addInfo(name);
+  addInfo(moving_time);
+  addInfo(total_elevation_gain);
+  addInfo(start_date_local);
+  addInfo(average_speed);
+  addInfo(average_cadence);
+  addInfo(average_heartrate);
+
   ////// MAP //////
   let polyline = data.map.summary_polyline;
   encodedRoute = polyline.split(); // pour convertir en array...
