@@ -54,35 +54,31 @@ fetch(`/strava_app/activity?id=${id}`)
 function addInfo(info, data) {
   let mainContainer = document.getElementById('main');
   let p = document.createElement('p');
-  switch(info) {
-    case 'moving_time':
-      str_info = strTime(data);
-      break;
-    case 'average_speed':
-      str_info = strSpeed(data);
-      break;
-    case 'total_elevation_gain':
-      str_info = data[info] + 'm';
-      break;
-    case 'start_date_local':
-/// to do
-      str_info = data[info];
-      break;
-    case 'average_cadence':
-      str_info = data[info] + 'pas/mn';
-      break;
-    case 'average_heartrate':
-      str_info = data[info] + 'bpm';
-      break;
-    case 'undefined':
-      str_info ='N/A';
-      break;
-    default:
-      if (data[info]) {
+  if (data[info]) {
+    switch(info) {
+      case 'moving_time':
+        str_info = strTime(data);
+        break;
+      case 'average_speed':
+        str_info = strSpeed(data);
+        break;
+      case 'total_elevation_gain':
+        str_info = data[info] + 'm';
+        break;
+      case 'start_date_local':
+        str_info = strDate(data);
+        break;
+      case 'average_cadence':
+        str_info = data[info] + 'pas/mn';
+        break;
+      case 'average_heartrate':
+        str_info = data[info] + 'bpm';
+        break;
+      default:
         str_info = data[info];
-      } else {
-        str_info ='N/A';
-      }
+    }
+  } else {
+    str_info ='N/A';
   }
   p.innerHTML = '<b>' + info + '</b>' + ' : ' + str_info;
   mainContainer.appendChild(p);
