@@ -1,3 +1,6 @@
+const functions = require('./functions');
+let {strDate, strTime, strDate} = functions
+
 function main(){
   // bouton "List"
   const listButton = document.getElementById('listButton');
@@ -21,19 +24,6 @@ function main(){
   const messageDiv = document.getElementById('messageDiv');
 }
 
-
-
-function cleanDiv(){
-  var div = document.getElementById('activity-'+ i);
-  var i = 0;
-  var div = document.getElementById('activity-'+ i);
-  while (div) {
-    div.parentNode.removeChild(div);
-    i = i + 1;
-    div = document.getElementById('activity-'+ i);
-  }
-}
-
 function listActivities() {
   console.log('List button was clicked');
   messageDiv.innerHTML = 'Préparation des activités...';
@@ -46,26 +36,8 @@ function listActivities() {
     for (var i = 0; i < data.length; i++) {
       var div = document.createElement('div');
       div.setAttribute('id','activity-' + i);
-      // calculs sur le temps
-      // pour référence : https://developers.strava.com/docs/reference/#api-models-SummaryActivity
-      moving_time = data[i].doc.moving_time; // en secondes
-      if (moving_time > 3600) {
-        let h_moving_time = Math.trunc(moving_time/3600);
-        let mn_moving_time = Math.trunc((moving_time - h_moving_time * 3600) / 60);
-        let sec_moving_time = Math.round(moving_time - h_moving_time * 3600 - mn_moving_time * 60);
-        let time_str = h_moving_time + 'h' + mn_moving_time + 'mn' + sec_moving_time + 's';
-      } else {
-        let mn_moving_time = Math.trunc((moving_time) / 60);
-        let sec_moving_time = Math.trunc(moving_time - mn_moving_time * 60);
-        let time_str = mn_moving_time + 'mn' + sec_moving_time + 's';
-      }
-      // calculs sur la vitesse
-      let avg_speed = data[i].doc.average_speed; // en mètres/secondes
-      let pace = 1 / avg_speed * 1000; // en secondes par km
-      let mn_avg_speed = Math.trunc(pace / 60);
-      let sec_avg_speed = Math.round(pace - 60 * mn_avg_speed);
-      let speed_str = mn_avg_speed + 'mn' + sec_avg_speed + '/km'
-
+      let time_str = strTime(data[i].doc.moving_time);
+      let speed_str = strSpeed(data[i].doc.average_speed);
       // concaténation de la chaine pour 1 activité
       var str =
        data[i].doc.start_date.substring(0,10)
@@ -98,6 +70,16 @@ function reloadActivities() {
   fetch("/strava_app/reload")
   .then(response => response.json())
   .then((data) => messageDiv.innerHTML = 'OK, les ' + data + ' activités ont bien été rechargées !');
+}
+
+function cleanDiv(){
+  var i = 0;
+  var div = document.getElementById('activity-'+ i);
+  while (div) {
+    div.parentNode.removeChild(div);
+    i = i + 1;
+    div = document.getElementById('activity-'+ i);
+  }
 }
 
 main()
