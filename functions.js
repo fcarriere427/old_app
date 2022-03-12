@@ -1,6 +1,7 @@
 function addInfo(info, data) {
   let mainContainer = document.getElementById('main');
   let p = document.createElement('p');
+  let str_info = '';
   if (data[info]) {
     switch(info) {
       case 'moving_time':
