@@ -1,4 +1,4 @@
-import addInfo from './functions.js';
+import { addInfo } from './functions.js';
 
 // Récupérer les paramètres de la requete URL
 const queryString = window.location.search; // du type "?id=345"
