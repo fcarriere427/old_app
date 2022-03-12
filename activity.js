@@ -15,7 +15,7 @@ fetch(`/strava_app/activity?id=${id}`)
   ////// DETAILS DES INFOS //////
   // pour référence : https://developers.strava.com/docs/reference/#api-models-SummaryActivity
   const msg = document.createElement('p');
-  const txt = document.createTextNode('id : ' + data.id); msg.appendChild(txt);
+  let txt = document.createTextNode('id : ' + data.id); msg.appendChild(txt);
   txt = document.createTextNode('name : ' + data.name); msg.appendChild(txt);
   txt = document.createTextNode('moving_time : ' + data.moving_time); msg.appendChild(txt);
   txt = document.createTextNode('total_elevation_gain : ' + data.total_elevation_gain); msg.appendChild(txt);
