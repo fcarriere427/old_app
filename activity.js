@@ -61,6 +61,19 @@ function addInfo(info, data) {
     case 'average_speed':
       str_info = strSpeed(data);
       break;
+    case 'total_elevation_gain':
+      str_info = data[info] + 'm';
+      break;
+    case 'start_date_local':
+/// to do
+      str_info = data[info];
+      break;
+    case 'average_cadence':
+      str_info = data[info] + 'pas/mn';
+      break;
+    case 'average_heartrate':
+      str_info = data[info] + 'bpm';
+      break;
     case 'undefined':
       str_info ='N/A';
       break;
@@ -82,11 +95,11 @@ function strTime(data) {
     h_moving_time = Math.trunc(moving_time/3600);
     mn_moving_time = Math.trunc((moving_time - h_moving_time * 3600) / 60);
     sec_moving_time = Math.round(moving_time - h_moving_time * 3600 - mn_moving_time * 60);
-    time_str = h_moving_time + 'h' + mn_moving_time + 'mn' + sec_moving_time;
+    time_str = h_moving_time + 'h ' + mn_moving_time + 'mn ' + sec_moving_time;
   } else {
     mn_moving_time = Math.trunc((moving_time) / 60);
     sec_moving_time = Math.trunc(moving_time - mn_moving_time * 60);
-    time_str = mn_moving_time + 'mn' + sec_moving_time;
+    time_str = mn_moving_time + 'mn ' + sec_moving_time;
   }
   return time_str;
 }
@@ -97,6 +110,16 @@ function strSpeed(data) {
   let pace = 1 / avg_speed * 1000; // en secondes par km
   let mn_avg_speed = Math.trunc(pace / 60);
   let sec_avg_speed = Math.round(pace - 60 * mn_avg_speed);
-  let speed_str = mn_avg_speed + 'mn' + sec_avg_speed + '/km'
+  let speed_str = mn_avg_speed + 'mn ' + sec_avg_speed + ' / km'
   return speed_str;
+}
+
+// prend une date au format standard (2022-02-26T09:52:09Z), renvoie une chaine "JJ/MM/YY à HHhmm"
+function strDate(data) {
+  let date = data.start_date_local; // ex : 2022-02-26T09:52:09Z
+//  let newDate = new Date(date);
+//  const options = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' };
+
+  let date_str = date.toLocaleDateString()
+  return date_str;
 }
