@@ -1,4 +1,4 @@
-const functions = require('./functions');
+import {strDate, strTime, strSpeed } from './functions';
 
 function main(){
   // bouton "List"
