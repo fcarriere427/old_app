@@ -54,10 +54,49 @@ fetch(`/strava_app/activity?id=${id}`)
 function addInfo(info, data) {
   let mainContainer = document.getElementById('main');
   let p = document.createElement('p');
-  if(data[info]) {
-    str_info = data[info];
-  } else {
-    str_info ='N/A';}
+  switch(info) {
+    case 'moving_time':
+      str_info = strTime(data);
+      break;
+    case 'average_speed':
+      str_info = strSpeed(data);
+      break;
+    case 'undefined':
+      str_info ='N/A';
+      break;
+    default:
+      if (data[info]) {
+        str_info = data[info];
+      } else {
+        str_info ='N/A';
+      }
+  }
   p.innerHTML = '<b>' + info + '</b>' + ' : ' + str_info;
   mainContainer.appendChild(p);
+}
+
+// prend un time en absolu en entrée, renvoie une chaine "xh ymn z"
+function strTime(data) {
+  let moving_time = data.moving_time; // en secondes
+  if (moving_time > 3600) {
+    h_moving_time = Math.trunc(moving_time/3600);
+    mn_moving_time = Math.trunc((moving_time - h_moving_time * 3600) / 60);
+    sec_moving_time = Math.round(moving_time - h_moving_time * 3600 - mn_moving_time * 60);
+    time_str = h_moving_time + 'h' + mn_moving_time + 'mn' + sec_moving_time;
+  } else {
+    mn_moving_time = Math.trunc((moving_time) / 60);
+    sec_moving_time = Math.trunc(moving_time - mn_moving_time * 60);
+    time_str = mn_moving_time + 'mn' + sec_moving_time;
+  }
+  return time_str;
+}
+
+// prend une vitesse en m/s, renvoie une chaine "x mn y / km"
+function strSpeed(data) {
+  let avg_speed = data[i].doc.average_speed; // en mètres/secondes
+  let pace = 1 / avg_speed * 1000; // en secondes par km
+  let mn_avg_speed = Math.trunc(pace / 60);
+  let sec_avg_speed = Math.round(pace - 60 * mn_avg_speed);
+  let speed_str = mn_avg_speed + 'mn' + sec_avg_speed + '/km'
+  return speed_str;
 }
