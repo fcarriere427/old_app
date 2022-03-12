@@ -14,19 +14,19 @@ fetch(`/strava_app/activity?id=${id}`)
   //console.log('Ici on a récupéré l\'activité, par ex data.distance = ' + data.distance)
   ////// DETAILS DES INFOS //////
   // pour référence : https://developers.strava.com/docs/reference/#api-models-SummaryActivity
-  let ligne = document.createElement('p');
-  ligne.innerHTML = 'id : ' + data.id;
-  let ligne = document.createElement('p');
-  ligne.innerHTML = 'name : ' + data.name;
-  let ligne = document.createElement('p');
-  ligne.innerHTML = 'moving_time : ' + data.moving_time;
-  let ligne = document.createElement('p');
-  ligne.innerHTML = 'total_elevation_gain : ' + data.total_elevation_gain;
-  let ligne = document.createElement('p');
-  ligne.innerHTML = 'start_date_local : ' + data.start_date_local;
-  let ligne = document.createElement('p');
-  ligne.innerHTML = 'average_speed : ' + data.average_speed;
-  
+  let p_id = document.createElement('p');
+  p_id.innerHTML = 'id : ' + data.id;
+  let p_name = document.createElement('p');
+  p_name.innerHTML = 'name : ' + data.name;
+  let p_moving_time = document.createElement('p');
+  p_moving_time.innerHTML = 'moving_time : ' + data.moving_time;
+  let p_elevation = document.createElement('p');
+  p_elevation.innerHTML = 'total_elevation_gain : ' + data.total_elevation_gain;
+  let p_start = document.createElement('p');
+  p_start.innerHTML = 'start_date_local : ' + data.start_date_local;
+  let p_speed = document.createElement('p');
+  p_speed.innerHTML = 'average_speed : ' + data.average_speed;
+
   ////// MAP //////
   let polyline = data.map.summary_polyline;
   encodedRoute = polyline.split(); // pour convertir en array...
