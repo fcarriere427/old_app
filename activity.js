@@ -113,9 +113,8 @@ function strSpeed(data) {
 // prend une date au format standard (2022-02-26T09:52:09Z), renvoie une chaine "JJ/MM/YY à HHhmm"
 function strDate(data) {
   let date = data.start_date_local; // ex : 2022-02-26T09:52:09Z
-//  let newDate = new Date(date);
+  let newDate = new Date(date);
 //  const options = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' };
-
-  let date_str = date.toLocaleDateString('fr-FR');
+  let date_str = newDate.toLocaleDateString('fr-FR');
   return date_str;
 }
