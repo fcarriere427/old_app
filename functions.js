@@ -34,15 +34,16 @@ function addInfo(info, data) {
 // prend un time en absolu en entrée, renvoie une chaine "xh ymn z"
 function strTime(data) {
   let moving_time = data.moving_time; // en secondes
+  let time_str = '';
   if (moving_time > 3600) {
     let h_moving_time = Math.trunc(moving_time/3600);
     let mn_moving_time = Math.trunc((moving_time - h_moving_time * 3600) / 60);
     let sec_moving_time = Math.round(moving_time - h_moving_time * 3600 - mn_moving_time * 60);
-    let time_str = h_moving_time + 'h ' + mn_moving_time + 'mn ' + sec_moving_time + 's';
+    time_str = h_moving_time + 'h ' + mn_moving_time + 'mn ' + sec_moving_time + 's';
   } else {
     let mn_moving_time = Math.trunc((moving_time) / 60);
     let sec_moving_time = Math.trunc(moving_time - mn_moving_time * 60);
-    let time_str = mn_moving_time + 'mn ' + sec_moving_time + 's';
+    time_str = mn_moving_time + 'mn ' + sec_moving_time + 's';
   }
   return time_str;
 }
