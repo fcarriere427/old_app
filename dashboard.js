@@ -44,9 +44,13 @@ function createTab(year) {
     // 2ème colonne : réel mensuel = à extraire de la DB
     let col_2 = document.createElement('td');
     col_2.setAttribute('id','col_2');
-    let reel = 80;////////////////////////////////// TO DO ////////////////////////
-    col_2.innerHTML = Math.round(reel*10)/10;
-    ligne.appendChild(col_2);
+    let period = year + '-' + month;
+    fetch(`/strava_app/list?id=${period}`)
+    .then(response => response.json())
+    .then(data => {
+      col_2.innerHTML = Math.round(data*10)/10;
+      ligne.appendChild(col_2);
+    })
     // 3ème colonne : cible mensuel = calcul
     let col_3 = document.createElement('td');
     col_3.setAttribute('id','col_3');
@@ -69,7 +73,6 @@ function createTab(year) {
   // ajouter le tableau dans la bonne div
   document.getElementById('resultDiv').appendChild(table);
 }
-
 
 function init() {
   const main = document.getElementById('main');
