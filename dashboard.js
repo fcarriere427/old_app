@@ -1,5 +1,6 @@
 function main(){
   // Préparation de la page html
+  console.log('on rentre dans dashboard.js');
   init();
 }
 
