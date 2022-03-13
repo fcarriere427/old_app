@@ -45,12 +45,8 @@ function createTab(year) {
     let col_2 = document.createElement('td');
     col_2.setAttribute('id','col_2');
     let month = (i+1).toString();
-    if (month.length<2) {
-      console.log('on ajoute un 0');
-      month = '0' + month;
-    }
+    if (month.length<2) { month = '0' + month };
     let period = year + '-' + month;
-    console.log('period = ' + period);
     fetch(`/strava_app/list?id=${period}`)
     .then(response => response.json())
     .then(data => {
