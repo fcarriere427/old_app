@@ -132,7 +132,19 @@ function createTab(year) {
     }
 
     // 8ème colonne : moyenne / jour = calcul
+    j = 7;
+    for (let i=0;i<mois.length;i++){
+      let cel = document.getElementById('c_' + i + '_' + j);
+      cel.innerHTML = Math.round(parseFloat(document.getElementById('c_' + k + '_' + 1).innerHTML) / daysInMonth(i+1, year)*10)/10;
+    }
+
     // 9ème colonne :  moyenne / semaine = calcul
+    j = 8;
+    for (let i=0;i<mois.length;i++){
+      let cel = document.getElementById('c_' + i + '_' + j);
+      cel.innerHTML = Math.round(parseFloat(document.getElementById('c_' + k + '_' + 7).innerHTML)*7*10)/10;
+    }
+
   })
 }
 
