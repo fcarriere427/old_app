@@ -72,7 +72,7 @@ function createTab(data){
     var ligne = document.createElement('tr');
     let col_1 = document.createElement('th');
     let rec_link = "./activity.html?id=" + data[i].doc.id;
-    col_1.innerHTML = "[<a href=" + rec_link + " target='_blank'>" + data[i].doc.name + "</a>] ";
+    col_1.innerHTML = "<a href=" + rec_link + " target='_blank'>" + data[i].doc.name + "</a>";
     let col_2 = document.createElement('th');
     col_2.innerHTML = data[i].doc.start_date.substring(0,10);
     let col_3 = document.createElement('th');
