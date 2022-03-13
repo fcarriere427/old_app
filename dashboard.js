@@ -101,13 +101,20 @@ function createTab(year) {
       }
     }
     // 4ème colonne : écart mensuel = calcul
+    j = 3;
+    for (let i=0;i<mois.length;i++){
+      let cel = document.getElementById('c_' + i + '_' + j);
+      let reel = parseFloat(document.getElementById('c_' + i + '_' + 1).innerHTML);
+      let cible = parseFloat(document.getElementById('c_' + i + '_' + 2).innerHTML);
+      cel.innerHTML = Math.round((reel - cible)*10)/10;
+    }
 
     // 5ème colonne : réel cumulé = calcul
     j = 4;
     for (let i=0;i<mois.length;i++){
       let cel = document.getElementById('c_' + i + '_' + j);
       let somme = 0;
-      for (let k=0;k<=i;k++){ // on calcule le nb de jours jusqu'à la fin du mois en cours
+      for (let k=0;k<=i;k++){
         somme = somme + parseFloat(document.getElementById('c_' + k + '_' + 1).innerHTML);
       }
       cel.innerHTML = Math.round(somme*10)/10;
@@ -117,9 +124,11 @@ function createTab(year) {
     j = 6;
     for (let i=0;i<mois.length;i++){
       let cel = document.getElementById('c_' + i + '_' + j);
-      let reel = parseFloat(document.getElementById('c_' + i + '_' + 1).innerHTML);
-      let cible = parseFloat(document.getElementById('c_' + i + '_' + 2).innerHTML);
-      cel.innerHTML = Math.round((reel - cible)*10)/10;
+      let somme = 0;
+      for (let k=0;k<=i;k++){
+        somme = somme + parseFloat(document.getElementById('c_' + k + '_' + 3).innerHTML);
+      }
+      cel.innerHTML = Math.round(somme*10)/10;
     }
 
     // 8ème colonne : moyenne / jour = calcul
