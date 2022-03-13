@@ -85,17 +85,25 @@ function init() {
   const main = document.getElementById('main');
   // création des éléments
   const titre = document.createElement('h1');
-  titre.innerHTML = 'Letsq - Strava';
+  titre.innerHTML = 'Activités Strava';
   const listButton = document.createElement('button');
   listButton.innerHTML = 'Lister';
   const updateButton = document.createElement('button');
   updateButton.innerHTML = 'Mettre à jour';
   const reloadButton = document.createElement('button');
   reloadButton.innerHTML = 'Recréer (long !)';
-  const ligne = document.createElement('hr');
-  ligne.size = 4;
-  ligne.width = '100%';
-  ligne.color = 'grey';
+  const ligne1 = document.createElement('hr');
+  ligne1.size = 4;
+  ligne1.width = '100%';
+  ligne1.color = 'blue';
+  const ligne2 = document.createElement('hr');
+  ligne2.size = 4;
+  ligne2.width = '100%';
+  ligne2.color = 'grey';
+  const ligne3 = document.createElement('hr');
+  ligne3.size = 4;
+  ligne3.width = '100%';
+  ligne3.color = 'blue';
   const messageDiv = document.createElement('div');
   messageDiv.innerHTML = 'Choisissez une année et cliquez !';
   const resultDiv = document.createElement('div');
@@ -114,12 +122,12 @@ function init() {
   // création de la page
   main.appendChild(titre);
   main.appendChild(listButton);
-  main.appendChild(ligne);
+  main.appendChild(ligne1);
   main.appendChild(select);
   main.appendChild(messageDiv);
-  main.appendChild(ligne);
+  main.appendChild(ligne2);
   main.appendChild(resultDiv);
-  main.appendChild(ligne);
+  main.appendChild(ligne3);
   main.appendChild(updateButton);
   main.appendChild(reloadButton);
 }
