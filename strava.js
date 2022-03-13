@@ -51,20 +51,23 @@ function createTab(data){
   // préparer la ligne de titre
   let ligne_titre = document.createElement('tr');
   let col_1 = document.createElement('th');
-  col_1.innerHTML = 'Nom';
+  col_1.innerHTML = 'Date';
   let col_2 = document.createElement('th');
-  col_2.innerHTML = 'Date';
+  col_2.innerHTML = 'Lieu';
   let col_3 = document.createElement('th');
-  col_3.innerHTML = 'Distance';
+  col_3.innerHTML = 'Nom';
   let col_4 = document.createElement('th');
-  col_4.innerHTML = 'Durée';
+  col_4.innerHTML = 'Distance';
   let col_5 = document.createElement('th');
-  col_5.innerHTML = 'Vitesse';
+  col_5.innerHTML = 'Durée';
+  let col_6 = document.createElement('th');
+  col_6.innerHTML = 'Vitesse';
   ligne_titre.appendChild(col_1);
   ligne_titre.appendChild(col_2);
   ligne_titre.appendChild(col_3);
   ligne_titre.appendChild(col_4);
   ligne_titre.appendChild(col_5);
+  ligne_titre.appendChild(col_6);
   thead.appendChild(ligne_titre);
 
   // remplir le tableau
@@ -72,20 +75,23 @@ function createTab(data){
     var ligne = document.createElement('tr');
     let col_1 = document.createElement('td');
     let rec_link = "./activity.html?id=" + data[i].doc.id;
-    col_1.innerHTML = "<a href=" + rec_link + " target='_blank'>" + data[i].doc.name + "</a>";
+    col_1.innerHTML = "<a href=" + rec_link + " target='_blank'>" + data[i].doc.start_date.substring(0,10) + "</a>";
     let col_2 = document.createElement('td');
-    col_2.innerHTML = data[i].doc.start_date.substring(0,10);
+    col_2.innerHTML = data[i].doc.location_city;
     let col_3 = document.createElement('td');
-    col_3.innerHTML = Math.round(data[i].doc.distance / 1000 * 100) / 100 + 'km';
+    col_3.innerHTML = data[i].doc.name;
     let col_4 = document.createElement('td');
-    col_4.innerHTML = strTime(data[i].doc);
+    col_4.innerHTML = Math.round(data[i].doc.distance / 1000 * 100) / 100 + 'km';
     let col_5 = document.createElement('td');
-    col_5.innerHTML = strSpeed(data[i].doc);
+    col_5.innerHTML = strTime(data[i].doc);
+    let col_6 = document.createElement('td');
+    col_6.innerHTML = strSpeed(data[i].doc);
     ligne.appendChild(col_1);
     ligne.appendChild(col_2);
     ligne.appendChild(col_3);
     ligne.appendChild(col_4);
     ligne.appendChild(col_5);
+    ligne.appendChild(col_6);
     tbody.appendChild(ligne);
   }
   // ajouter le tableau dans la bonne div
