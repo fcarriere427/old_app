@@ -40,8 +40,8 @@ function createTab(year) {
   .then(data => {
     i=0;
     data.rows.forEach(doc => {
-      console.log('[' + i + '] key' +  + ' value = ' + doc.value);
-      let reduce[i] = doc.value;
+      console.log('[' + i + '] key' + doc.key + ' value = ' + doc.value);
+      reduce[i] = doc.value;
       i = i+1;
     })
   });
