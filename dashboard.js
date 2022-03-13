@@ -103,15 +103,15 @@ function createTab(year) {
     // 4ème colonne : écart mensuel = calcul
 
     // 5ème colonne : réel cumulé = calcul
-    // j = 4;
-    // for (let i=0;i<mois.length;i++){
-    //   let cel = document.getElementById('c_' + i + '_' + j);
-    //   let somme = 0;
-    //   for (let k=0;k<=i;k++){ // on calcule le nb de jours jusqu'à la fin du mois en cours
-    //     somme = somme + parseFloat(document.getElementById('c_' + k + '_' + 1).innerHTML);
-    //   }
-    //   cel.innerHTML = Math.round(somme*10)/10;
-    // }
+    j = 4;
+    for (let i=0;i<mois.length;i++){
+      let cel = document.getElementById('c_' + i + '_' + j);
+      let somme = 0;
+      for (let k=0;k<=i;k++){ // on calcule le nb de jours jusqu'à la fin du mois en cours
+        somme = somme + parseFloat(document.getElementById('c_' + k + '_' + 1).innerHTML);
+      }
+      cel.innerHTML = Math.round(somme*10)/10;
+    }
 
     // 7ème colonne : écart cumulé = calcul
     // 8ème colonne : moyenne / jour = calcul
