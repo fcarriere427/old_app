@@ -84,9 +84,17 @@ function cleanDiv(){
 
 function init() {
   const main = document.getElementById('main');
-  // création des éléments
+  //// création des éléments
+  // blocs de texte
   const titre = document.createElement('h1');
   titre.innerHTML = 'Activités Strava';
+  const messageDiv = document.createElement('div');
+  messageDiv.innerHTML = 'Choisissez une année et cliquez !';
+  messageDiv.setAttribute('id','messageDiv');
+  const resultDiv = document.createElement('div');
+  resultDiv.innerHTML = '... en attente...';
+  resultDiv.setAttribute('id','resultDiv');
+  // boutons
   const listButton = document.createElement('button');
   listButton.innerHTML = 'Lister';
   listButton.setAttribute('id','listButton');
@@ -96,6 +104,7 @@ function init() {
   const reloadButton = document.createElement('button');
   reloadButton.innerHTML = 'Recréer (long !)';
   reloadButton.setAttribute('id','reloadButton');
+  // lignes
   const ligne1 = document.createElement('hr');
   ligne1.size = 2;
   ligne1.width = '100%';
@@ -108,10 +117,6 @@ function init() {
   ligne3.size = 2;
   ligne3.width = '100%';
   ligne3.color = 'orange';
-  const messageDiv = document.createElement('div');
-  messageDiv.innerHTML = 'Choisissez une année et cliquez !';
-  const resultDiv = document.createElement('div');
-  resultDiv.innerHTML = '... en attente...';
   // select
   let liste_annees = [2022,2021,2020,2019,2018,2017,2016,2015];
   let select = document.createElement('select');
