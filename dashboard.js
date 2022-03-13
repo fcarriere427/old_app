@@ -49,7 +49,7 @@ function createTab(year) {
     // 3ème colonne : cible mensuel = calcul
     let col_3 = document.createElement('td');
     col_3.setAttribute('id','col_3');
-    col_3.innerHTML = Math.round(daysInMonth(mois[i+1], year) / daysInYear(year) * target_an * 10)/10;
+    col_3.innerHTML = Math.round(daysInMonth(i+1, year) / daysInYear(year) * target_an * 10)/10;
     ligne.appendChild(col_3);
     // 4ème colonne : écart mensuel = calcul
     let col_4 = document.createElement('td');
@@ -123,7 +123,11 @@ function daysInMonth (month, year) {
 }
 
 function daysInYear(year) {
-    return ((year % 4 === 0 && year % 100 > 0) || year %400 == 0) ? 366 : 365;
+  var days = 0;
+  for(var month = 1; month <= 12; month++) {
+    days += daysInMonth(month, year);
+  }
+  return days;
 }
 
 main()
