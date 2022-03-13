@@ -19,7 +19,7 @@ async function createTab(year) {
   // récupérer les distances par mois (dans un tableau reduce[doc.key] = doc.value, avec doc.key ='2015,07' par ex
   let reduce = [];
   reduce = await getMonthDistances();
-  console.log('reduce[\'2015,07\'] = ' + reduce['2015,07']);
+  //console.log('reduce[\'2015,07\'] = ' + reduce['2015,07']);
   // préparer le tableau
   let table = document.createElement('table');
   let thead = document.createElement('thead');
@@ -153,10 +153,10 @@ async function getMonthDistances(){
     data.rows.forEach(doc => {
       reduce[doc.key] = doc.value;
     })
+    console.log('dans getMonthDistances, reduce[\'2015,07\'] = ' + reduce['2015,07']);
   })
   .then(data => resolve(reduce));
 }
-
 
 // Month in JavaScript is 0-indexed (January is 0, February is 1, etc),
 // but by using 0 as the day it will give us the last day of the prior
