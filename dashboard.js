@@ -23,7 +23,8 @@ function createTab(year) {
   let col_titres = ['Mois', 'Réel', 'Cible', 'Ecart', 'Réel (cumul)', 'Cible (cumul)', 'Ecart (cumul)', 'Moyenne / jour', 'Moyenne / semaine'];
   for (var i = 0; i < col_titres.length; i++) {
     let nom_col = 'col_' + i;
-    document.createElement('th').innerHTML = col_titres[i];
+    let nom_col = document.createElement('th');
+    nom_col.innerHTML = col_titres[i];
     ligne_titre.appendChild(nom_col);
   }
   thead.appendChild(ligne_titre);
