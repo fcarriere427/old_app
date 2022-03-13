@@ -44,7 +44,7 @@ function createTab(year) {
     // 2ème colonne : réel mensuel = à extraire de la DB
     let col_2 = document.createElement('td');
     col_2.setAttribute('id','col_2');
-    let month = i.toString();
+    let month = (i+1).toString();
     if (month.length<2) {
       console.log('on ajoute un 0');
       month = '0' + month;
