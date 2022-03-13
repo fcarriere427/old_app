@@ -78,7 +78,7 @@ function createTab(year) {
     for (let k=0;k<=i;k++){ // on calcule le nb de jours jusqu'à la fin du mois en cours
       somme = somme + daysInMonth(k+1,year);
     }
-    cel.innerHTML = Math.round(somme / daysInYear(year) * target_an);
+    cel.innerHTML = Math.round(somme / daysInYear(year) * target_an*10)/10;
   }
 
   // puis on s'occupe des colonnes qui dépendent du réel (donc dépendent de la promesse)
