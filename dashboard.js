@@ -33,17 +33,6 @@ function createTab(year) {
   }
   thead.appendChild(ligne_titre);
 
-  // récupération des distances réelles par mois
-  let reduce = [];
-  fetch('/strava_app/month_distance')
-  .then(response => response.json())
-  .then(data => {
-    data.rows.forEach(doc => {
-      console.log('key = ' + doc.key + ' value = ' + doc.value);
-      reduce[doc.key] = doc.value;
-      console.log('pour key = 2015,07, alors value = ' + reduce['2015,07']);
-    })
-  });
 
   // remplir le tableau
   for (let i=0;i<mois.length;i++){
@@ -54,20 +43,28 @@ function createTab(year) {
     col_1.innerHTML = mois[i];
     ligne.appendChild(col_1);
     // 2ème colonne : réel mensuel = à extraire de la DB
-    let col_2 = document.createElement('td');
-    col_2.setAttribute('id','col_2');
+    // récupération des distances réelles par mois
+    let reduce = [];
+    fetch('/strava_app/month_distance')
+    .then(response => response.json())
+    .then(data => {
+      data.rows.forEach(doc => {
+        reduce[doc.key] = doc.value;
+        console.log('pour key = 2015,07, alors value = ' + reduce['2015,07']);
+        let col_2 = document.createElement('td');
+        col_2.setAttribute('id','col_2');
+
+        ///////////// REPRENDRE ICI EN EXPLOITANT LE TABLEAU reduce
+        let month = (i+1).toString(); if (month.length<2) { month = '0' + month };
+        let key = year + ',' + month;
+        console.log('key = ' + key);
+        console.log('reduce[key] = ' + reduce[key]);
+        col_2.innerHTML = Math.round(reduce[key]*10)/10;
+        ligne.appendChild(col_2);
+      })
+    });
 
 
-///////////// REPRENDRE ICI EN EXPLOITANT LE TABLEAU reduce
-    let month = (i+1).toString(); if (month.length<2) { month = '0' + month };
-    let key = '"key":["' + year + '","' + month + '"]';
-    console.log('key = ' + key);
-    console.log('reduce.key = ' + reduce.key);
-
-
-
-    col_2.innerHTML = Math.round(reduce[year,month]*10)/10;
-    ligne.appendChild(col_2);
     // 3ème colonne : cible mensuel = calcul
     let col_3 = document.createElement('td');
     col_3.setAttribute('id','col_3');
