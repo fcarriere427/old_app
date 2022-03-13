@@ -37,14 +37,15 @@ function createTab(year) {
   for (let i=0;i<mois.length;i++){
     var ligne = document.createElement('tr');
     // 1ère colonne : mois
-    let col_1 = document.createElement('td');
+    let col_1 = document.createElement('th');
     col_1.setAttribute('id','col_1');
     col_1.innerHTML = mois[i];
     ligne.appendChild(col_1);
     // 2ème colonne : réel mensuel = à extraire de la DB
     let col_2 = document.createElement('td');
     col_2.setAttribute('id','col_2');
-    col_2.innerHTML = 80;
+    let reel = 80;////////////////////////////////// TO DO ////////////////////////
+    col_2.innerHTML = Math.round(reel*10)/10;
     ligne.appendChild(col_2);
     // 3ème colonne : cible mensuel = calcul
     let col_3 = document.createElement('td');
@@ -54,7 +55,7 @@ function createTab(year) {
     // 4ème colonne : écart mensuel = calcul
     let col_4 = document.createElement('td');
     col_4.setAttribute('id','col_4');
-    let calcul = parseInt(col_3.innerText) - parseInt(col_2.innerText);
+    let calcul = parseInt(col_2.innerText) - parseInt(col_3.innerText);
     col_4.innerHTML = calcul;
     ligne.appendChild(col_4);
     // 5ème colonne : réel cumulé = calcul
