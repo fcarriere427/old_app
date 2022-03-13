@@ -70,16 +70,16 @@ function createTab(data){
   // remplir le tableau
   for (var i = 0; i < data.length; i++) {
     var ligne = document.createElement('tr');
-    let col_1 = document.createElement('th');
+    let col_1 = document.createElement('td');
     let rec_link = "./activity.html?id=" + data[i].doc.id;
     col_1.innerHTML = "<a href=" + rec_link + " target='_blank'>" + data[i].doc.name + "</a>";
-    let col_2 = document.createElement('th');
+    let col_2 = document.createElement('td');
     col_2.innerHTML = data[i].doc.start_date.substring(0,10);
-    let col_3 = document.createElement('th');
+    let col_3 = document.createElement('td');
     col_3.innerHTML = Math.round(data[i].doc.distance / 1000 * 100) / 100 + 'km';
-    let col_4 = document.createElement('th');
+    let col_4 = document.createElement('td');
     col_4.innerHTML = strTime(data[i].doc);
-    let col_5 = document.createElement('th');
+    let col_5 = document.createElement('td');
     col_5.innerHTML = strSpeed(data[i].doc);
     ligne.appendChild(col_1);
     ligne.appendChild(col_2);
