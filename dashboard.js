@@ -1,5 +1,6 @@
 const liste_annees = [2022,2021,2020,2019,2018,2017,2016,2015];
 const mois = ['Jan', 'Fév', 'Mars', 'Avr', 'Mai', 'Juin', 'Juil', 'Août', 'Sept', 'Oct', 'Nov', 'Déc'];
+const titres_col = ['Mois', 'Réel', 'Cible', 'Ecart', 'Réel (cumul)', 'Cible (cumul)', 'Ecart (cumul)', 'Moyenne / jour', 'Moyenne / semaine'];
 const target_an = 1000;
 
 function main(){
@@ -15,14 +16,8 @@ function main(){
   });
 }
 
-async function createTab(year) {
-  // récupérer les distances par mois (dans un tableau reduce[doc.key] = doc.value, avec doc.key ='2015,07' par ex
-  let reduce = [];
-  getMonthDistances()
-  .then(reduce => {
-    console.log('dans createTab, reduce[\'2015,07\'] = ' + reduce['2015,07']);
-  })
-  // préparer le tableau
+function createTab(year) {
+  //// préparer le tableau
   let table = document.createElement('table');
   let thead = document.createElement('thead');
   let tbody = document.createElement('tbody');
@@ -30,74 +25,67 @@ async function createTab(year) {
   table.appendChild(tbody);
   // préparer la ligne de titre
   let ligne_titre = document.createElement('tr');
-  let col_titres = ['Mois', 'Réel', 'Cible', 'Ecart', 'Réel (cumul)', 'Cible (cumul)', 'Ecart (cumul)', 'Moyenne / jour', 'Moyenne / semaine'];
-  for (var i = 0; i < col_titres.length; i++) {
+  for (var i = 0; i < titres_col.length; i++) {
     let nom_col = 'col_' + i;
     nom_col = document.createElement('th');
-    nom_col.innerHTML = col_titres[i];
+    nom_col.innerHTML = titres_col[i];
     ligne_titre.appendChild(nom_col);
   }
   thead.appendChild(ligne_titre);
-
-  // remplir le tableau ligne par ligne
+  // créer les lignes et cellules vides, référencées 'c_ligne_colonne' (par ex : c_3_8 = 3ème ligne, 8ème colonne)
   for (let i=0;i<mois.length;i++){
     var ligne = document.createElement('tr');
-    // 1ère colonne : mois
-    let col_1 = document.createElement('th');
-    col_1.setAttribute('id','col_1');
-    col_1.innerHTML = mois[i];
-    ligne.appendChild(col_1);
-    // 2ème colonne : réel mensuel = à extraire de la DB
-
-    //console.log('pour key = 2015,07, alors value = ' + reduce['2015,07']);
-    let col_2 = document.createElement('td');
-    col_2.setAttribute('id','col_2');
-      ///////////// REPRENDRE ICI EN EXPLOITANT LE TABLEAU reduce
-    let month = (i+1).toString(); if (month.length<2) { month = '0' + month };
-    let key = "'" + year + ',' + month + "'";
-    console.log('key = ' + key);
-    console.log('reduce[key] = ' + reduce[key]);
-    col_2.innerHTML = Math.round(reduce[key]*10)/10;
-    ligne.appendChild(col_2);
-    // 3ème colonne : cible mensuel = calcul
-    let col_3 = document.createElement('td');
-    col_3.setAttribute('id','col_3');
-    col_3.innerHTML = Math.round(daysInMonth(i+1, year) / daysInYear(year) * target_an * 10)/10;
-    ligne.appendChild(col_3);
-    // 4ème colonne : écart mensuel = calcul
-    let col_4 = document.createElement('td');
-    col_4.setAttribute('id','col_4');
-    // let calcul = parseInt(col_2.innerText) - parseInt(col_3.innerText);
-    col_4.innerHTML = 'XXX';
-    ligne.appendChild(col_4);
-    // 5ème colonne : réel cumulé = calcul
-    let col_5 = document.createElement('td');
-    col_5.setAttribute('id','col_5');
-    col_5.innerHTML = 'X5';
-    ligne.appendChild(col_5);
-    // 6ème colonne : cible cumulé = calcul
-    let col_6 = document.createElement('td');
-    col_6.setAttribute('id','col_6');
-    col_6.innerHTML = 'X6';
-    ligne.appendChild(col_6);
-    // 7ème colonne : écart cumulé = calcul
-    let col_7 = document.createElement('td');
-    col_7.setAttribute('id','col_7');
-    col_7.innerHTML = 'X7';
-    ligne.appendChild(col_7);
-    // 8ème colonne : moyenne / jour = calcul
-    let col_8 = document.createElement('td');
-    col_8.setAttribute('id','col_8');
-    col_8.innerHTML = 'X8';
-    ligne.appendChild(col_8);
-    // 9ème colonne :  moyenne / semaine = calcul
-    let col_9 = document.createElement('td');
-    col_9.setAttribute('id','col_9');
-    col_9.innerHTML = 'X9';
-    ligne.appendChild(col_9);
+    for (let j=0;j<titres_col.length;j++){
+      let nom_cell = 'c_' + i + '_' + j;
+      nom_cell = document.createElement('td');
+      nom_cell.setAttribute('id','c_' + i + '_' + j);
+      nom_cell.innerHTML = 'c_' + i + '_' + j;
+      ligne.appendChild(nom_cell);
+    }
     // on ajoute la ligne au tableau
     tbody.appendChild(ligne);
   }
+
+  //// remplir le tableau, colonne par colonne
+  // on commence par celles qui ne dépendent pas du réel : 1ère, 3ème, 6ème
+  // 1ère colonne (j = 0): mois
+  let j = 0;
+  for (let i=0;i<mois.length;i++){
+    let cel = document.getElementById('c_' + i + '_' + j);
+    cel.innerHTML = mois[i];
+  }
+  // 3ème colonne (j = 2) : cible mensuel
+  let j = 2;
+  for (let i=0;i<mois.length;i++){
+    let cel = document.getElementById('c_' + i + '_' + j);
+    cel.innerHTML = Math.round(daysInMonth(i+1, year) / daysInYear(year) * target_an * 10)/10;
+  }
+  // 6ème colonne (j = 5) : cible cumul
+  let j = 5;
+  for (let i=0;i<mois.length;i++){
+    let cel = document.getElementById('c_' + i + '_' + j);
+    cel.innerHTML = 100; /////////// to do
+  }
+
+  // puis on s'occupe des colonnes qui dépendent du réel (donc dépendent de la promesse)
+  // 2ème colonne : réel mensuel = à extraire de la DB
+  // récupérer les distances par mois (dans un tableau reduce[doc.key] = doc.value, avec doc.key ='2015,07' par ex
+  let reduce = [];
+  getMonthDistances()
+  .then(reduce => {
+    console.log('dans createTab, reduce[\'2015,07\'] = ' + reduce['2015,07']);
+    // let month = (i+1).toString(); if (month.length<2) { month = '0' + month };
+    // let key = "'" + year + ',' + month + "'";
+    // console.log('key = ' + key);
+    // console.log('reduce[key] = ' + reduce[key]);
+    // col_2.innerHTML = Math.round(reduce[key]*10)/10;
+
+    // 4ème colonne : écart mensuel = calcul
+    // 5ème colonne : réel cumulé = calcul
+    // 7ème colonne : écart cumulé = calcul
+    // 8ème colonne : moyenne / jour = calcul
+    // 9ème colonne :  moyenne / semaine = calcul
+  })
   // ajouter le tableau dans la bonne div
   document.getElementById('resultDiv').appendChild(table);
 }
