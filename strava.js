@@ -3,10 +3,10 @@ import {strDate, strTime, strSpeed } from './functions.js';
 function main(){
   // Préparation de la page html
   init();
-
-  // Action si
-  const listButton = document.getElementById('listButton');
+  // Par défaut, on affiche la liste des activités de l'année en cours
   const select = document.getElementById('select');
+  listActivities(2022);
+  // Action si on change l'année
   select.addEventListener('change', function(e) {
     cleanDiv();
     let year = select.value;
@@ -97,9 +97,6 @@ function init() {
   resultDiv.innerHTML = '... en attente...';
   resultDiv.setAttribute('id','resultDiv');
   // boutons
-  const listButton = document.createElement('button');
-  listButton.innerHTML = 'Lister';
-  listButton.setAttribute('id','listButton');
   const updateButton = document.createElement('button');
   updateButton.innerHTML = 'Mettre à jour';
   updateButton.setAttribute('id','updateButton');
@@ -131,8 +128,7 @@ function init() {
   }
   // création de la page
   main.appendChild(titre);
-  //main.appendChild(listButton);
-  //main.appendChild(ligne1);
+  main.appendChild(ligne1);
   main.appendChild(select);
   main.appendChild(messageDiv);
   main.appendChild(ligne2);
