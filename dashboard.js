@@ -39,7 +39,7 @@ function createTab(year) {
     // 1ère colonne : mois
     let col_1 = document.createElement('td');
     col_1.setAttribute('id','col_1');
-    col_1.innerHTML = mois[j];
+    col_1.innerHTML = mois[i];
     ligne.appendChild(col_1);
     // 2ème colonne : réel mensuel = à extraire de la DB
     let col_2 = document.createElement('td');
