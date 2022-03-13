@@ -93,10 +93,12 @@ function createTab(year) {
       // lecture du tableau reduce
       let month = (i+1).toString(); if (month.length<2) { month = '0' + month };
       let key = year + ',' + month;
-      console.log('key = ' + key);
-      console.log('reduce[key] = ' + reduce[key]);
       // écriture
-      cel.innerHTML = Math.round(reduce[key]/1000*10)/10;; // div par 1000 pour passer en km, puis arrondi au dixième
+      if(reduce[key]) {
+        cel.innerHTML = Math.round(reduce[key]/1000*10)/10;; // div par 1000 pour passer en km, puis arrondi au dixième
+      } else {
+        cel.innerHTML = 0;
+      }
     }
     // 4ème colonne : écart mensuel = calcul
     // 5ème colonne : réel cumulé = calcul
