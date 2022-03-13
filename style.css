@@ -44,6 +44,8 @@ table {
 th {
   font-weight: bold;
   text-align: left;
+  background-color: orange;
+  color: white;
   height: 20px;
   border: 1px solid #000;
 }
