@@ -75,7 +75,7 @@ function createTab(year) {
   for (let i=0;i<mois.length;i++){
     let cel = document.getElementById('c_' + i + '_' + j);
     let somme = 0;
-    for (k=0;k<i;k++){
+    for (let k=0;k<i;k++){
       somme = somme + document.getElementById('c_' + k + '_' + j).innerHTML;
     }
     cel.innerHTML = somme;
