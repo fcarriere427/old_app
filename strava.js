@@ -33,7 +33,7 @@ function listActivities(year) {
   .then(response => response.json())
   .then(data => {
     // pour afficher la liste des activités
-    let resultDiv = document.getElementById('messageDiv');
+    let messageDiv = document.getElementById('messageDiv');
     messageDiv.innerHTML = 'Voici vos ' + data.length + ' activités : ';
     let resultDiv = document.getElementById('resultDiv');
     resultDiv.innerHTML='';
