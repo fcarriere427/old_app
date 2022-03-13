@@ -45,7 +45,7 @@ function createTab(year) {
     // on ajoute la ligne au tableau
     tbody.appendChild(ligne);
     // ajouter le tableau dans la bonne div
-    document.getElementById('resultDiv').appendChild(table);
+    document.getElementById('resultDiv').innerHTML = table;
   }
 
   // //// remplir le tableau, colonne par colonne
