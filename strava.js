@@ -32,7 +32,7 @@ function listActivities(year) {
   .then(data => {
     // pour afficher la liste des activités
     //messageDiv.innerHTML = 'Voici vos ' + data.length + ' activités : ';
-    var mainContainer = document.getElementById('main');
+    let resultDiv = document.getElementById('resultDiv');
     for (var i = 0; i < data.length; i++) {
       var div = document.createElement('div');
       div.setAttribute('id','activity-' + i);
@@ -49,7 +49,7 @@ function listActivities(year) {
       //console.log('lien = ' + rec_link);
       div.innerHTML = "[<a href=" + rec_link + " target='_blank'>" + data[i].doc.id + "</a>] " + str;
       //div.innerHTML = "[<a href=rec_link target='_blank'>" + data[i].doc.id + "</a>] " + str;
-      mainContainer.appendChild(div);
+      resultDiv.appendChild(div);
     }
   })
   .catch((err) => {
