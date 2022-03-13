@@ -48,3 +48,5 @@ function init() {
   main.appendChild(resultDiv);
   main.appendChild(ligne3);
 }
+
+main()
