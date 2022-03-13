@@ -38,47 +38,49 @@ function createTab(year) {
     var ligne = document.createElement('tr');
     // 1ère colonne : mois
     let nom_col = 'col_1';
-    nom_col = document.createElement('td')
+    nom_col = document.createElement('td');
     nom_col.innerHTML = mois[j];
     ligne.appendChild(nom_col);
     // 2ème colonne : réel mensuel = à extraire de la DB
     nom_col ='col_2';
-    nom_col = document.createElement('td')
+    nom_col = document.createElement('td');
     nom_col.innerHTML = 10; // TO DO !!!!!!!!!!!!!!!!
     ligne.appendChild(nom_col);
     // 3ème colonne : cible mensuel = calcul
     nom_col = 'col_3';
-    nom_col = document.createElement('td')
+    nom_col = document.createElement('td');
     nom_col.innerHTML = target_an/12; // A affiner avec le nb de jours par mois !!!!!!!!!
     ligne.appendChild(nom_col);
     // 4ème colonne : écart mensuel = calcul
     nom_col = 'col_4';
-    nom_col = document.createElement('td')
+    nom_col = document.createElement('td');
+    col_2 = document.getElementById('col_2');
+    col_3 = document.getElementById('col_3');
     nom_col.innerHTML = col_3.value - col_2.value;
     ligne.appendChild(nom_col);
     // 5ème colonne : réel cumulé = calcul
     nom_col = 'col_5';
-    nom_col = document.createElement('td')
+    nom_col = document.createElement('td');
     nom_col.innerHTML = mois[j];
     ligne.appendChild(nom_col);
     // 6ème colonne : cible cumulé = calcul
     nom_col = 'col_6';
-    nom_col = document.createElement('td')
+    nom_col = document.createElement('td');
     nom_col.innerHTML = mois[j];
     ligne.appendChild(nom_col);
     // 7ème colonne : écart cumulé = calcul
     nom_col = 'col_7';
-    nom_col = document.createElement('td')
+    nom_col = document.createElement('td');
     nom_col.innerHTML = mois[j];
     ligne.appendChild(nom_col);
     // 8ème colonne : moyenne / jour = calcul
     nom_col = 'col_8';
-    nom_col = document.createElement('td')
+    nom_col = document.createElement('td');
     nom_col.innerHTML = mois[j];
     ligne.appendChild(nom_col);
     // 9ème colonne :  moyenne / semaine = calcul
     nom_col = 'col_9';
-    nom_col = document.createElement('td')
+    nom_col = document.createElement('td');
     nom_col.innerHTML = mois[j];
     ligne.appendChild(nom_col);
     // on ajoute la ligne au tableau
