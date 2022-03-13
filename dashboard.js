@@ -68,7 +68,7 @@ function createTab(year) {
   j = 2;
   for (let i=0;i<mois.length;i++){
     let cel = document.getElementById('c_' + i + '_' + j);
-    cel.innerHTML = Math.round(daysInMonth(i+1, year) / daysInYear(year) * target_an * 10)/10;
+    cel.innerHTML = Math.round(daysInMonth(i+1, year) / daysInYear(year) * target_an);
   }
   // 6ème colonne (j = 5) : cible cumul
   j = 5;
@@ -82,18 +82,22 @@ function createTab(year) {
   }
 
   // puis on s'occupe des colonnes qui dépendent du réel (donc dépendent de la promesse)
-  // 2ème colonne : réel mensuel = à extraire de la DB
-  // récupérer les distances par mois (dans un tableau reduce[doc.key] = doc.value, avec doc.key ='2015,07' par ex
+  // pour cela, on commence par récupérer les distances par mois (dans un tableau reduce[doc.key] = doc.value, avec doc.key ='2015,07' par ex
   let reduce = [];
   getMonthDistances()
-  .then(reduce => {
-    console.log('dans createTab, reduce[\'2015,07\'] = ' + reduce['2015,07']);
-    // let month = (i+1).toString(); if (month.length<2) { month = '0' + month };
-    // let key = "'" + year + ',' + month + "'";
-    // console.log('key = ' + key);
-    // console.log('reduce[key] = ' + reduce[key]);
-    // col_2.innerHTML = Math.round(reduce[key]*10)/10;
-
+  .then(reduce => { // ici, reduce['2015,07'] renvoie la bonne valeur
+    // 2ème colonne (j = 1) : réel mensuel
+    j = 1;
+    for (let i=0;i<mois.length;i++){
+      let cel = document.getElementById('c_' + i + '_' + j);
+      // lecture du tableau reduce
+      let month = (i+1).toString(); if (month.length<2) { month = '0' + month };
+      let key = "'" + year + ',' + month + "'";
+      console.log('key = ' + key);
+      console.log('reduce[key] = ' + reduce[key]);
+      // écriture
+      cel.innerHTML = Math.round(reduce[key]*10)/10;;
+    }
     // 4ème colonne : écart mensuel = calcul
     // 5ème colonne : réel cumulé = calcul
     // 7ème colonne : écart cumulé = calcul
