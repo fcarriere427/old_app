@@ -12,7 +12,33 @@ function main(){
 }
 
 function createTab(year) {
-  console.log('on va créer le dashboard de l\'année ' + year);
+  // préparer le tableau
+  let table = document.createElement('table');
+  let thead = document.createElement('thead');
+  let tbody = document.createElement('tbody');
+  table.appendChild(thead);
+  table.appendChild(tbody);
+  // préparer la ligne de titre
+  let ligne_titre = document.createElement('tr');
+  let col_titres = ['Mois', 'Réel', 'Cible', 'Ecart', 'Réel (cumul)', 'Cible (cumul)', 'Ecart (cumul)', 'Moyenne / jour', 'Moyenne / semaine'];
+  for (var i = 0; i < col_titres.length; i++) {
+    let nom_col = 'col_' + i;
+    document.createElement('th').innerHTML = col_titres[i];
+    ligne_titre.appendChild(nom_col);
+  }
+  thead.appendChild(ligne_titre);
+
+  // remplir le tableau
+  for (var i = 0; i < col_titres.length; i++) {
+    var ligne = document.createElement('tr');
+    let nom_col = 'col_' + i;
+    document.createElement('th').innerHTML = '1';
+    ligne.appendChild(nom_col);
+    tbody.appendChild(ligne);
+  }
+
+  // ajouter le tableau dans la bonne div
+  document.getElementById('resultDiv').appendChild(table);
 }
 
 
