@@ -46,11 +46,20 @@ th {
   text-align: left;
   background-color: orange;
   color: white;
+  width: 100px;
   height: 20px;
   border: 1px solid #000;
 }
 
-td, tr {
+td {
+  font-weight: normal;
+  text-align: left;
+  width: 100px;
+  height: 20px;
+  border: 1px solid #000;
+}
+
+tr {
   font-weight: normal;
   hover background-color: grey;
   nth-child(even) background-color: #f2f2f2;

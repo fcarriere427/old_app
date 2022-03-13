@@ -1,6 +1,6 @@
 const liste_annees = [2022,2021,2020,2019,2018,2017,2016,2015];
 const mois = ['Jan', 'Fév', 'Mars', 'Avr', 'Mai', 'Juin', 'Juil', 'Août', 'Sept', 'Oct', 'Nov', 'Déc'];
-const titres_col = ['Mois', 'Réel', 'Cible', 'Ecart', 'Réel (cumul)', 'Cible (cumul)', 'Ecart (cumul)', 'Moyenne / jour', 'Moyenne / semaine'];
+const titres_col = ['Mois', 'Réel (km)', 'Cible (km)', 'Ecart (km)', 'Réel (cumul)', 'Cible (cumul)', 'Ecart (cumul)', 'Moy (km/j)', 'Moy (km/sem)'];
 const target_an = 1000;
 
 function main(){
@@ -70,12 +70,12 @@ function createTab(year) {
     let cel = document.getElementById('c_' + i + '_' + j);
     cel.innerHTML = Math.round(daysInMonth(i+1, year) / daysInYear(year) * target_an * 10)/10;
   }
-  // // 6ème colonne (j = 5) : cible cumul
-  // j = 5;
-  // for (let i=0;i<mois.length;i++){
-  //   let cel = document.getElementById('c_' + i + '_' + j);
-  //   cel.innerHTML = 100; /////////// to do
-  // }
+  // 6ème colonne (j = 5) : cible cumul
+  j = 5;
+  for (let i=0;i<mois.length;i++){
+    let cel = document.getElementById('c_' + i + '_' + j);
+    cel.innerHTML = 100; /////////// to do
+  }
 
   // puis on s'occupe des colonnes qui dépendent du réel (donc dépendent de la promesse)
   // 2ème colonne : réel mensuel = à extraire de la DB
