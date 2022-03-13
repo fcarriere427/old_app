@@ -3,7 +3,7 @@ import {strDate, strTime, strSpeed } from './functions.js';
 function main(){
   const messageDiv = document.getElementById('messageDiv');
   // bouton "List"
-  let liste_annees = [2022,2021,2020,2019,2018,2017,2016,2015];
+  let liste_annees = [2021,2020,2019,2018,2017,2016,2015];
   let select = document.createElement('select');
   select.id = 'year_filter';
   messageDiv.appendChild(select);
