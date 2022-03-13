@@ -92,7 +92,7 @@ function createTab(year) {
       let cel = document.getElementById('c_' + i + '_' + j);
       // lecture du tableau reduce
       let month = (i+1).toString(); if (month.length<2) { month = '0' + month };
-      let key = "'" + year + ',' + month + "'";
+      let key = year + ',' + month;
       console.log('key = ' + key);
       console.log('reduce[key] = ' + reduce[key]);
       // écriture
