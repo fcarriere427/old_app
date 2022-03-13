@@ -162,7 +162,6 @@ function getMonthDistances(){
       data.rows.forEach(doc => {
         reduce[doc.key] = doc.value;
       })
-      console.log('dans getMonthDistances, reduce[\'2015,07\'] = ' + reduce['2015,07']);
     })
     .then(data => resolve(reduce));
   })
