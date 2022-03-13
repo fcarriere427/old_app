@@ -74,7 +74,7 @@ function reloadActivities() {
   fetch("/strava_app/reload")
   .then(response => response.json())
   .then((data) => {
-    messageDiv.innerHTML = 'OK, les ' + data + ' activités ont bien été rechargées !';
+    messageDiv.innerHTML = 'OK, les ' + data + ' activités ont bien été rechargées (y compris autres que "Run")!';
     resultDiv.innerHTML = 'Resélectionnez une année pour voir les activités';
   })
 }
