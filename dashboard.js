@@ -34,7 +34,7 @@ function createTab(year) {
   thead.appendChild(ligne_titre);
 
   // remplir le tableau
-  for (let j=0;j<mois.length;j++){
+  for (let i=0;i<mois.length;i++){
     var ligne = document.createElement('tr');
     // 1ère colonne : mois
     let col_1 = document.createElement('td');
@@ -44,12 +44,12 @@ function createTab(year) {
     // 2ème colonne : réel mensuel = à extraire de la DB
     let col_2 = document.createElement('td');
     col_2.setAttribute('id','col_2');
-    col_2.innerHTML = 777;
+    col_2.innerHTML = 80;
     ligne.appendChild(col_2);
     // 3ème colonne : cible mensuel = calcul
     let col_3 = document.createElement('td');
     col_3.setAttribute('id','col_3');
-    col_3.innerHTML = target_an/12;
+    col_3.innerHTML = Math.round(daysInMonth(mois[i+1], year) / daysInYear(year) * target_an * 10)/10;
     ligne.appendChild(col_3);
     // 4ème colonne : écart mensuel = calcul
     let col_4 = document.createElement('td');
@@ -112,6 +112,18 @@ function init() {
   main.appendChild(ligne2);
   main.appendChild(resultDiv);
   main.appendChild(ligne3);
+}
+
+// Month in JavaScript is 0-indexed (January is 0, February is 1, etc),
+// but by using 0 as the day it will give us the last day of the prior
+// month. So passing in 1 as the month number will return the last day
+// of January, not February
+function daysInMonth (month, year) {
+    return new Date(year, month, 0).getDate();
+}
+
+function daysInYear(year) {
+    return ((year % 4 === 0 && year % 100 > 0) || year %400 == 0) ? 366 : 365;
 }
 
 main()
