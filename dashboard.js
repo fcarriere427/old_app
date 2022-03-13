@@ -55,6 +55,8 @@ function createTab(year) {
     let col_4 = document.createElement('td');
     col_4.setAttribute('id','col_4');
     console.log('parseInt(col_3.innerText) = ' + parseInt(col_3.innerText));
+    let calcul = parseInt(col_3.innerText) - parseInt(col_2.innerText);
+    console.log('calcul = '+ calcul);
     col_4.innerHTML = parseInt(col_3.innerText) - parseInt(col_2.innerText);
     ligne.appendChild(col_3);
     // 5ème colonne : réel cumulé = calcul
