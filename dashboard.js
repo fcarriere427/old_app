@@ -33,7 +33,8 @@ function createTab(year) {
   for (var i = 0; i < col_titres.length; i++) {
     var ligne = document.createElement('tr');
     let nom_col = 'col_' + i;
-    document.createElement('th').innerHTML = '1';
+    nom_col = document.createElement('th')
+    nom_col.innerHTML = '1';
     ligne.appendChild(nom_col);
     tbody.appendChild(ligne);
   }
