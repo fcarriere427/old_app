@@ -13,10 +13,11 @@ function main(){
     option.text = liste_annees[i];
     select.appendChild(option);
   }
+  let year = select.value;
   const listButton = document.getElementById('listButton');
   listButton.addEventListener('click', function(e) {
     cleanDiv();
-    listActivities();
+    listActivities(year);
   });
   // bouton "update"
   const updateButton = document.getElementById('updateButton');
@@ -32,10 +33,10 @@ function main(){
   });
 }
 
-function listActivities() {
+function listActivities(year) {
   console.log('List button was clicked');
   //messageDiv.innerHTML = 'Préparation des activités...';
-  fetch("/strava_app/list")
+  fetch(`/strava_app/list?id=${year}`)
   .then(response => response.json())
   .then(data => {
     // pour afficher la liste des activités
