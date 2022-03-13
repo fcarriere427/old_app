@@ -68,7 +68,7 @@ function createTab(year) {
   j = 2;
   for (let i=0;i<mois.length;i++){
     let cel = document.getElementById('c_' + i + '_' + j);
-    cel.innerHTML = Math.round(daysInMonth(i+1, year) / daysInYear(year) * target_an);
+    cel.innerHTML = Math.round(daysInMonth(i+1, year) / daysInYear(year) * target_an*10)/10;
   }
   // 6ème colonne (j = 5) : cible cumul
   j = 5;
