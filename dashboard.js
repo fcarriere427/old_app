@@ -45,7 +45,8 @@ function createTab(year) {
     // on ajoute la ligne au tableau
     tbody.appendChild(ligne);
     // ajouter le tableau dans la bonne div
-    document.getElementById('resultDiv').innerHTML = table;
+    document.getElementById('resultDiv').innerHTML = 'Voici la synthèse de l\'année : ';
+    document.getElementById('resultDiv').appendChild(table);
   }
 
   // //// remplir le tableau, colonne par colonne
