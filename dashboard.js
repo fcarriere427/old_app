@@ -47,7 +47,7 @@ function createTab(year) {
     let month = (i+1).toString();
     if (month.length<2) { month = '0' + month };
     let period = year + '-' + month;
-    fetch(`/strava_app/list?id=${period}`)
+    fetch(`/strava_app/month_distance?id=${period}`)
     .then(response => response.json())
     .then(data => {
       col_2.innerHTML = Math.round(data*10)/10;
