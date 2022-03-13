@@ -35,7 +35,14 @@ function createTab(year) {
   // créer les lignes et cellules vides, référencées 'c_ligne_colonne' (par ex : c_3_8 = 3ème ligne, 8ème colonne)
   for (let i=0;i<mois.length;i++){
     var ligne = document.createElement('tr');
-    for (let j=0;j<titres_col.length;j++){
+    // pour la 1ère colonne (mois) => j=0, format th plutôt que td
+    let nom_cell = 'c_' + i + '_' + 0;
+    nom_cell = document.createElement('th');
+    nom_cell.setAttribute('id','c_' + i + '_' + 0);
+    nom_cell.innerHTML = 'c_' + i + '_' + 0;
+    ligne.appendChild(nom_cell);
+    // pour les autres colonnes de données
+    for (let j=1;j<titres_col.length;j++){
       let nom_cell = 'c_' + i + '_' + j;
       nom_cell = document.createElement('td');
       nom_cell.setAttribute('id','c_' + i + '_' + j);
@@ -57,12 +64,12 @@ function createTab(year) {
     let cel = document.getElementById('c_' + i + '_' + j);
     cel.innerHTML = mois[i];
   }
-  // // 3ème colonne (j = 2) : cible mensuel
-  // j = 2;
-  // for (let i=0;i<mois.length;i++){
-  //   let cel = document.getElementById('c_' + i + '_' + j);
-  //   cel.innerHTML = Math.round(daysInMonth(i+1, year) / daysInYear(year) * target_an * 10)/10;
-  // }
+  // 3ème colonne (j = 2) : cible mensuel
+  j = 2;
+  for (let i=0;i<mois.length;i++){
+    let cel = document.getElementById('c_' + i + '_' + j);
+    cel.innerHTML = Math.round(daysInMonth(i+1, year) / daysInYear(year) * target_an * 10)/10;
+  }
   // // 6ème colonne (j = 5) : cible cumul
   // j = 5;
   // for (let i=0;i<mois.length;i++){
