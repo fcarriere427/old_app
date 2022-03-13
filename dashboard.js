@@ -1,5 +1,6 @@
+const liste_annees = [2022,2021,2020,2019,2018,2017,2016,2015];
+
 function main(){
-  const liste_annees = [2022,2021,2020,2019,2018,2017,2016,2015];
   // Préparation de la page html
   init();
   // Par défaut, on affiche le dashboard de l'année en cours
