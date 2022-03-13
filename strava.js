@@ -132,7 +132,7 @@ function init() {
   const titre = document.createElement('h1');
   titre.innerHTML = 'Activités Strava';
   const messageDiv = document.createElement('div');
-  messageDiv.innerHTML = 'Choisissez une année et cliquez !';
+  messageDiv.innerHTML = 'Choisissez une année !';
   messageDiv.setAttribute('id','messageDiv');
   const resultDiv = document.createElement('div');
   resultDiv.innerHTML = '... en attente...';
