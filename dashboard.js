@@ -46,7 +46,8 @@ function createTab(year) {
     col_2.setAttribute('id','col_2');
     let month = i.toString();
     if (month.length<2) {
-      let month = '0' + month;
+      console.log('on ajoute un 0');
+      month = '0' + month;
     }
     let period = year + '-' + month;
     console.log('period = ' + period);
