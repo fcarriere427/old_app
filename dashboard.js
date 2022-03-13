@@ -30,8 +30,8 @@ function createTab(year) {
   thead.appendChild(ligne_titre);
 
   // remplir le tableau
-  for (j=0;j<liste_annees.length;j++){
-    for (var i = 0; i < col_titres.length; i++) {
+  for (let j=0;j<liste_annees.length;j++){
+    for (let i = 0; i < col_titres.length; i++) {
       var ligne = document.createElement('tr');
       let nom_col = 'col_' + i;
       nom_col = document.createElement('td')
