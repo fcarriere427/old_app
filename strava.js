@@ -34,26 +34,30 @@ function listActivities(year) {
     messageDiv.innerHTML = 'Voici vos ' + data.length + ' activités : ';
     let resultDiv = document.getElementById('resultDiv');
     resultDiv.innerHTML='';
-    for (var i = 0; i < data.length; i++) {
-      var div = document.createElement('div');
-      div.setAttribute('id','activity-' + i);
-      let time_str = strTime(data[i].doc);
-      let speed_str = strSpeed(data[i].doc);
-      // concaténation de la chaine pour 1 activité
-      var str =
-       data[i].doc.start_date.substring(0,10)
-       + ' - ' + Math.round(data[i].doc.distance / 1000 * 100) / 100 + 'km'
-       + ' - ' + time_str
-       + ' - ' + speed_str;
-      // injection dans la page
-      var rec_link = "./activity.html?id=" + data[i].doc.id;
-      div.innerHTML = "[<a href=" + rec_link + " target='_blank'>" + data[i].doc.id + "</a>] " + str;
-      resultDiv.appendChild(div);
-    }
+    createTab(data);
   })
   .catch((err) => {
     console.log('"Activities" fetch problem: ' + err.message);
   })
+}
+
+function createTab(data){
+  for (var i = 0; i < data.length; i++) {
+    var div = document.createElement('div');
+    div.setAttribute('id','activity-' + i);
+    let time_str = strTime(data[i].doc);
+    let speed_str = strSpeed(data[i].doc);
+    // concaténation de la chaine pour 1 activité
+    var str =
+     data[i].doc.start_date.substring(0,10)
+     + ' - ' + Math.round(data[i].doc.distance / 1000 * 100) / 100 + 'km'
+     + ' - ' + time_str
+     + ' - ' + speed_str;
+    // injection dans la page
+    var rec_link = "./activity.html?id=" + data[i].doc.id;
+    div.innerHTML = "[<a href=" + rec_link + " target='_blank'>" + data[i].doc.id + "</a>] " + str;
+    resultDiv.appendChild(div);
+  }
 }
 
 function updateActivities() {
