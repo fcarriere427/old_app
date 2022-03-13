@@ -4,6 +4,7 @@ function main(){
   init();
 
   const listButton = document.getElementById('listButton');
+  const select = document.getElementById('select');
   listButton.addEventListener('click', function(e) {
     cleanDiv();
     let year = select.value;
@@ -114,7 +115,7 @@ function init() {
   // select
   let liste_annees = [2022,2021,2020,2019,2018,2017,2016,2015];
   let select = document.createElement('select');
-  select.id = 'year_filter';
+  select.id = 'select';
   messageDiv.appendChild(select);
   for (let i = 0; i < liste_annees.length; i++) {
     var option = document.createElement("option");
