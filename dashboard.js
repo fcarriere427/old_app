@@ -38,11 +38,10 @@ function createTab(year) {
   fetch('/strava_app/month_distance')
   .then(response => response.json())
   .then(data => {
-    i=0;
     data.rows.forEach(doc => {
-      console.log('[' + i + '] key = ' + doc.key + ' value = ' + doc.value);
+      console.log('key = ' + doc.key + ' value = ' + doc.value);
       reduce[doc.key] = doc.value;
-      i = i+1;
+      console.log('pour key = 2015,07, alors value = ' + reduce[2015,07]);
     })
   });
 
