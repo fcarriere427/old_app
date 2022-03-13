@@ -64,7 +64,7 @@ function updateActivities() {
   .then(() => {
     messageDiv.innerHTML = 'OK, les dernières activités ont bien été récupérées !';
     resultDiv.innerHTML = 'Resélectionnez une année pour voir les activités';
-  }
+  })
 }
 
 function reloadActivities() {
@@ -76,7 +76,7 @@ function reloadActivities() {
   .then((data) => {
     messageDiv.innerHTML = 'OK, les ' + data + ' activités ont bien été rechargées !');
     resultDiv.innerHTML = 'Resélectionnez une année pour voir les activités';
-  }
+  })
 }
 
 function cleanDiv(){
