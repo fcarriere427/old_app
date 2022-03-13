@@ -85,21 +85,21 @@ function init() {
   const main = document.getElementById('main');
   // création des éléments
   const titre = document.createElement('h1');
-  titre.text = 'Letsq - Strava';
+  titre.innerHTML = 'Letsq - Strava';
   const listButton = document.createElement('button');
-  listButton.text = 'Lister';
+  listButton.innerHTML = 'Lister';
   const updateButton = document.createElement('button');
-  updateButton.text = 'Mettre à jour';
+  updateButton.innerHTML = 'Mettre à jour';
   const reloadButton = document.createElement('button');
-  reloadButton.text = 'Recréer (long !)';
+  reloadButton.innerHTML = 'Recréer (long !)';
   const ligne = document.createElement('hr');
   ligne.size = 4;
   ligne.width = '100%';
   ligne.color = 'grey';
   const messageDiv = document.createElement('div');
-  messageDiv.text = 'Choisissez une année et cliquez !';
+  messageDiv.innerHTML = 'Choisissez une année et cliquez !';
   const resultDiv = document.createElement('div');
-  resultDiv.text = '... en attente...';
+  resultDiv.innerHTML = '... en attente...';
   // bouton "List"
   let liste_annees = [2022,2021,2020,2019,2018,2017,2016,2015];
   let select = document.createElement('select');
