@@ -53,21 +53,18 @@ function createTab(data){
   let col_1 = document.createElement('th');
   col_1.innerHTML = 'Date';
   let col_2 = document.createElement('th');
-  col_2.innerHTML = 'Lieu';
+  col_2.innerHTML = 'Nom';
   let col_3 = document.createElement('th');
-  col_3.innerHTML = 'Nom';
+  col_3.innerHTML = 'Distance';
   let col_4 = document.createElement('th');
-  col_4.innerHTML = 'Distance';
+  col_4.innerHTML = 'Durée';
   let col_5 = document.createElement('th');
-  col_5.innerHTML = 'Durée';
-  let col_6 = document.createElement('th');
-  col_6.innerHTML = 'Vitesse';
+  col_5.innerHTML = 'Vitesse';
   ligne_titre.appendChild(col_1);
   ligne_titre.appendChild(col_2);
   ligne_titre.appendChild(col_3);
   ligne_titre.appendChild(col_4);
   ligne_titre.appendChild(col_5);
-  ligne_titre.appendChild(col_6);
   thead.appendChild(ligne_titre);
 
   // remplir le tableau
@@ -77,21 +74,18 @@ function createTab(data){
     let rec_link = "./activity.html?id=" + data[i].doc.id;
     col_1.innerHTML = "<a href=" + rec_link + " target='_blank'>" + data[i].doc.start_date.substring(0,10) + "</a>";
     let col_2 = document.createElement('td');
-    col_2.innerHTML = data[i].doc.location_city;
+    col_2.innerHTML = data[i].doc.name;
     let col_3 = document.createElement('td');
-    col_3.innerHTML = data[i].doc.name;
+    col_3.innerHTML = Math.round(data[i].doc.distance / 1000 * 100) / 100 + 'km';
     let col_4 = document.createElement('td');
-    col_4.innerHTML = Math.round(data[i].doc.distance / 1000 * 100) / 100 + 'km';
-    let col_5 = document.createElement('td');
     col_5.innerHTML = strTime(data[i].doc);
-    let col_6 = document.createElement('td');
-    col_6.innerHTML = strSpeed(data[i].doc);
+    let col_5 = document.createElement('td');
+    col_5.innerHTML = strSpeed(data[i].doc);
     ligne.appendChild(col_1);
     ligne.appendChild(col_2);
     ligne.appendChild(col_3);
     ligne.appendChild(col_4);
     ligne.appendChild(col_5);
-    ligne.appendChild(col_6);
     tbody.appendChild(ligne);
   }
   // ajouter le tableau dans la bonne div
