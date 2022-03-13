@@ -49,14 +49,14 @@ function createTab(year) {
     document.getElementById('resultDiv').appendChild(table);
   }
 
-  // //// remplir le tableau, colonne par colonne
-  // // on commence par celles qui ne dépendent pas du réel : 1ère, 3ème, 6ème
-  // // 1ère colonne (j = 0): mois
-  // let j = 0;
-  // for (let i=0;i<mois.length;i++){
-  //   let cel = document.getElementById('c_' + i + '_' + j);
-  //   cel.innerHTML = mois[i];
-  // }
+  //// remplir le tableau, colonne par colonne
+  // on commence par celles qui ne dépendent pas du réel : 1ère, 3ème, 6ème
+  // 1ère colonne (j = 0): mois
+  let j = 0;
+  for (let i=0;i<mois.length;i++){
+    let cel = document.getElementById('c_' + i + '_' + j);
+    cel.innerHTML = mois[i];
+  }
   // // 3ème colonne (j = 2) : cible mensuel
   // j = 2;
   // for (let i=0;i<mois.length;i++){
