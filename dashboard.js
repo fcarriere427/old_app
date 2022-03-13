@@ -17,7 +17,8 @@ function main(){
 
 async function createTab(year) {
   // récupérer les distances par mois (dans un tableau reduce[doc.key] = doc.value, avec doc.key ='2015,07' par ex
-  await getMonthDistances();
+  let reduce = [];
+  reduce = await getMonthDistances();
   // préparer le tableau
   let table = document.createElement('table');
   let thead = document.createElement('thead');
