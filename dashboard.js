@@ -96,7 +96,7 @@ function createTab(year) {
       console.log('key = ' + key);
       console.log('reduce[key] = ' + reduce[key]);
       // écriture
-      cel.innerHTML = Math.round(reduce[key]*10)/10;;
+      cel.innerHTML = Math.round(reduce[key]/1000*10)/10;; // div par 1000 pour passer en km, puis arrondi au dixième
     }
     // 4ème colonne : écart mensuel = calcul
     // 5ème colonne : réel cumulé = calcul
