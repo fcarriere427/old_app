@@ -1,4 +1,5 @@
 function main(){
+  const liste_annees = [2022,2021,2020,2019,2018,2017,2016,2015];
   // Préparation de la page html
   init();
   // Par défaut, on affiche le dashboard de l'année en cours
@@ -71,7 +72,6 @@ function init() {
   ligne3.width = '100%';
   ligne3.color = 'orange';
   // select
-  let liste_annees = [2022,2021,2020,2019,2018,2017,2016,2015];
   let select = document.createElement('select');
   select.id = 'select';
   for (let i = 0; i < liste_annees.length; i++) {
