@@ -88,27 +88,30 @@ function init() {
   titre.innerHTML = 'Activités Strava';
   const listButton = document.createElement('button');
   listButton.innerHTML = 'Lister';
+  listButton.setAttribute('id','listButton');
   const updateButton = document.createElement('button');
   updateButton.innerHTML = 'Mettre à jour';
+  updateButton.setAttribute('id','updateButton');
   const reloadButton = document.createElement('button');
   reloadButton.innerHTML = 'Recréer (long !)';
+  reloadButton.setAttribute('id','reloadButton');
   const ligne1 = document.createElement('hr');
-  ligne1.size = 4;
+  ligne1.size = 2;
   ligne1.width = '100%';
-  ligne1.color = 'blue';
+  ligne1.color = 'orange';
   const ligne2 = document.createElement('hr');
-  ligne2.size = 4;
+  ligne2.size = 2;
   ligne2.width = '100%';
   ligne2.color = 'grey';
   const ligne3 = document.createElement('hr');
-  ligne3.size = 4;
+  ligne3.size = 2;
   ligne3.width = '100%';
-  ligne3.color = 'blue';
+  ligne3.color = 'orange';
   const messageDiv = document.createElement('div');
   messageDiv.innerHTML = 'Choisissez une année et cliquez !';
   const resultDiv = document.createElement('div');
   resultDiv.innerHTML = '... en attente...';
-  // bouton "List"
+  // select
   let liste_annees = [2022,2021,2020,2019,2018,2017,2016,2015];
   let select = document.createElement('select');
   select.id = 'year_filter';
