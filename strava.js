@@ -70,7 +70,7 @@ function updateActivities() {
 function reloadActivities() {
   console.log('Reload button was clicked');
   cleanDiv();
-  messageDiv.innerHTML = 'RAZ des données : ça va prendre un peu de temps...';
+  messageDiv.innerHTML = 'Rechargement complet des données : ça va prendre un peu de temps...';
   fetch("/strava_app/reload")
   .then(response => response.json())
   .then((data) => {
