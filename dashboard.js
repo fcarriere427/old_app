@@ -38,6 +38,7 @@ function createTab(year) {
   fetch('/strava_app/month_distance')
   .then(response => response.json())
   .then(data => reduce = data.rows)
+  .then(() => console.log('reduce = ' + reduce))
 
   // remplir le tableau
   for (let i=0;i<mois.length;i++){
@@ -50,10 +51,16 @@ function createTab(year) {
     // 2ème colonne : réel mensuel = à extraire de la DB
     let col_2 = document.createElement('td');
     col_2.setAttribute('id','col_2');
+
+
+///////////// REPRENDRE ICI
     let month = (i+1).toString(); if (month.length<2) { month = '0' + month };
     let key = '"key":["' + year + '","' + month + '"]';
     console.log('key = ' + key);
     console.log('reduce.key = ' + reduce.key);
+
+
+
     col_2.innerHTML = Math.round(reduce[year,month]*10)/10;
     ligne.appendChild(col_2);
     // 3ème colonne : cible mensuel = calcul
