@@ -30,15 +30,16 @@ function createTab(year) {
   thead.appendChild(ligne_titre);
 
   // remplir le tableau
-  for (var i = 0; i < col_titres.length; i++) {
-    var ligne = document.createElement('tr');
-    let nom_col = 'col_' + i;
-    nom_col = document.createElement('th')
-    nom_col.innerHTML = '1';
-    ligne.appendChild(nom_col);
+  for (j=0;j<liste_annees.length;j++){
+    for (var i = 0; i < col_titres.length; i++) {
+      var ligne = document.createElement('tr');
+      let nom_col = 'col_' + i;
+      nom_col = document.createElement('td')
+      nom_col.innerHTML = j;
+      ligne.appendChild(nom_col);
+    }
     tbody.appendChild(ligne);
   }
-
   // ajouter le tableau dans la bonne div
   document.getElementById('resultDiv').appendChild(table);
 }
