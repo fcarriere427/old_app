@@ -44,28 +44,30 @@ function createTab(year) {
     }
     // on ajoute la ligne au tableau
     tbody.appendChild(ligne);
+    // ajouter le tableau dans la bonne div
+    document.getElementById('resultDiv').appendChild(table);
   }
 
-  //// remplir le tableau, colonne par colonne
-  // on commence par celles qui ne dépendent pas du réel : 1ère, 3ème, 6ème
-  // 1ère colonne (j = 0): mois
-  let j = 0;
-  for (let i=0;i<mois.length;i++){
-    let cel = document.getElementById('c_' + i + '_' + j);
-    cel.innerHTML = mois[i];
-  }
-  // 3ème colonne (j = 2) : cible mensuel
-  j = 2;
-  for (let i=0;i<mois.length;i++){
-    let cel = document.getElementById('c_' + i + '_' + j);
-    cel.innerHTML = Math.round(daysInMonth(i+1, year) / daysInYear(year) * target_an * 10)/10;
-  }
-  // 6ème colonne (j = 5) : cible cumul
-  j = 5;
-  for (let i=0;i<mois.length;i++){
-    let cel = document.getElementById('c_' + i + '_' + j);
-    cel.innerHTML = 100; /////////// to do
-  }
+  // //// remplir le tableau, colonne par colonne
+  // // on commence par celles qui ne dépendent pas du réel : 1ère, 3ème, 6ème
+  // // 1ère colonne (j = 0): mois
+  // let j = 0;
+  // for (let i=0;i<mois.length;i++){
+  //   let cel = document.getElementById('c_' + i + '_' + j);
+  //   cel.innerHTML = mois[i];
+  // }
+  // // 3ème colonne (j = 2) : cible mensuel
+  // j = 2;
+  // for (let i=0;i<mois.length;i++){
+  //   let cel = document.getElementById('c_' + i + '_' + j);
+  //   cel.innerHTML = Math.round(daysInMonth(i+1, year) / daysInYear(year) * target_an * 10)/10;
+  // }
+  // // 6ème colonne (j = 5) : cible cumul
+  // j = 5;
+  // for (let i=0;i<mois.length;i++){
+  //   let cel = document.getElementById('c_' + i + '_' + j);
+  //   cel.innerHTML = 100; /////////// to do
+  // }
 
   // puis on s'occupe des colonnes qui dépendent du réel (donc dépendent de la promesse)
   // 2ème colonne : réel mensuel = à extraire de la DB
@@ -86,8 +88,6 @@ function createTab(year) {
     // 8ème colonne : moyenne / jour = calcul
     // 9ème colonne :  moyenne / semaine = calcul
   })
-  // ajouter le tableau dans la bonne div
-  document.getElementById('resultDiv').appendChild(table);
 }
 
 function init() {
