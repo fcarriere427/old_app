@@ -1,8 +1,20 @@
 function main(){
   // Préparation de la page html
-  console.log('on rentre dans dashboard.js');
   init();
+  // Par défaut, on affiche le dashboard de l'année en cours
+  const select = document.getElementById('select');
+  createTab(2022);
+  // Action si on change l'année
+  select.addEventListener('change', function(e) {
+    let year = select.value;
+    createTab(year);
+  });
 }
+
+function createTab(year) {
+  console.log('on va créer le dashboard de l\'année ' + year);
+}
+
 
 function init() {
   const main = document.getElementById('main');
