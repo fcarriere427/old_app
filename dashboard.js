@@ -50,6 +50,7 @@ function createTab(year) {
     fetch(`/strava_app/month_distance?id=${period}`)
     .then(response => response.json())
     .then(data => {
+      console.log('en front, on reçoit ' + data + ' pour ' + period);
       col_2.innerHTML = Math.round(data*10)/10;
       ligne.appendChild(col_2);
     })
