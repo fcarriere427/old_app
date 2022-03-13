@@ -1,18 +1,8 @@
 import {strDate, strTime, strSpeed } from './functions.js';
 
 function main(){
-  const messageDiv = document.getElementById('messageDiv');
-  // bouton "List"
-  let liste_annees = [2022,2021,2020,2019,2018,2017,2016,2015];
-  let select = document.createElement('select');
-  select.id = 'year_filter';
-  messageDiv.appendChild(select);
-  for (let i = 0; i < liste_annees.length; i++) {
-    var option = document.createElement("option");
-    option.value = liste_annees[i];
-    option.text = liste_annees[i];
-    select.appendChild(option);
-  }
+  init();
+
   const listButton = document.getElementById('listButton');
   listButton.addEventListener('click', function(e) {
     cleanDiv();
@@ -89,6 +79,49 @@ function cleanDiv(){
     i = i + 1;
     div = document.getElementById('activity-'+ i);
   }
+}
+
+function init() {
+  const main = document.getElementById('main');
+  // création des éléments
+  const titre = document.createElement('h1');
+  titre.text = 'Letsq - Strava';
+  const listButton = document.createElement('button');
+  listButton.text = 'Lister';
+  const updateButton = document.createElement('button');
+  updateButton.text = 'Mettre à jour';
+  const reloadButton = document.createElement('button');
+  reloadButton.text = 'Recréer (long !)';
+  const ligne = document.createElement('hr');
+  ligne.size = 4;
+  ligne.width = '100%';
+  ligne.color = 'grey';
+  const messageDiv = document.createElement('div');
+  messageDiv.text = 'Choisissez une année et cliquez !';
+  const resultDiv = document.createElement('div');
+  result.text = '... en attente...';
+  // bouton "List"
+  let liste_annees = [2022,2021,2020,2019,2018,2017,2016,2015];
+  let select = document.createElement('select');
+  select.id = 'year_filter';
+  messageDiv.appendChild(select);
+  for (let i = 0; i < liste_annees.length; i++) {
+    var option = document.createElement("option");
+    option.value = liste_annees[i];
+    option.text = liste_annees[i];
+    select.appendChild(option);
+  }
+  // création de la page
+  main.appendChild(titre);
+  main.appendChild(listButton);
+  main.appendChild(ligne);
+  main.appendChild(select);
+  main.appendChild(messageDiv);
+  main.appendChild(ligne);
+  main.appendChild(resultDiv);
+  main.appendChild(ligne);
+  main.appendChild(updateButton);
+  main.appendChild(reloadButton);
 }
 
 main()
