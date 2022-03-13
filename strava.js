@@ -1,11 +1,13 @@
 import {strDate, strTime, strSpeed } from './functions.js';
 
 function main(){
+  // Préparation de la page html
   init();
 
+  // Action si
   const listButton = document.getElementById('listButton');
   const select = document.getElementById('select');
-  listButton.addEventListener('click', function(e) {
+  select.addEventListener('change', function(e) {
     cleanDiv();
     let year = select.value;
     listActivities(year);
@@ -106,22 +108,21 @@ function init() {
   reloadButton.setAttribute('id','reloadButton');
   // lignes
   const ligne1 = document.createElement('hr');
-  ligne1.size = 2;
+  ligne1.size = 1;
   ligne1.width = '100%';
   ligne1.color = 'orange';
   const ligne2 = document.createElement('hr');
-  ligne2.size = 2;
+  ligne2.size = 1;
   ligne2.width = '100%';
   ligne2.color = 'grey';
   const ligne3 = document.createElement('hr');
-  ligne3.size = 2;
+  ligne3.size = 1;
   ligne3.width = '100%';
   ligne3.color = 'orange';
   // select
   let liste_annees = [2022,2021,2020,2019,2018,2017,2016,2015];
   let select = document.createElement('select');
   select.id = 'select';
-  messageDiv.appendChild(select);
   for (let i = 0; i < liste_annees.length; i++) {
     var option = document.createElement("option");
     option.value = liste_annees[i];
@@ -130,8 +131,8 @@ function init() {
   }
   // création de la page
   main.appendChild(titre);
-  main.appendChild(listButton);
-  main.appendChild(ligne1);
+  //main.appendChild(listButton);
+  //main.appendChild(ligne1);
   main.appendChild(select);
   main.appendChild(messageDiv);
   main.appendChild(ligne2);
