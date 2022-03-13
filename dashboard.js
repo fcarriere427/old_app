@@ -54,8 +54,8 @@ function createTab(year) {
     // 4ème colonne : écart mensuel = calcul
     nom_col = 'col_4';
     nom_col = document.createElement('td');
-    col_2 = document.getElementById('col_2');
-    col_3 = document.getElementById('col_3');
+    let col_2 = document.getElementById('col_2');
+    let col_3 = document.getElementById('col_3');
     nom_col.innerHTML = col_3.value - col_2.value;
     ligne.appendChild(nom_col);
     // 5ème colonne : réel cumulé = calcul
