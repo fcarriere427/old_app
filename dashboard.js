@@ -74,7 +74,11 @@ function createTab(year) {
   j = 5;
   for (let i=0;i<mois.length;i++){
     let cel = document.getElementById('c_' + i + '_' + j);
-    cel.innerHTML = 100; /////////// to do
+    let somme = 0;
+    for (k=0;k<i;k++){
+      somme = somme + document.getElementById('c_' + k + '_' + j);
+    }
+    cel.innerHTML = somme; /////////// to do
   }
 
   // puis on s'occupe des colonnes qui dépendent du réel (donc dépendent de la promesse)
