@@ -29,12 +29,12 @@ function main(){
 
 function listActivities() {
   console.log('List button was clicked');
-  messageDiv.innerHTML = 'Préparation des activités...';
+  //messageDiv.innerHTML = 'Préparation des activités...';
   fetch("/strava_app/list")
   .then(response => response.json())
   .then(data => {
     // pour afficher la liste des activités
-    messageDiv.innerHTML = 'Voici vos ' + data.length + ' activités : ';
+    //messageDiv.innerHTML = 'Voici vos ' + data.length + ' activités : ';
     var mainContainer = document.getElementById('main');
     for (var i = 0; i < data.length; i++) {
       var div = document.createElement('div');
