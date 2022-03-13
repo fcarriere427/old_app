@@ -8,26 +8,23 @@ function main(){
   listActivities(2022);
   // Action si on change l'année
   select.addEventListener('change', function(e) {
-    cleanDiv();
     let year = select.value;
     listActivities(year);
   });
   // bouton "update"
   const updateButton = document.getElementById('updateButton');
   updateButton.addEventListener('click', function(e) {
-    cleanDiv();
     updateActivities();
   });
   // bouton "reload"
   const reloadButton = document.getElementById('reloadButton');
   reloadButton.addEventListener('click', function(e) {
-    cleanDiv();
     reloadActivities();
   });
 }
 
 function listActivities(year) {
-  console.log('List button was clicked');
+  cleanDiv();
   //messageDiv.innerHTML = 'Préparation des activités...';
   fetch(`/strava_app/list?id=${year}`)
   .then(response => response.json())
@@ -61,17 +58,25 @@ function listActivities(year) {
 
 function updateActivities() {
   console.log('Update button was clicked');
+  cleanDiv();
   messageDiv.innerHTML = 'Récupération des dernières données...';
   fetch("/strava_app/update")
-  .then(() => messageDiv.innerHTML = 'OK, les dernières activités ont bien été récupérées !')
+  .then(() => {
+    messageDiv.innerHTML = 'OK, les dernières activités ont bien été récupérées !';
+    resultDiv.innerHTML = 'Resélectionnez une année pour voir les activités';
+  }
 }
 
 function reloadActivities() {
   console.log('Reload button was clicked');
+  cleanDiv();
   messageDiv.innerHTML = 'RAZ des données : ça va prendre un peu de temps...';
   fetch("/strava_app/reload")
   .then(response => response.json())
-  .then((data) => messageDiv.innerHTML = 'OK, les ' + data + ' activités ont bien été rechargées !');
+  .then((data) => {
+    messageDiv.innerHTML = 'OK, les ' + data + ' activités ont bien été rechargées !');
+    resultDiv.innerHTML = 'Resélectionnez une année pour voir les activités';
+  }
 }
 
 function cleanDiv(){
