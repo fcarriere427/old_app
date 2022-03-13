@@ -41,7 +41,7 @@ function createTab(year) {
     data.rows.forEach(doc => {
       console.log('key = ' + doc.key + ' value = ' + doc.value);
       reduce[doc.key] = doc.value;
-      console.log('pour key = 2015,07, alors value = ' + reduce[2015,07]);
+      console.log('pour key = 2015,07, alors value = ' + reduce[[2015,07]]);
     })
   });
 
