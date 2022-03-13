@@ -44,7 +44,13 @@ function createTab(year) {
     // 2ème colonne : réel mensuel = à extraire de la DB
     let col_2 = document.createElement('td');
     col_2.setAttribute('id','col_2');
+    if (i+1<10) {
+      let month = '0'+ i;
+    } else {
+      let month = i;
+    }
     let period = year + '-' + month;
+    console.log('period = ' + period);
     fetch(`/strava_app/list?id=${period}`)
     .then(response => response.json())
     .then(data => {
