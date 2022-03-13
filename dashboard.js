@@ -54,11 +54,9 @@ function createTab(year) {
     // 4ème colonne : écart mensuel = calcul
     let col_4 = document.createElement('td');
     col_4.setAttribute('id','col_4');
-    console.log('parseInt(col_3.innerText) = ' + parseInt(col_3.innerText));
     let calcul = parseInt(col_3.innerText) - parseInt(col_2.innerText);
-    console.log('calcul = '+ calcul);
     col_4.innerHTML = calcul;
-    ligne.appendChild(col_3);
+    ligne.appendChild(col_4);
     // 5ème colonne : réel cumulé = calcul
     // 6ème colonne : cible cumulé = calcul
     // 7ème colonne : écart cumulé = calcul
