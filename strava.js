@@ -33,7 +33,8 @@ function listActivities(year) {
   .then(response => response.json())
   .then(data => {
     // pour afficher la liste des activités
-    //messageDiv.innerHTML = 'Voici vos ' + data.length + ' activités : ';
+    let resultDiv = document.getElementById('messageDiv');
+    messageDiv.innerHTML = 'Voici vos ' + data.length + ' activités : ';
     let resultDiv = document.getElementById('resultDiv');
     resultDiv.innerHTML='';
     for (var i = 0; i < data.length; i++) {
@@ -49,9 +50,7 @@ function listActivities(year) {
        + ' - ' + speed_str;
       // injection dans la page
       var rec_link = "./activity.html?id=" + data[i].doc.id;
-      //console.log('lien = ' + rec_link);
       div.innerHTML = "[<a href=" + rec_link + " target='_blank'>" + data[i].doc.id + "</a>] " + str;
-      //div.innerHTML = "[<a href=rec_link target='_blank'>" + data[i].doc.id + "</a>] " + str;
       resultDiv.appendChild(div);
     }
   })
