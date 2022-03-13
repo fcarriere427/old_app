@@ -65,28 +65,31 @@ function createTab(data){
   ligne_titre.appendChild(col_3);
   ligne_titre.appendChild(col_4);
   ligne_titre.appendChild(col_5);
+  thead.appendChild(ligne_titre);
 
   // remplir le tableau
   for (var i = 0; i < data.length; i++) {
-    var div = document.createElement('div');
-    div.setAttribute('id','activity-' + i);
-    let time_str = strTime(data[i].doc);
-    let speed_str = strSpeed(data[i].doc);
-    // concaténation de la chaine pour 1 activité
-    var str =
-     data[i].doc.start_date.substring(0,10)
-     + ' - ' + Math.round(data[i].doc.distance / 1000 * 100) / 100 + 'km'
-     + ' - ' + time_str
-     + ' - ' + speed_str;
-    // injection dans la page
-    var rec_link = "./activity.html?id=" + data[i].doc.id;
-    div.innerHTML = "[<a href=" + rec_link + " target='_blank'>" + data[i].doc.id + "</a>] " + str;
-    resultDiv.appendChild(div);
+    var ligne = document.createElement('tr');
+    let col_1 = document.createElement('th');
+    let rec_link = "./activity.html?id=" + data[i].doc.id;
+    col_1.innerHTML = "[<a href=" + rec_link + " target='_blank'>" + data[i].doc.name + "</a>] " + str;
+    let col_2 = document.createElement('th');
+    col_2.innerHTML = data[i].doc.start_date.substring(0,10);
+    let col_3 = document.createElement('th');
+    col_3.innerHTML = Math.round(data[i].doc.distance / 1000 * 100) / 100 + 'km';
+    let col_4 = document.createElement('th');
+    col_4.innerHTML = strTime(data[i].doc);
+    let col_5 = document.createElement('th');
+    col_5.innerHTML = strSpeed(data[i].doc);
+    ligne.appendChild(col_1);
+    ligne.appendChild(col_2);
+    ligne.appendChild(col_3);
+    ligne.appendChild(col_4);
+    ligne.appendChild(col_5);
+    tbody.appendChild(ligne);
   }
-
   // ajouter le tableau dans la bonne div
   document.getElementById('resultDiv').appendChild(table);
-
 }
 
 function updateActivities() {
