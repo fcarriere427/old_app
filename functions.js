@@ -55,7 +55,7 @@ function strSpeed(data) {
   let pace = 1 / avg_speed * 1000; // en secondes par km
   let mn_avg_speed = Math.trunc(pace / 60);
   let sec_avg_speed = Math.round(pace - 60 * mn_avg_speed);
-  let speed_str = mn_avg_speed + 'mn' + sec_avg_speed + '/ km'
+  let speed_str = mn_avg_speed + 'mn' + sec_avg_speed + '/km'
   return speed_str;
 }
 
