@@ -42,6 +42,31 @@ function listActivities(year) {
 }
 
 function createTab(data){
+  // préparer le tableau
+  let table = document.createElement('table');
+  let thead = document.createElement('thead');
+  let tbody = document.createElement('tbody');
+  table.appendChild(thead);
+  table.appendChild(tbody);
+  // préparer la ligne de titre
+  let ligne_titre = document.createElement('tr');
+  let col_1 = document.createElement('th');
+  col_1.innerHTML = 'Nom';
+  let col_2 = document.createElement('th');
+  col_2.innerHTML = 'Date';
+  let col_3 = document.createElement('th');
+  col_3.innerHTML = 'Distance';
+  let col_4 = document.createElement('th');
+  col_4.innerHTML = 'Durée';
+  let col_5 = document.createElement('th');
+  col_5.innerHTML = 'Vitesse';
+  ligne_titre.appendChild(col_1);
+  ligne_titre.appendChild(col_2);
+  ligne_titre.appendChild(col_3);
+  ligne_titre.appendChild(col_4);
+  ligne_titre.appendChild(col_5);
+
+  // remplir le tableau
   for (var i = 0; i < data.length; i++) {
     var div = document.createElement('div');
     div.setAttribute('id','activity-' + i);
@@ -58,6 +83,10 @@ function createTab(data){
     div.innerHTML = "[<a href=" + rec_link + " target='_blank'>" + data[i].doc.id + "</a>] " + str;
     resultDiv.appendChild(div);
   }
+
+  // ajouter le tableau dans la bonne div
+  document.getElementById('resultDiv').appendChild(table);
+
 }
 
 function updateActivities() {
