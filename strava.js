@@ -3,14 +3,19 @@ import {strDate, strTime, strSpeed } from './functions.js';
 function main(){
   const messageDiv = document.getElementById('messageDiv');
   // bouton "List"
+  let liste_annees = [2022,2021,2020,2019,2018,2017,2016,2015];
+  let select = document.createElement('select');
+  select.id = 'year_filter';
+  messageDiv.appendChild(select);
+  for (let i = 0; i < liste_annees.length; i++) {
+    var option = document.createElement("option");
+    option.value = liste_annees[i];
+    option.text = liste_annees[i];
+    select.appendChild(option);
+  }
   const listButton = document.getElementById('listButton');
   listButton.addEventListener('click', function(e) {
     cleanDiv();
-    let select = document.createElement('select');
-    select.setAttribute('id','year_filter');
-    select.setAttribute('option','2022');
-    select.setAttribute('option','2021');
-    messageDiv.appendChild(select);
     listActivities();
   });
   // bouton "update"
