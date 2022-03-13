@@ -99,7 +99,7 @@ function init() {
   const messageDiv = document.createElement('div');
   messageDiv.text = 'Choisissez une année et cliquez !';
   const resultDiv = document.createElement('div');
-  result.text = '... en attente...';
+  resultDiv.text = '... en attente...';
   // bouton "List"
   let liste_annees = [2022,2021,2020,2019,2018,2017,2016,2015];
   let select = document.createElement('select');
