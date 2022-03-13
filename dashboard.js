@@ -40,10 +40,10 @@ function createTab(year) {
   .then(data => {
     i=0;
     data.rows.forEach(doc => {
-      console.log('[' + i + '] key' +  + ' value = ' + doc.value));
+      console.log('[' + i + '] key' +  + ' value = ' + doc.value);
       let reduce[i] = [doc.key, doc.value];
       i = i+1;
-    }
+    })
   });
 
   // remplir le tableau
