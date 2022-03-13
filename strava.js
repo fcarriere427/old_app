@@ -78,7 +78,7 @@ function createTab(data){
     let col_3 = document.createElement('td');
     col_3.innerHTML = Math.round(data[i].doc.distance / 1000 * 100) / 100 + 'km';
     let col_4 = document.createElement('td');
-    col_5.innerHTML = strTime(data[i].doc);
+    col_4.innerHTML = strTime(data[i].doc);
     let col_5 = document.createElement('td');
     col_5.innerHTML = strSpeed(data[i].doc);
     ligne.appendChild(col_1);
