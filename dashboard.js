@@ -76,7 +76,8 @@ function createTab(year) {
     let cel = document.getElementById('c_' + i + '_' + j);
     let somme = 0;
     for (let k=0;k<=i;k++){
-      somme = somme + parseFloat(document.getElementById('c_' + k + '_' + 2).innerHTML);
+      somme = somme + daysInMonth(k+1,year);
+      //somme = somme + parseFloat(document.getElementById('c_' + k + '_' + 2).innerHTML);
     }
     cel.innerHTML = Math.round(somme*10)/10;
   }
