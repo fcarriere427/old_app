@@ -15,7 +15,9 @@ function main(){
   });
 }
 
-function createTab(year) {
+async function createTab(year) {
+  // récupérer les distances par mois (dans un tableau reduce[doc.key] = doc.value, avec doc.key ='2015,07' par ex
+  await getMonthDistances();
   // préparer le tableau
   let table = document.createElement('table');
   let thead = document.createElement('thead');
@@ -33,8 +35,7 @@ function createTab(year) {
   }
   thead.appendChild(ligne_titre);
 
-
-  // remplir le tableau
+  // remplir le tableau ligne par ligne
   for (let i=0;i<mois.length;i++){
     var ligne = document.createElement('tr');
     // 1ère colonne : mois
@@ -43,28 +44,17 @@ function createTab(year) {
     col_1.innerHTML = mois[i];
     ligne.appendChild(col_1);
     // 2ème colonne : réel mensuel = à extraire de la DB
-    // récupération des distances réelles par mois
-    let reduce = [];
-    fetch('/strava_app/month_distance')
-    .then(response => response.json())
-    .then(data => {
-      data.rows.forEach(doc => {
-        reduce[doc.key] = doc.value;
-        console.log('pour key = 2015,07, alors value = ' + reduce['2015,07']);
-        let col_2 = document.createElement('td');
-        col_2.setAttribute('id','col_2');
 
-        ///////////// REPRENDRE ICI EN EXPLOITANT LE TABLEAU reduce
-        let month = (i+1).toString(); if (month.length<2) { month = '0' + month };
-        let key = year + ',' + month;
-        console.log('key = ' + key);
-        console.log('reduce[key] = ' + reduce[key]);
-        col_2.innerHTML = Math.round(reduce[key]*10)/10;
-        ligne.appendChild(col_2);
-      })
-    });
-
-
+    //console.log('pour key = 2015,07, alors value = ' + reduce['2015,07']);
+    let col_2 = document.createElement('td');
+    col_2.setAttribute('id','col_2');
+      ///////////// REPRENDRE ICI EN EXPLOITANT LE TABLEAU reduce
+    let month = (i+1).toString(); if (month.length<2) { month = '0' + month };
+    let key = "'" + year + ',' + month + "'";
+    console.log('key = ' + key);
+    console.log('reduce[key] = ' + reduce[key]);
+    col_2.innerHTML = Math.round(reduce[key]*10)/10;
+    ligne.appendChild(col_2);
     // 3ème colonne : cible mensuel = calcul
     let col_3 = document.createElement('td');
     col_3.setAttribute('id','col_3');
@@ -74,13 +64,33 @@ function createTab(year) {
     let col_4 = document.createElement('td');
     col_4.setAttribute('id','col_4');
     // let calcul = parseInt(col_2.innerText) - parseInt(col_3.innerText);
-    // col_4.innerHTML = calcul;
+    col_4.innerHTML = 'XXX';
     ligne.appendChild(col_4);
     // 5ème colonne : réel cumulé = calcul
+    let col_5 = document.createElement('td');
+    col_5.setAttribute('id','col_5');
+    col_5.innerHTML = 'X5';
+    ligne.appendChild(col_5);
     // 6ème colonne : cible cumulé = calcul
+    let col_6 = document.createElement('td');
+    col_6.setAttribute('id','col_6');
+    col_6.innerHTML = 'X6';
+    ligne.appendChild(col_6);
     // 7ème colonne : écart cumulé = calcul
+    let col_7 = document.createElement('td');
+    col_7.setAttribute('id','col_7');
+    col_7.innerHTML = 'X7';
+    ligne.appendChild(col_7);
     // 8ème colonne : moyenne / jour = calcul
+    let col_8 = document.createElement('td');
+    col_8.setAttribute('id','col_8');
+    col_8.innerHTML = 'X8';
+    ligne.appendChild(col_8);
     // 9ème colonne :  moyenne / semaine = calcul
+    let col_9 = document.createElement('td');
+    col_9.setAttribute('id','col_9');
+    col_9.innerHTML = 'X9';
+    ligne.appendChild(col_9);
     // on ajoute la ligne au tableau
     tbody.appendChild(ligne);
   }
@@ -131,6 +141,20 @@ function init() {
   main.appendChild(resultDiv);
   main.appendChild(ligne3);
 }
+
+// récupération des distances réelles par mois
+async function getMonthDistances(){
+  let reduce = [];
+  fetch('/strava_app/month_distance')
+  .then(response => response.json())
+  .then(data => {
+    data.rows.forEach(doc => {
+      reduce[doc.key] = doc.value;
+    })
+  })
+  .then(data => resolve(reduce));
+}
+
 
 // Month in JavaScript is 0-indexed (January is 0, February is 1, etc),
 // but by using 0 as the day it will give us the last day of the prior
