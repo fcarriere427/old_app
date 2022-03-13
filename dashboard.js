@@ -114,6 +114,13 @@ function createTab(year) {
     }
 
     // 7ème colonne : écart cumulé = calcul
+    j = 6;
+    for (let i=0;i<mois.length;i++){
+      let reel = parseFloat(document.getElementById('c_' + i + '_' + 1).innerHTML);
+      let cible = parseFloat(document.getElementById('c_' + i + '_' + 2).innerHTML);
+      cel.innerHTML = Math.round((reel - cible)*10)/10;
+    }
+
     // 8ème colonne : moyenne / jour = calcul
     // 9ème colonne :  moyenne / semaine = calcul
   })
