@@ -55,13 +55,13 @@ function createTab(year) {
     cel.innerHTML = mois[i];
   }
   // 3ème colonne (j = 2) : cible mensuel
-  let j = 2;
+  j = 2;
   for (let i=0;i<mois.length;i++){
     let cel = document.getElementById('c_' + i + '_' + j);
     cel.innerHTML = Math.round(daysInMonth(i+1, year) / daysInYear(year) * target_an * 10)/10;
   }
   // 6ème colonne (j = 5) : cible cumul
-  let j = 5;
+  j = 5;
   for (let i=0;i<mois.length;i++){
     let cel = document.getElementById('c_' + i + '_' + j);
     cel.innerHTML = 100; /////////// to do
