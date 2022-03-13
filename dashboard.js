@@ -51,7 +51,7 @@ function createTab(year) {
     let col_2 = document.createElement('td');
     col_2.setAttribute('id','col_2');
     let month = (i+1).toString(); if (month.length<2) { month = '0' + month };
-    let key = '"key":["' + year + '","' + month + '"]']
+    let key = '"key":["' + year + '","' + month + '"]';
     console.log('key = ' + key);
     console.log('reduce.key = ' + reduce.key);
     col_2.innerHTML = Math.round(reduce[year,month]*10)/10;
