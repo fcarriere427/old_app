@@ -21,7 +21,7 @@ function createTab(year) {
   let table = document.createElement('table');
   let thead = document.createElement('thead');
   let tbody = document.createElement('tbody');
-  let tbottom = document.createElement('thead');
+  let tbottom = document.createElement('tfoot');
   table.appendChild(thead);
   table.appendChild(tbody);
   table.appendChild(tbottom);
