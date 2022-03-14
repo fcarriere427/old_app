@@ -182,6 +182,7 @@ function createTab(year) {
     }
     // Ligne du bas
     cel_src = document.getElementById('c_' + 12 + '_' + 1);
+    console.log('cel_src pour j=7 : ' + cel.src.innerHTML);
     cel_tgt.innerHTML = Math.round(parseFloat(cel_src.innerHTML) / daysInYear()*100)/100;
 
     // 9ème colonne :  moyenne / semaine = calcul
