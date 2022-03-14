@@ -127,7 +127,7 @@ function createTab(year) {
     // Ligne du bas
     cel_tgt = document.getElementById('c_' + 12 + '_' + j);
     let somme = 0;
-    for (let k=0;k<=12;k++){
+    for (let k=0;k<12;k++){
       somme = somme + parseFloat(document.getElementById('c_' + k + '_' + 1).innerHTML);
     }
     cel_tgt.innerHTML = somme;
