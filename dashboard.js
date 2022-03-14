@@ -193,6 +193,7 @@ function createTab(year) {
     }
     // Ligne du bas
     cel_src = document.getElementById('c_' + 12 + '_' + 7);
+    cel_tgt = document.getElementById('c_' + 12 + '_' + j);
     cel_tgt.innerHTML = Math.round(parseFloat(cel_src.innerHTML) *7 *10)/10;
 
   })
