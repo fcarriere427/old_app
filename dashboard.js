@@ -20,8 +20,8 @@ function createTab(year) {
   //// préparer le tableau
   let table = document.createElement('table');
   let thead = document.createElement('thead');
-  let tbottom = document.createElement('thead');
   let tbody = document.createElement('tbody');
+  let tbottom = document.createElement('thead');
   table.appendChild(thead);
   table.appendChild(tbody);
   table.appendChild(tbottom);
@@ -61,7 +61,7 @@ function createTab(year) {
     nom_cell = document.createElement('th');
     nom_cell.setAttribute('id','c_' + 12 + '_' + i);
     nom_cell.innerHTML = 'c_' + 12 + '_' + i;
-    ligne.appendChild(nom_cell);
+    ligne_bas.appendChild(nom_cell);
   }
   thead.appendChild(ligne_bas);
 
