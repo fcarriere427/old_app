@@ -155,7 +155,7 @@ function createTab(year) {
       cel.innerHTML = Math.round(somme*10)/10;
     }
     // Ligne du bas
-    cel_src = document.getElementById('c_' + 11 + '_' + j);
+    let cel_src = document.getElementById('c_' + 11 + '_' + j);
     cel_tgt = document.getElementById('c_' + 12 + '_' + j);
     cel_tgt.innerHTML = parseFloat(cel_src.innerHTML);
 
