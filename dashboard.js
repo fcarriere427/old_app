@@ -130,7 +130,7 @@ function createTab(year) {
     for (let k=0;k<12;k++){
       somme = somme + parseFloat(document.getElementById('c_' + k + '_' + 1).innerHTML);
     }
-    cel_tgt.innerHTML = somme;
+    cel_tgt.innerHTML = Math.round(somme*100)/100;
 
     // 4ème colonne : écart mensuel = calcul
     j = 3;
