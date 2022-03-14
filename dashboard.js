@@ -79,7 +79,7 @@ function createTab(year) {
   }
   // Ligne du bas
   let cel_tgt = document.getElementById('c_' + 12 + '_' + j);
-  cel_tgt.innerHTML = 'TOTAL');
+  cel_tgt.innerHTML = 'TOTAL';
 
   // 3ème colonne (j = 2) : cible mensuel
   j = 2;
