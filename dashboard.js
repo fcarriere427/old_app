@@ -63,7 +63,7 @@ function createTab(year) {
     nom_cell.innerHTML = 'c_' + 12 + '_' + i;
     ligne_bas.appendChild(nom_cell);
   }
-  thead.appendChild(ligne_bas);
+  tbottom.appendChild(ligne_bas);
 
   // ajouter le tableau dans la bonne div
   document.getElementById('resultDiv').innerHTML = 'Voici la synthèse de l\'année : ';
