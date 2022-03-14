@@ -20,9 +20,11 @@ function createTab(year) {
   //// préparer le tableau
   let table = document.createElement('table');
   let thead = document.createElement('thead');
+  let tbottom = document.createElement('thead');
   let tbody = document.createElement('tbody');
   table.appendChild(thead);
   table.appendChild(tbody);
+  table.appendChild(tbottom);
   // préparer la ligne de titre
   let ligne_titre = document.createElement('tr');
   for (var i = 0; i < titres_col.length; i++) {
@@ -51,10 +53,21 @@ function createTab(year) {
     }
     // on ajoute la ligne au tableau
     tbody.appendChild(ligne);
-    // ajouter le tableau dans la bonne div
-    document.getElementById('resultDiv').innerHTML = 'Voici la synthèse de l\'année : ';
-    document.getElementById('resultDiv').appendChild(table);
   }
+  // préparer la ligne du bas (somme)
+  let ligne_bas = document.createElement('tr');
+  for (var i = 0; i < titres_col.length; i++) {
+    let nom_cell = 'c_' + 12 + '_' + i;
+    nom_cell = document.createElement('th');
+    nom_cell.setAttribute('id','c_' + 12 + '_' + i);
+    nom_cell.innerHTML = 'c_' + 12 + '_' + i;
+    ligne.appendChild(nom_cell);
+  }
+  thead.appendChild(ligne_bas);
+
+  // ajouter le tableau dans la bonne div
+  document.getElementById('resultDiv').innerHTML = 'Voici la synthèse de l\'année : ';
+  document.getElementById('resultDiv').appendChild(table);
 
   //// remplir le tableau, colonne par colonne
   // on commence par celles qui ne dépendent pas du réel : 1ère, 3ème, 6ème
@@ -64,12 +77,20 @@ function createTab(year) {
     let cel = document.getElementById('c_' + i + '_' + j);
     cel.innerHTML = mois[i];
   }
+  // Ligne du bas
+  let cel_tgt = document.getElementById('c_' + 12 + '_' + j);
+  cel_tgt.innerHTML = 'TOTAL');
+
   // 3ème colonne (j = 2) : cible mensuel
   j = 2;
   for (let i=0;i<mois.length;i++){
     let cel = document.getElementById('c_' + i + '_' + j);
     cel.innerHTML = Math.round(daysInMonth(i+1, year) / daysInYear(year) * target_an*10)/10;
   }
+  // Ligne du bas
+  cel_tgt = document.getElementById('c_' + 12 + '_' + j);
+  cel_tgt.innerHTML = '';
+
   // 6ème colonne (j = 5) : cible cumul
   j = 5;
   for (let i=0;i<mois.length;i++){
@@ -80,6 +101,9 @@ function createTab(year) {
     }
     cel.innerHTML = Math.round(somme / daysInYear(year) * target_an*10)/10;
   }
+  // Ligne du bas
+  cel_tgt = document.getElementById('c_' + 12 + '_' + j);
+  cel_tgt.innerHTML = target_an;
 
   // puis on s'occupe des colonnes qui dépendent du réel (donc dépendent de la promesse)
   // pour cela, on commence par récupérer les distances par mois (dans un tableau reduce[doc.key] = doc.value, avec doc.key ='2015,07' par ex
@@ -100,6 +124,14 @@ function createTab(year) {
         cel.innerHTML = 0;
       }
     }
+    // Ligne du bas
+    cel_tgt = document.getElementById('c_' + 12 + '_' + j);
+    let somme = 0;
+    for (let k=0;k<=12;k++){
+      somme = somme + parseFloat(document.getElementById('c_' + k + '_' + 1).innerHTML);
+    }
+    cel_tgt.innerHTML = somme;
+
     // 4ème colonne : écart mensuel = calcul
     j = 3;
     for (let i=0;i<mois.length;i++){
@@ -108,6 +140,9 @@ function createTab(year) {
       let cible = parseFloat(document.getElementById('c_' + i + '_' + 2).innerHTML);
       cel.innerHTML = Math.round((reel - cible)*10)/10;
     }
+    // Ligne du bas
+    cel_tgt = document.getElementById('c_' + 12 + '_' + j);
+    cel_tgt.innerHTML = '';
 
     // 5ème colonne : réel cumulé = calcul
     j = 4;
@@ -119,6 +154,10 @@ function createTab(year) {
       }
       cel.innerHTML = Math.round(somme*10)/10;
     }
+    // Ligne du bas
+    cel_src = document.getElementById('c_' + 11 + '_' + j);
+    cel_tgt = document.getElementById('c_' + 12 + '_' + j);
+    cel_tgt.innerHTML = parseFloat(cel_src.innerHTML);
 
     // 7ème colonne : écart cumulé = calcul
     j = 6;
@@ -130,6 +169,10 @@ function createTab(year) {
       }
       cel.innerHTML = Math.round(somme*10)/10;
     }
+    // Ligne du bas
+    cel_src = document.getElementById('c_' + 11 + '_' + j);
+    cel_tgt = document.getElementById('c_' + 12 + '_' + j);
+    cel_tgt.innerHTML = parseFloat(cel_src.innerHTML);
 
     // 8ème colonne : moyenne / jour = calcul
     j = 7;
@@ -137,6 +180,9 @@ function createTab(year) {
       let cel = document.getElementById('c_' + i + '_' + j);
       cel.innerHTML = Math.round(parseFloat(document.getElementById('c_' + i + '_' + 1).innerHTML) / daysInMonth(i+1, year)*100)/100;
     }
+    // Ligne du bas
+    cel_src = document.getElementById('c_' + 12 + '_' + 1);
+    cel_tgt.innerHTML = Math.round(parseFloat(cel_src.innerHTML) / daysInYear()*100)/100;
 
     // 9ème colonne :  moyenne / semaine = calcul
     j = 8;
@@ -144,6 +190,9 @@ function createTab(year) {
       let cel = document.getElementById('c_' + i + '_' + j);
       cel.innerHTML = Math.round(parseFloat(document.getElementById('c_' + i + '_' + 7).innerHTML)*7*10)/10;
     }
+    // Ligne du bas
+    cel_src = document.getElementById('c_' + 12 + '_' + 7);
+    cel_tgt.innerHTML = Math.round(parseFloat(cel_src.innerHTML) *7 *10)/10;
 
   })
 }
