@@ -112,8 +112,8 @@ function reloadActivities() {
   .then(response => response.json())
   .then((data) => {
     messageDiv.innerHTML = 'OK, the ' + data + ' activities have been loaded (including "other than run")!';
-    listActivities(2022);
-    //resultDiv.innerHTML = 'Pick up a year to see activities';
+    //listActivities(2022);
+    resultDiv.innerHTML = 'Pick up a year to see activities';
   })
 }
 
