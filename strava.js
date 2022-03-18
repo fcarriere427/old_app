@@ -137,10 +137,6 @@ function init() {
   const resultDiv = document.createElement('div');
   resultDiv.innerHTML = '... en attente...';
   resultDiv.setAttribute('id','resultDiv');
-  const lienDashboard = document.createElement('div');
-  let link = "./dashboard.html";
-  lienDashboard.innerHTML = "<a href=" + link + " target='_blank'>" + 'Voir le dashboard' + "</a>";
-  lienDashboard.setAttribute('id','lienDashboard');
   // boutons
   const updateButton = document.createElement('button');
   updateButton.innerHTML = 'Mettre à jour';
@@ -181,7 +177,6 @@ function init() {
   main.appendChild(ligne3);
   main.appendChild(updateButton);
   main.appendChild(reloadButton);
-  main.appendChild(lienDashboard);
 }
 
 main()
