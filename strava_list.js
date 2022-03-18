@@ -31,7 +31,7 @@ function listActivities(year) {
   .then(data => {
     // pour afficher la liste des activités
     let messageDiv = document.getElementById('messageDiv');
-    messageDiv.innerHTML = 'Voici vos ' + data.length + ' activités : ';
+    messageDiv.innerHTML = 'Here are your ' + data.length + ' activities : ';
     let resultDiv = document.getElementById('resultDiv');
     resultDiv.innerHTML='';
     createTab(data);
@@ -53,13 +53,13 @@ function createTab(data){
   let col_1 = document.createElement('th');
   col_1.innerHTML = 'Date';
   let col_2 = document.createElement('th');
-  col_2.innerHTML = 'Nom';
+  col_2.innerHTML = 'Name';
   let col_3 = document.createElement('th');
   col_3.innerHTML = 'Distance';
   let col_4 = document.createElement('th');
-  col_4.innerHTML = 'Durée';
+  col_4.innerHTML = 'Duration';
   let col_5 = document.createElement('th');
-  col_5.innerHTML = 'Vitesse';
+  col_5.innerHTML = 'Pace';
   ligne_titre.appendChild(col_1);
   ligne_titre.appendChild(col_2);
   ligne_titre.appendChild(col_3);
@@ -95,23 +95,23 @@ function createTab(data){
 function updateActivities() {
   console.log('Update button was clicked');
   cleanDiv();
-  messageDiv.innerHTML = 'Récupération des dernières données...';
+  messageDiv.innerHTML = 'We are fetching latest data...';
   fetch("/strava_app/update")
   .then(() => {
-    messageDiv.innerHTML = 'OK, les dernières activités ont bien été récupérées !';
-    resultDiv.innerHTML = 'Resélectionnez une année pour voir les activités';
+    messageDiv.innerHTML = 'OK, latest data downloaded!';
+    resultDiv.innerHTML = 'Pick up a year to see activities';
   })
 }
 
 function reloadActivities() {
   console.log('Reload button was clicked');
   cleanDiv();
-  messageDiv.innerHTML = 'Rechargement complet des données : ça va prendre un peu de temps...';
+  messageDiv.innerHTML = 'Complete download of summary activities: it might take a while...';
   fetch("/strava_app/reload")
   .then(response => response.json())
   .then((data) => {
-    messageDiv.innerHTML = 'OK, les ' + data + ' activités ont bien été rechargées (y compris autres que "Run") !';
-    resultDiv.innerHTML = 'Resélectionnez une année pour voir les activités';
+    messageDiv.innerHTML = 'OK, the ' + data + ' activities have been loaded (including "other than run")!';
+    resultDiv.innerHTML = 'Pick up a year to see activities';
   })
 }
 
@@ -130,19 +130,19 @@ function init() {
   //// création des éléments
   // blocs de texte
   const titre = document.createElement('h1');
-  titre.innerHTML = 'Activités Strava';
+  titre.innerHTML = 'Strava activities';
   const messageDiv = document.createElement('div');
-  messageDiv.innerHTML = 'Choisissez une année !';
+  messageDiv.innerHTML = 'Pick up a year!';
   messageDiv.setAttribute('id','messageDiv');
   const resultDiv = document.createElement('div');
-  resultDiv.innerHTML = '... en attente...';
+  resultDiv.innerHTML = '... waiting ...';
   resultDiv.setAttribute('id','resultDiv');
   // boutons
   const updateButton = document.createElement('button');
-  updateButton.innerHTML = 'Mettre à jour';
+  updateButton.innerHTML = 'Update';
   updateButton.setAttribute('id','updateButton');
   const reloadButton = document.createElement('button');
-  reloadButton.innerHTML = 'Recréer (long !)';
+  reloadButton.innerHTML = 'Reload (!)';
   reloadButton.setAttribute('id','reloadButton');
   // lignes
   const ligne1 = document.createElement('hr');

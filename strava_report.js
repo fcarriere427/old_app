@@ -1,6 +1,6 @@
 const liste_annees = [2022,2021,2020,2019,2018,2017,2016,2015];
-const mois = ['Jan', 'Fév', 'Mars', 'Avr', 'Mai', 'Juin', 'Juil', 'Août', 'Sept', 'Oct', 'Nov', 'Déc'];
-const titres_col = ['Mois', 'Réel (km)', 'Cible (km)', 'Ecart (km)', 'Réel (cumul)', 'Cible (cumul)', 'Ecart (cumul)', 'Moy (km/j)', 'Moy (km/sem)'];
+const mois = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const titres_col = ['Month', 'Actual (km)', 'Target (km)', 'Delta (km)', 'Actual (cumul.)', 'Target (cumul.)', 'Delta (cumul.)', 'Avg (km/j)', 'Avg (km/sem)'];
 const target_an = 1000;
 
 function main(){
@@ -66,7 +66,7 @@ function createTab(year) {
   tbottom.appendChild(ligne_bas);
 
   // ajouter le tableau dans la bonne div
-  document.getElementById('resultDiv').innerHTML = 'Voici la synthèse de l\'année : ';
+  document.getElementById('resultDiv').innerHTML = 'Here this year\'s summary: ';
   document.getElementById('resultDiv').appendChild(table);
 
   //// remplir le tableau, colonne par colonne
@@ -204,12 +204,12 @@ function init() {
   //// création des éléments
   // blocs de texte
   const titre = document.createElement('h1');
-  titre.innerHTML = 'Tableau de bord Strava';
+  titre.innerHTML = 'Strava report';
   const messageDiv = document.createElement('div');
-  messageDiv.innerHTML = 'Choisissez une année !';
+  messageDiv.innerHTML = 'Pick up a year!';
   messageDiv.setAttribute('id','messageDiv');
   const resultDiv = document.createElement('div');
-  resultDiv.innerHTML = '... en attente...';
+  resultDiv.innerHTML = '... waiting ...';
   resultDiv.setAttribute('id','resultDiv');
   // lignes
   const ligne1 = document.createElement('hr');
