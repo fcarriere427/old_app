@@ -11,8 +11,8 @@ function init() {
   titre.innerHTML = 'Tracker Strava';
 
   const chart = document.createElement('div');
-  div.setAttribute('id', 'container');
-  div.setAttribute('class', 'graph');
+  chart.setAttribute('id', 'container');
+  chart.setAttribute('class', 'graph');
   // création de la page
   main.appendChild(titre);
 }
