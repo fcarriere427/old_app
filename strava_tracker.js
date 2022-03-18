@@ -15,6 +15,7 @@ function init() {
   chart.setAttribute('class', 'graph');
   // création de la page
   main.appendChild(titre);
+  main.appendChild(chart);
 }
 
 function testGraph(){
