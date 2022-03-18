@@ -80,7 +80,7 @@ function testGraph(){
   };
 
   // The speed gauge
-  var chartSpeed = Highcharts.chart('container-speed', Highcharts.merge(gaugeOptions, {
+  var chartSpeed = Highcharts.chart('container', Highcharts.merge(gaugeOptions, {
       yAxis: {
           min: 0,
           max: 200,
@@ -110,35 +110,6 @@ function testGraph(){
 
   }));
 
-  // The RPM gauge
-  var chartRpm = Highcharts.chart('container-rpm', Highcharts.merge(gaugeOptions, {
-      yAxis: {
-          min: 0,
-          max: 5,
-          title: {
-              text: 'RPM'
-          }
-      },
-
-      series: [{
-          name: 'RPM',
-          data: [1],
-          dataLabels: {
-              format:
-                  '<div style="text-align:center">' +
-                  '<span style="font-size:25px">{y:.1f}</span><br/>' +
-                  '<span style="font-size:12px;opacity:0.4">' +
-                  '* 1000 / min' +
-                  '</span>' +
-                  '</div>'
-          },
-          tooltip: {
-              valueSuffix: ' revolutions/min'
-          }
-      }]
-
-  }));
-
   // Bring life to the dials
   setInterval(function () {
       // Speed
@@ -152,19 +123,6 @@ function testGraph(){
           newVal = point.y + inc;
 
           if (newVal < 0 || newVal > 200) {
-              newVal = point.y - inc;
-          }
-
-          point.update(newVal);
-      }
-
-      // RPM
-      if (chartRpm) {
-          point = chartRpm.series[0].points[0];
-          inc = Math.random() - 0.5;
-          newVal = point.y + inc;
-
-          if (newVal < 0 || newVal > 5) {
               newVal = point.y - inc;
           }
 
