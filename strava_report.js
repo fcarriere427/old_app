@@ -203,7 +203,7 @@ function init() {
   const main = document.getElementById('main');
   //// création des éléments
   // blocs de texte
-  const titre = document.createElement('h1');
+  const titre = document.createElement('h2');
   titre.innerHTML = 'Strava report';
   const messageDiv = document.createElement('div');
   messageDiv.innerHTML = 'Pick up a year!';
