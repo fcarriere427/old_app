@@ -13,6 +13,13 @@ body {
   border-radius: 10px;
 }
 
+ul, li {
+  list-style-type: disc;
+  list-style-position: inside;
+  font-size: 14px;
+}
+
+
 .intro {
   padding: 10px;
   margin: auto;
