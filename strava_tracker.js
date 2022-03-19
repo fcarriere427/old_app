@@ -85,9 +85,9 @@ function testGraph(){
       yAxis: {
           min: -100,
           max: 100,
-          title: {
-              text: 'Delta'
-          }
+          // title: {
+          //     text: 'Delta'
+          // }
       },
 
       credits: {
@@ -96,7 +96,7 @@ function testGraph(){
 
       series: [{
           name: 'Delta',
-          data: [0],
+          data: [-80],
           dataLabels: {
               format:
                   '<div style="text-align:center">' +
