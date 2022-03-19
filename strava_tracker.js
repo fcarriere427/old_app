@@ -84,7 +84,14 @@ function createGraph(year, target){
   let reduce = [];
   let current = 0;
   getMonthDistances()
-  .then(reduce => { // ici, reduce['2015,07'] renvoie la bonne valeur
+  .then(reduce => {
+    let summ_l1 = document.getElementById('summary_l1');
+    let summ_l2 = document.getElementById('summary_l2');
+    let summ_l3 = document.getElementById('summary_l3');
+    let summ_l4 = document.getElementById('summary_l4');
+    let summ_l5 = document.getElementById('summary_l5');
+
+    // ici, reduce['2015,07'] renvoie la bonne valeur
     for (let i = 1; i <= 12; i++){
       let month = (i).toString(); if (month.length<2) { month = '0' + month };
       let key = year + ',' + month;
@@ -93,7 +100,7 @@ function createGraph(year, target){
       }
     }
     let actual = Math.round(current/1000*10)/10;; // div par 1000 pour passer en km, puis arrondi au dixième
-    summary_l2.innerHTML = 'Actual to date = ' + actual + "km";
+    summ_l2.innerHTML = 'Actual to date = ' + actual + "km";
 
     // calcul de la target à date
     var now = new Date();
@@ -102,16 +109,16 @@ function createGraph(year, target){
     var oneDay = 1000 * 60 * 60 * 24;
     var day = Math.floor(diff / oneDay);
     let target_date = Math.round(day / daysInYear(year) * target*10)/10;
-    summary_l1.innerHTML = 'Target to date = ' + target_date + "km";
+    summ_l1.innerHTML = 'Target to date = ' + target_date + "km";
 
     // calculs
     let delta = Math.round((actual - target_date)*10)/10;
     console.log('delta = ' + delta);
-    summary_l3.innerHTML = 'Delta = ' + delta + "km";
+    summ_l3.innerHTML = 'Delta = ' + delta + "km";
     let delta_days = delta * target / daysInYear(year);
-    summary_l4.innerHTML = 'Days of advance / late = ' + delta_days + "days";
+    summ_l4.innerHTML = 'Days of advance / late = ' + delta_days + "days";
     let new_avg_week = (target - delta) / daysInYear(year) * 7;
-    summary_l5.innerHTML = 'New avg/week = ' +  new_avg_week + "km";
+    summ_l5.innerHTML = 'New avg/week = ' +  new_avg_week + "km";
 
     // ajout du graphe
     document.addEventListener('DOMContentLoaded', addGraph(delta));
