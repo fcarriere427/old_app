@@ -175,15 +175,17 @@ function init() {
   const chart = document.createElement('div');
   chart.setAttribute('id', 'container');
   chart.setAttribute('class', 'chart-container');
-  chart.setAttribute('height', '400px');
+  chart.setAttribute('height', '300px');
   // inputs de la target
   let tgt_div = document.createElement('div');
+  tgt_div.setAttribute('style','text-align:center')
   let tgt_label = document.createElement('label');
   tgt_label.setAttribute('id', 'tgt_label');
   tgt_label.innerHTML = 'Target: ';
   let tgt_input = document.createElement('input');
   tgt_input.setAttribute('id', 'target');
   tgt_input.setAttribute('type', 'number');
+  tgt_input.setAttribute('size', '5');
   tgt_input.setAttribute('value', 1000);
   tgt_div.appendChild(tgt_label);
   tgt_div.appendChild(tgt_input);
