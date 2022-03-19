@@ -42,14 +42,14 @@ function createTab(year) {
     let nom_cell = 'c_' + i + '_' + 0;
     nom_cell = document.createElement('th');
     nom_cell.setAttribute('id','c_' + i + '_' + 0);
-    nom_cell.innerHTML = 'c_' + i + '_' + 0;
+    //nom_cell.innerHTML = 'c_' + i + '_' + 0;
     ligne.appendChild(nom_cell);
     // pour les autres colonnes de données
     for (let j=1;j<titres_col.length;j++){
       let nom_cell = 'c_' + i + '_' + j;
       nom_cell = document.createElement('td');
       nom_cell.setAttribute('id','c_' + i + '_' + j);
-      nom_cell.innerHTML = 'c_' + i + '_' + j;
+      //nom_cell.innerHTML = 'c_' + i + '_' + j;
       ligne.appendChild(nom_cell);
     }
     // on ajoute la ligne au tableau
@@ -61,7 +61,7 @@ function createTab(year) {
     let nom_cell = 'c_' + 12 + '_' + i;
     nom_cell = document.createElement('th');
     nom_cell.setAttribute('id','c_' + 12 + '_' + i);
-    nom_cell.innerHTML = 'c_' + 12 + '_' + i;
+    //nom_cell.innerHTML = 'c_' + 12 + '_' + i;
     ligne_bas.appendChild(nom_cell);
   }
   tbottom.appendChild(ligne_bas);
