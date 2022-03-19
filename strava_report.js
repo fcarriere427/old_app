@@ -1,3 +1,5 @@
+import {getMonthDistances, daysInYear, daysInMonth} from './functions.js';
+
 const liste_annees = [2022,2021,2020,2019,2018,2017,2016,2015];
 const mois = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const titres_col = ['Month', 'Actual (km)', 'Target (km)', 'Delta (km)', 'Actual (cumul.)', 'Target (cumul.)', 'Delta (cumul.)', 'Avg (km/d)', 'Avg (km/w)'];
@@ -241,37 +243,6 @@ function init() {
   main.appendChild(ligne2);
   main.appendChild(resultDiv);
   main.appendChild(ligne3);
-}
-
-// récupération des distances réelles par mois
-function getMonthDistances(){
-  return new Promise((resolve, reject) => {
-    let reduce = [];
-    fetch('/strava_app/month_distance')
-    .then(response => response.json())
-    .then(data => {
-      data.rows.forEach(doc => {
-        reduce[doc.key] = doc.value;
-      })
-    })
-    .then(data => resolve(reduce));
-  })
-}
-
-// Month in JavaScript is 0-indexed (January is 0, February is 1, etc),
-// but by using 0 as the day it will give us the last day of the prior
-// month. So passing in 1 as the month number will return the last day
-// of January, not February
-function daysInMonth (month, year) {
-    return new Date(year, month, 0).getDate();
-}
-
-function daysInYear(year) {
-  var days = 0;
-  for(var month = 1; month <= 12; month++) {
-    days += daysInMonth(month, year);
-  }
-  return days;
 }
 
 main()

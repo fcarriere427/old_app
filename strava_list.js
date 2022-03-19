@@ -1,4 +1,4 @@
-import {strDate, strTime, strSpeed } from './functions.js';
+import {strTime, strSpeed } from './functions.js';
 
 function main(){
   // Préparation de la page html
@@ -84,8 +84,8 @@ function createTab(data){
     ligne.appendChild(col_1);
     ligne.appendChild(col_2);
     ligne.appendChild(col_3);
-    ligne.appendChild(col_4);
     ligne.appendChild(col_5);
+    ligne.appendChild(col_4);
     tbody.appendChild(ligne);
   }
   // ajouter le tableau dans la bonne div
