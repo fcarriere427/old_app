@@ -41,7 +41,8 @@ function init() {
 function addGraph(actual){
 
   // convert into array
-  let array = new Array(actual);
+  let array = new Array(1);
+  array[0] = actual;
 
   var gaugeOptions = {
       chart: {
