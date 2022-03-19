@@ -43,9 +43,9 @@ function main(){
     let delta = Math.round((actual - target_date)*10)/10;
     console.log('delta = ' + delta);
     summary_l3.innerHTML = 'Delta = ' + delta + "km";
-    let delta_days = delta * tgt / daysInYear(year);
+    let delta_days = Math.round(delta / tgt * daysInYear(year)*10)/10;
     summary_l4.innerHTML = 'Days of advance / late = ' + delta_days + "days";
-    let new_avg_week = (tgt - delta) / daysInYear(year) * 7;
+    let new_avg_week = Math.round((tgt - delta) / daysInYear(year) * 7 * 10)/10;
     summary_l5.innerHTML = 'New avg/week = ' +  new_avg_week + "km";
 
     // ajout du graphe
