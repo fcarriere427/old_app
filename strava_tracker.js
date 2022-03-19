@@ -35,7 +35,7 @@ function init() {
     // écriture
     let actual = Math.round(current/1000*10)/10;; // div par 1000 pour passer en km, puis arrondi au dixième
     document.addEventListener('DOMContentLoaded', addGraph(actual));
-  }
+  })
 }
 
 function addGraph(actual){
