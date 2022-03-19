@@ -175,7 +175,7 @@ function init() {
   const chart = document.createElement('div');
   chart.setAttribute('id', 'container');
   chart.setAttribute('class', 'chart-container');
-  chart.setAttribute('style', 'height:300px');
+  chart.setAttribute('style', 'height:200px');
   // inputs de la target
   let tgt_div = document.createElement('div');
   tgt_div.setAttribute('style','text-align:center')
