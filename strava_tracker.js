@@ -68,7 +68,7 @@ function addGraph(value){
       title: 'On track?',
 
       pane: {
-          center: ['50%', '50%'],
+          center: ['50%', '90%'],
           size: '100%',
           startAngle: -90,
           endAngle: 90,
