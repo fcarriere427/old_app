@@ -69,7 +69,7 @@ function addGraph(value){
 
       pane: {
           center: ['50%', '100%'],
-          size: '150%',
+          size: '170%',
           startAngle: -90,
           endAngle: 90,
           background: {
