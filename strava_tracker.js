@@ -159,16 +159,16 @@ function init() {
   // blocs de texte
   const titre = document.createElement('h2');
   titre.innerHTML = 'Tracker Strava';
-  const summary_l1 = document.createElement('h3');
+  const summary_l1 = document.createElement('h4');
   summary_l1.setAttribute('id', 'summary_l1');
   summary_l1.setAttribute('style','text-align:center')
-  const summary_l2 = document.createElement('h3');
+  const summary_l2 = document.createElement('h4');
   summary_l2.setAttribute('id', 'summary_l2');
   summary_l2.setAttribute('style','text-align:center')
-  const summary_l3 = document.createElement('h3');
+  const summary_l3 = document.createElement('h4');
   summary_l3.setAttribute('id', 'summary_l3');
   summary_l3.setAttribute('style','text-align:center')
-  const summary_l4 = document.createElement('h3');
+  const summary_l4 = document.createElement('h4');
   summary_l4.setAttribute('id', 'summary_l4');
   summary_l4.setAttribute('style','text-align:center')
   // création du graphe
@@ -177,13 +177,17 @@ function init() {
   chart.setAttribute('class', 'chart-container');
   chart.setAttribute('height', '300px');
   // inputs de la target
-  let tgt_name = document.createElement('p');
-  tgt_name.setAttribute('id', 'tgt_name');
-  tgt_name.innerHTML = 'Current year target: ';
-  let target = document.createElement('input');
-  target.setAttribute('id', 'target');
-  target.setAttribute('type', 'number');
-  target.setAttribute('value', 1000);
+  let tgt_div = document.createElement('div');
+  let tgt_label = document.createElement('label');
+  tgt_label.setAttribute('id', 'tgt_label');
+  tgt_label.innerHTML = 'Target: ';
+  let tgt_input = document.createElement('input');
+  tgt_input.setAttribute('id', 'target');
+  tgt_input.setAttribute('type', 'number');
+  tgt_input.setAttribute('value', 1000);
+  tgt_div.appendChild(tgt_label);
+  tgt_div.appendChild(tgt_input);
+
   // création de la page
   main.appendChild(titre);
   main.appendChild(summary_l1);
@@ -191,8 +195,7 @@ function init() {
   main.appendChild(summary_l3);
   main.appendChild(summary_l4);
   main.appendChild(chart);
-  main.appendChild(tgt_name);
-  main.appendChild(target);
+  main.appendChild(tgt_div);
 
 }
 
