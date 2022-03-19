@@ -185,7 +185,7 @@ function init() {
   let tgt_input = document.createElement('input');
   tgt_input.setAttribute('id', 'target');
   tgt_input.setAttribute('type', 'number');
-  tgt_input.setAttribute('maxlength', '4');
+  tgt_input.setAttribute('width', '50px');
   tgt_input.setAttribute('value', 1000);
   tgt_div.appendChild(tgt_label);
   tgt_div.appendChild(tgt_input);
