@@ -96,7 +96,7 @@ function testGraph(){
 
       series: [{
           name: 'Delta',
-          data: [80],
+          data: [0],
           dataLabels: {
               format:
                   '<div style="text-align:center">' +
