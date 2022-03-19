@@ -7,7 +7,7 @@ function main(){
   // préparation des éléments de la page
   init();
   // récupération des inputs
-  let target = target.value;
+  let tgt = target.value;
   let year = select.value;
 
   // récupération du cumul courant
@@ -37,15 +37,15 @@ function main(){
     var diff = now - start;
     var oneDay = 1000 * 60 * 60 * 24;
     var day = Math.floor(diff / oneDay);
-    let target_date = Math.round(day / daysInYear(year) * target*10)/10;
+    let target_date = Math.round(day / daysInYear(year) * tgt*10)/10;
     summary_l1.innerHTML = 'Target to date = ' + target_date + "km";
     // calculs
     let delta = Math.round((actual - target_date)*10)/10;
     console.log('delta = ' + delta);
     summary_l3.innerHTML = 'Delta = ' + delta + "km";
-    let delta_days = delta * target / daysInYear(year);
+    let delta_days = delta * tgt / daysInYear(year);
     summary_l4.innerHTML = 'Days of advance / late = ' + delta_days + "days";
-    let new_avg_week = (target - delta) / daysInYear(year) * 7;
+    let new_avg_week = (tgt - delta) / daysInYear(year) * 7;
     summary_l5.innerHTML = 'New avg/week = ' +  new_avg_week + "km";
 
     // ajout du graphe
