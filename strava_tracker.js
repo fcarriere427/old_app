@@ -1,27 +1,72 @@
-import {getMonthDistances, daysInYear, daysInMonth} from './functions.js';
+import {getMonthDistances, daysInYear} from './functions.js';
 
 const liste_annees = [2022,2021,2020,2019,2018,2017,2016,2015];
 const mois = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 function main(){
+  // préparation des éléments de la page
   init();
   // récupération des inputs
   const select = document.getElementById('select');
   const target = document.getElementById('target');
+  const summary_l1 = document.getElementById('summary_l1');
+  const summary_l2 = document.getElementById('summary_l2');
+  const summary_l3 = document.getElementById('summary_l3');
+  const summary_l4 = document.getElementById('summary_l4');
+  const summary_l5 = document.getElementById('summary_l5');
   let tgt = target.value;
   let year = select.value;
-  // Par défaut, on affiche le tracker de l'année en cours
-  createGraph(year, tgt);
+
+  // récupération du cumul courant
+  // inutile ??? let reduce = [];
+  let actual = 0;
+  getMonthDistances()
+  .then(reduce => {
+    // ici, reduce['2015,07'] renvoie la bonne valeur
+    let current = 0;
+    for (let i = 1; i <= 12; i++){
+      let month = (i).toString(); if (month.length<2) { month = '0' + month };
+      let key = year + ',' + month;
+      if (reduce[key]) {
+        current = current + reduce[key];
+      }
+    }
+    actual = Math.round(current/1000*10)/10;; // div par 1000 pour passer en km, puis arrondi au dixième
+
+    // mise à jour des stats
+    summary_l2.innerHTML = 'Actual to date = ' + actual + "km";
+
+    // calcul de la target à date
+    var now = new Date();
+    var start = new Date(now.getFullYear(), 0, 0);
+    var diff = now - start;
+    var oneDay = 1000 * 60 * 60 * 24;
+    var day = Math.floor(diff / oneDay);
+    let target_date = Math.round(day / daysInYear(year) * target*10)/10;
+    summary_l1.innerHTML = 'Target to date = ' + target_date + "km";
+    // calculs
+    let delta = Math.round((actual - target_date)*10)/10;
+    console.log('delta = ' + delta);
+    summary_l3.innerHTML = 'Delta = ' + delta + "km";
+    let delta_days = delta * target / daysInYear(year);
+    summary_l4.innerHTML = 'Days of advance / late = ' + delta_days + "days";
+    let new_avg_week = (target - delta) / daysInYear(year) * 7;
+    summary_l5.innerHTML = 'New avg/week = ' +  new_avg_week + "km";
+
+    // ajout du graphe
+    document.addEventListener('DOMContentLoaded', addGraph(delta));
+
+  })
 
   // Action si on change l'année
   select.addEventListener('change', function(e) {
     let year = select.value;
-    createGraph(year, target);
+    addGraph(value);
   });
   // Action si on change la target
   target.addEventListener('change', function(e) {
     let tgt = target.value;
-    createGraph(year, tgt);
+    addGraph(value);
   });
 }
 
@@ -77,52 +122,6 @@ function init() {
   main.appendChild(target);
   main.appendChild(select);
 
-}
-
-function createGraph(year, target){
-    // récupération du cumul courant
-  let reduce = [];
-  let current = 0;
-  getMonthDistances()
-  .then(reduce => {
-    let summ_l1 = document.getElementById('summary_l1');
-    let summ_l2 = document.getElementById('summary_l2');
-    let summ_l3 = document.getElementById('summary_l3');
-    let summ_l4 = document.getElementById('summary_l4');
-    let summ_l5 = document.getElementById('summary_l5');
-
-    // ici, reduce['2015,07'] renvoie la bonne valeur
-    for (let i = 1; i <= 12; i++){
-      let month = (i).toString(); if (month.length<2) { month = '0' + month };
-      let key = year + ',' + month;
-      if (reduce[key]) {
-        current = current + reduce[key];
-      }
-    }
-    let actual = Math.round(current/1000*10)/10;; // div par 1000 pour passer en km, puis arrondi au dixième
-    summ_l2.innerHTML = 'Actual to date = ' + actual + "km";
-
-    // calcul de la target à date
-    var now = new Date();
-    var start = new Date(now.getFullYear(), 0, 0);
-    var diff = now - start;
-    var oneDay = 1000 * 60 * 60 * 24;
-    var day = Math.floor(diff / oneDay);
-    let target_date = Math.round(day / daysInYear(year) * target*10)/10;
-    summ_l1.innerHTML = 'Target to date = ' + target_date + "km";
-
-    // calculs
-    let delta = Math.round((actual - target_date)*10)/10;
-    console.log('delta = ' + delta);
-    summ_l3.innerHTML = 'Delta = ' + delta + "km";
-    let delta_days = delta * target / daysInYear(year);
-    summ_l4.innerHTML = 'Days of advance / late = ' + delta_days + "days";
-    let new_avg_week = (target - delta) / daysInYear(year) * 7;
-    summ_l5.innerHTML = 'New avg/week = ' +  new_avg_week + "km";
-
-    // ajout du graphe
-    document.addEventListener('DOMContentLoaded', addGraph(delta));
-  })
 }
 
 function addGraph(value){
