@@ -95,7 +95,7 @@ function getLastActivityDate(){
     .then(data => {
       let last_activity = data[0].doc.start_date;
       let newDate = new Date(last_activity);
-      let date_str = newDate.toLocaleDateString('fr-FR') + ' à ' + newDate.toLocaleTimeString('fr-FR');
+      let date_str = newDate.toLocaleDateString('fr-FR') + ' at ' + newDate.toLocaleTimeString('fr-FR');
       resolve(date_str);
     })
     .catch((err) => {
