@@ -48,6 +48,10 @@ function updateTracker(){
     summary_l3.innerHTML = 'Days of advance / late = ' + delta_days + " days";
     let new_avg_week = Math.round((tgt - delta) / daysInYear(year) * 7 * 10)/10;
     summary_l4.innerHTML = 'New avg/week = ' +  new_avg_week + " km";
+    // dernière activité
+
+////////// TO DO 
+    last_activity.innerHTML = 'dernière activité';
     // ajout du graphe
     document.addEventListener('DOMContentLoaded', addGraph(delta));
   })
@@ -171,11 +175,14 @@ function init() {
   const summary_l4 = document.createElement('h4');
   summary_l4.setAttribute('id', 'summary_l4');
   summary_l4.setAttribute('style','text-align:center')
+  const last_activity = document.createElement('p');
+  last_activity.setAttribute('id', 'last_activity');
+  last_activity.setAttribute('style','text-align:center')
   // création du graphe
   const chart = document.createElement('div');
   chart.setAttribute('id', 'container');
   chart.setAttribute('class', 'chart-container');
-  chart.setAttribute('style', 'height:200px');
+  chart.setAttribute('style', 'height:250px');
   // inputs de la target
   let tgt_div = document.createElement('div');
   tgt_div.setAttribute('style','text-align:center')
@@ -198,7 +205,7 @@ function init() {
   main.appendChild(summary_l4);
   main.appendChild(chart);
   main.appendChild(tgt_div);
-
+  main.appendChild(last_activity);
 }
 
 main()
