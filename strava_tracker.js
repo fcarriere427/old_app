@@ -44,11 +44,10 @@ function updateTracker(){
     summary_l1.innerHTML = 'Target to date = ' + target_date + " km";
     // autres stats
     let delta = Math.round((actual - target_date)*10)/10;
-    summary_l3.innerHTML = 'Delta = ' + delta + " km";
     let delta_days = Math.round(delta / tgt * daysInYear(year)*10)/10;
-    summary_l4.innerHTML = 'Days of advance / late = ' + delta_days + " days";
+    summary_l3.innerHTML = 'Days of advance / late = ' + delta_days + " days";
     let new_avg_week = Math.round((tgt - delta) / daysInYear(year) * 7 * 10)/10;
-    summary_l5.innerHTML = 'New avg/week = ' +  new_avg_week + " km";
+    summary_l4.innerHTML = 'New avg/week = ' +  new_avg_week + " km";
     // ajout du graphe
     document.addEventListener('DOMContentLoaded', addGraph(delta));
   })
@@ -155,7 +154,6 @@ function addGraph(value){
 
 function init() {
   const main = document.getElementById('main');
-
   //// création des éléments
   // blocs de texte
   const titre = document.createElement('h2');
@@ -172,13 +170,10 @@ function init() {
   const summary_l4 = document.createElement('h3');
   summary_l4.setAttribute('id', 'summary_l4');
   summary_l4.setAttribute('style','text-align:center')
-  const summary_l5 = document.createElement('h3');
-  summary_l5.setAttribute('id', 'summary_l5');
-  summary_l5.setAttribute('style','text-align:center')
   // création du graphe
   const chart = document.createElement('div');
   chart.setAttribute('id', 'container');
-  chart.setAttribute('class', 'graph');
+  chart.setAttribute('class', 'chart-container');
   chart.setAttribute('height', '300px');
   // inputs de la target
   let tgt_name = document.createElement('p');
@@ -194,7 +189,6 @@ function init() {
   main.appendChild(summary_l2);
   main.appendChild(summary_l3);
   main.appendChild(summary_l4);
-  main.appendChild(summary_l5);
   main.appendChild(chart);
   main.appendChild(tgt_name);
   main.appendChild(target);
