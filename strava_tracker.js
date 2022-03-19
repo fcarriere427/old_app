@@ -30,15 +30,15 @@ function init() {
 
   //// création des éléments
   // blocs de texte
-  const titre = document.createElement('h2');
+  let titre = document.createElement('h2');
   titre.innerHTML = 'Tracker Strava';
 
   // inputs de la target
-  const target = document.createElement('input');
+  let target = document.createElement('input');
   target.setAttribute('id', 'target');
   target.setAttribute('type', 'number');
   target.setAttribute('value', 1000);
-  
+
   // select de l'année
   let select = document.createElement('select');
   select.id = 'select';
