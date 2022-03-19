@@ -5,7 +5,7 @@ let start_year = 2015 // début des activités Strava
 const annees = [];
 let last_year = new Date().getFullYear();
 let i = 0;
-for (let year = start_year; year <= last_year; year++){
+for (let year = last_year; year <= start_year; year--){
   annees[i]=year;
   i = i+1;
 }
