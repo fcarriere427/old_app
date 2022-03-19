@@ -1,6 +1,5 @@
 import {getMonthDistances, daysInYear} from './functions.js';
 
-const liste_annees = [2022,2021,2020,2019,2018,2017,2016,2015];
 const mois = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 function main(){
@@ -18,65 +17,12 @@ function main(){
   });
 }
 
-function init() {
-  const main = document.getElementById('main');
-
-  //// création des éléments
-  // blocs de texte
-  const titre = document.createElement('h2');
-  titre.innerHTML = 'Tracker Strava';
-  const summary_l1 = document.createElement('p');
-  summary_l1.setAttribute('id', 'summary_l1');
-  const summary_l2 = document.createElement('p');
-  summary_l2.setAttribute('id', 'summary_l2');
-  const summary_l3 = document.createElement('p');
-  summary_l3.setAttribute('id', 'summary_l3');
-  const summary_l4 = document.createElement('p');
-  summary_l4.setAttribute('id', 'summary_l4');
-  const summary_l5 = document.createElement('p');
-  summary_l5.setAttribute('id', 'summary_l5');
-
-  // inputs de la target
-  let tgt_name = document.createElement('p');
-  tgt_name.setAttribute('id', 'tgt_name');
-  tgt_name.innerHTML = 'Current year target: ';
-  let target = document.createElement('input');
-  target.setAttribute('id', 'target');
-  target.setAttribute('type', 'number');
-  target.setAttribute('value', 1000);
-
-  // select de l'année
-  let select = document.createElement('select');
-  select.id = 'select';
-  for (let i = 0; i < liste_annees.length; i++) {
-    var option = document.createElement("option");
-    option.value = liste_annees[i];
-    option.text = liste_annees[i];
-    select.appendChild(option);
-  }
-
-  const chart = document.createElement('div');
-  chart.setAttribute('id', 'container');
-  chart.setAttribute('class', 'graph');
-  // création de la page
-  main.appendChild(titre);
-  main.appendChild(summary_l1);
-  main.appendChild(summary_l2);
-  main.appendChild(summary_l3);
-  main.appendChild(summary_l4);
-  main.appendChild(summary_l5);
-  main.appendChild(chart);
-  main.appendChild(tgt_name);
-  main.appendChild(target);
-  main.appendChild(select);
-
-}
-
 function updateTracker(){
-  // récupération des inputs
+  // récupération de la target
   let tgt = target.value;
-  let year = select.value;
-
+  // extraction de l'année en cours
+  var now = new Date();
+  let year = now.getFullYear();
   // récupération du cumul courant
   let reduce = [];
   let actual = 0;
@@ -92,11 +38,10 @@ function updateTracker(){
       }
     }
     actual = Math.round(current/1000*10)/10;; // div par 1000 pour passer en km, puis arrondi au dixième
-
-    // mise à jour des stats
+    //// mise à jour des stats
+    // actual
     summary_l2.innerHTML = 'Actual to date = ' + actual + " km";
-
-    // calcul de la target à date
+    // target à date
     var now = new Date();
     var start = new Date(now.getFullYear(), 0, 0);
     var diff = now - start;
@@ -104,17 +49,15 @@ function updateTracker(){
     var day = Math.floor(diff / oneDay);
     let target_date = Math.round(day / daysInYear(year) * tgt*10)/10;
     summary_l1.innerHTML = 'Target to date = ' + target_date + " km";
-    // calculs
+    // autres stats
     let delta = Math.round((actual - target_date)*10)/10;
     summary_l3.innerHTML = 'Delta = ' + delta + " km";
     let delta_days = Math.round(delta / tgt * daysInYear(year)*10)/10;
     summary_l4.innerHTML = 'Days of advance / late = ' + delta_days + " days";
     let new_avg_week = Math.round((tgt - delta) / daysInYear(year) * 7 * 10)/10;
     summary_l5.innerHTML = 'New avg/week = ' +  new_avg_week + " km";
-
     // ajout du graphe
     document.addEventListener('DOMContentLoaded', addGraph(delta));
-
   })
 }
 
@@ -215,6 +158,49 @@ function addGraph(value){
       }]
 
   }));
+
+}
+
+function init() {
+  const main = document.getElementById('main');
+
+  //// création des éléments
+  // blocs de texte
+  const titre = document.createElement('h2');
+  titre.innerHTML = 'Tracker Strava';
+  const summary_l1 = document.createElement('p');
+  summary_l1.setAttribute('id', 'summary_l1');
+  const summary_l2 = document.createElement('p');
+  summary_l2.setAttribute('id', 'summary_l2');
+  const summary_l3 = document.createElement('p');
+  summary_l3.setAttribute('id', 'summary_l3');
+  const summary_l4 = document.createElement('p');
+  summary_l4.setAttribute('id', 'summary_l4');
+  const summary_l5 = document.createElement('p');
+  summary_l5.setAttribute('id', 'summary_l5');
+
+  // inputs de la target
+  let tgt_name = document.createElement('p');
+  tgt_name.setAttribute('id', 'tgt_name');
+  tgt_name.innerHTML = 'Current year target: ';
+  let target = document.createElement('input');
+  target.setAttribute('id', 'target');
+  target.setAttribute('type', 'number');
+  target.setAttribute('value', 1000);
+
+  const chart = document.createElement('div');
+  chart.setAttribute('id', 'container');
+  chart.setAttribute('class', 'graph');
+  // création de la page
+  main.appendChild(titre);
+  main.appendChild(summary_l1);
+  main.appendChild(summary_l2);
+  main.appendChild(summary_l3);
+  main.appendChild(summary_l4);
+  main.appendChild(summary_l5);
+  main.appendChild(chart);
+  main.appendChild(tgt_name);
+  main.appendChild(target);
 
 }
 
