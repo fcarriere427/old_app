@@ -19,10 +19,11 @@ function init() {
   main.appendChild(titre);
   main.appendChild(chart);
 
-  // définition de l'année = TO DO
+  //  TO DO : définitions à rendre dynamique
   let year = 2022;
+  let target = 1000;
 
-  // récupération des données
+  // récupération du cumul courant
   let reduce = [];
   let current = 0;
   getMonthDistances()
@@ -33,12 +34,17 @@ function init() {
       if (reduce[key]) {
         current = current + reduce[key];
       }
-      console.log("après mois " + i + ", current = " + current);
     }
-    // écriture
     let actual = Math.round(current/1000*10)/10;; // div par 1000 pour passer en km, puis arrondi au dixième
-    console.log('Dans init, actual = ' + actual);
-    document.addEventListener('DOMContentLoaded', addGraph(actual));
+
+    // calcul de la target à date
+    let target_date = 200;
+
+    // calculs
+    let delta = actual - target_date;
+
+    // ajout du graphe
+    document.addEventListener('DOMContentLoaded', addGraph(delta));
   })
 }
 
