@@ -65,10 +65,10 @@ function addGraph(value){
           type: 'solidgauge'
       },
 
-      title: 'On track?',
+      title: null,
 
       pane: {
-          center: ['50%', '90%'],
+          center: ['50%', '100%'],
           size: '100%',
           startAngle: -90,
           endAngle: 90,
@@ -98,14 +98,14 @@ function addGraph(value){
               [0.9, '#DDDF0D'] // red
           ],
           lineWidth: 0,
-          tickWidth: 0,
-          minorTickInterval: null,
+          tickWidth: 1,
+          minorTickInterval: 10,
           tickAmount: 2,
           title: {
-              y: 70
+              y: 0
           },
           labels: {
-              y: 16
+              y: 0
           }
       },
 
