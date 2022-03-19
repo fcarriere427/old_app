@@ -175,10 +175,9 @@ function init() {
   const chart = document.createElement('div');
   chart.setAttribute('id', 'container');
   chart.setAttribute('class', 'chart-container');
-  chart.setAttribute('height', '300px');
+  chart.setAttribute('height', '400px');
   // inputs de la target
   let tgt_div = document.createElement('div');
-  tgt_div.setAttribute('padding-top', '100px');
   let tgt_label = document.createElement('label');
   tgt_label.setAttribute('id', 'tgt_label');
   tgt_label.innerHTML = 'Target: ';
