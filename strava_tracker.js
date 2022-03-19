@@ -62,7 +62,7 @@ function addGraph(value){
   var gaugeOptions = {
       chart: {
           type: 'solidgauge',
-          height: 200;
+          height: 200
       },
 
       title: null,
