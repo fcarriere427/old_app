@@ -30,17 +30,17 @@ function init() {
 
   //// création des éléments
   // blocs de texte
-  let titre = document.createElement('h2');
+  const titre = document.createElement('h2');
   titre.innerHTML = 'Tracker Strava';
-  let summary_l1 = document.createElement('p');
+  const summary_l1 = document.createElement('p');
   summary_l1.innerHTML = '... waiting...';
-  let summary_l2 = document.createElement('p');
+  const summary_l2 = document.createElement('p');
   summary_l2.innerHTML = '... waiting...';
-  let summary_l3 = document.createElement('p');
+  const summary_l3 = document.createElement('p');
   summary_l3.innerHTML = '... waiting...';
-  let summary_l4 = document.createElement('p');
+  const summary_l4 = document.createElement('p');
   summary_l4.innerHTML = '... waiting...';
-  let summary_l5 = document.createElement('p');
+  const summary_l5 = document.createElement('p');
   summary_l5.innerHTML = '... waiting...';
 
   // inputs de la target
