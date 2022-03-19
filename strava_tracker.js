@@ -20,11 +20,13 @@ function main(){
     for (let i = 1; i <= 12; i++){
       let month = (i).toString(); if (month.length<2) { month = '0' + month };
       let key = year + ',' + month;
+      console.log('reduce[key] = ' + reduce[key]);
       if (reduce[key]) {
         current = current + reduce[key];
       }
     }
     actual = Math.round(current/1000*10)/10;; // div par 1000 pour passer en km, puis arrondi au dixième
+    console.log('actual = ' + actual);
 
     // mise à jour des stats
     summary_l2.innerHTML = 'Actual to date = ' + actual + "km";
