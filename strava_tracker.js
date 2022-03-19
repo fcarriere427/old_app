@@ -30,7 +30,9 @@ function init() {
     for (let i = 1; i <= 12; i++){
       let month = (i+1).toString(); if (month.length<2) { month = '0' + month };
       let key = year + ',' + month;
-      current = current + reduce[key];
+      if (reduce[key]) {
+        current = current + reduce[key];
+      }
       console.log("après mois " + i + ", current = " + current);
     }
     // écriture
