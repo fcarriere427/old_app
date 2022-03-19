@@ -28,7 +28,7 @@ function init() {
   getMonthDistances()
   .then(reduce => { // ici, reduce['2015,07'] renvoie la bonne valeur
     for (let i = 1; i <= 12; i++){
-      let month = (i+1).toString(); if (month.length<2) { month = '0' + month };
+      let month = (i).toString(); if (month.length<2) { month = '0' + month };
       let key = year + ',' + month;
       if (reduce[key]) {
         current = current + reduce[key];
