@@ -78,15 +78,15 @@ function init() {
   const titre = document.createElement('h2');
   titre.innerHTML = 'Tracker Strava';
   const summary_l1 = document.createElement('p');
-  summary_l1.innerHTML = '... waiting...';
+  summary_l1.setAttribute('id', 'summary_l1');
   const summary_l2 = document.createElement('p');
-  summary_l2.innerHTML = '... waiting...';
+  summary_l2.setAttribute('id', 'summary_l2');
   const summary_l3 = document.createElement('p');
-  summary_l3.innerHTML = '... waiting...';
+  summary_l3.setAttribute('id', 'summary_l3');
   const summary_l4 = document.createElement('p');
-  summary_l4.innerHTML = '... waiting...';
+  summary_l4.setAttribute('id', 'summary_l4');
   const summary_l5 = document.createElement('p');
-  summary_l5.innerHTML = '... waiting...';
+  summary_l5.setAttribute('id', 'summary_l5');
 
   // inputs de la target
   let tgt_name = document.createElement('p');
