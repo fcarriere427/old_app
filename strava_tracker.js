@@ -93,9 +93,9 @@ function addGraph(value){
       yAxis: {
           stops: [
               // green = #55BF3B, yellow = #DDDF0D, red = '#DF5353'
-              [0.1, '#DF5353'],// red
+              [0, '#DF5353'],// red
               [0.5, '#55BF3B'], // green
-              [0.9, '#DDDF0D'] // red
+              [1, '#DDDF0D'] // red
           ],
           lineWidth: 0,
           tickWidth: 1,
@@ -105,7 +105,7 @@ function addGraph(value){
               y: 0
           },
           labels: {
-              y: 0
+              y: 15
           }
       },
 
