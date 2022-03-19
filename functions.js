@@ -1,3 +1,5 @@
+const mois = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
 function addInfo(info, data) {
   let mainContainer = document.getElementById('main');
   let p = document.createElement('p');
@@ -100,6 +102,7 @@ function daysInYear(year) {
 }
 
 export {
+   mois,
    addInfo,
    strTime,
    strSpeed,

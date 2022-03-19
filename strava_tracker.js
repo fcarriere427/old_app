@@ -1,6 +1,4 @@
-import {getMonthDistances, daysInYear} from './functions.js';
-
-const mois = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+import {getMonthDistances, daysInYear, mois} from './functions.js';
 
 function main(){
   // préparation des éléments de la page
