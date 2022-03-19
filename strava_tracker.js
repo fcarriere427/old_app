@@ -62,14 +62,13 @@ function addGraph(value){
 
   var gaugeOptions = {
       chart: {
-          height: 300,
           type: 'solidgauge'
       },
 
       title: 'On track?',
 
       pane: {
-          center: ['50%', '85%'],
+          center: ['50%', '50%'],
           size: '100%',
           startAngle: -90,
           endAngle: 90,
