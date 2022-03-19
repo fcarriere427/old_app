@@ -2,7 +2,7 @@ import {getMonthDistances, daysInYear, daysInMonth} from './functions.js';
 
 function main(){
   init();
-  addGraph();
+//  addGraph();
 }
 
 function init() {
@@ -34,6 +34,7 @@ function init() {
     }
     // écriture
     let actual = Math.round(current/1000*10)/10;; // div par 1000 pour passer en km, puis arrondi au dixième
+    console.log('Dans init, actual = ' + actual);
     document.addEventListener('DOMContentLoaded', addGraph(actual));
   })
 }
