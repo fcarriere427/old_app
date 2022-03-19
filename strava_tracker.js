@@ -1,4 +1,4 @@
-import {getMonthDistances, daysInYear, mois} from './functions.js';
+import {getMonthDistances, daysInYear, mois, getLastActivityDate} from './functions.js';
 
 function main(){
   // préparation des éléments de la page
