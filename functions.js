@@ -4,7 +4,7 @@ const mois = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oc
 let start_year = 2015 // début des activités Strava
 const annees = [];
 let last_year = new Date().getFullYear();
-let i = last_year - start_year + 1;
+let i = last_year - start_year;
 for (let year = start_year; year <= last_year; year++){
   annees[i]=year;
   i = i-1;
