@@ -1,6 +1,5 @@
-import {getMonthDistances, daysInYear, daysInMonth, mois} from './functions.js';
+import {getMonthDistances, daysInYear, daysInMonth, mois, annees} from './functions.js';
 
-const liste_annees = [2022,2021,2020,2019,2018,2017,2016,2015];
 const titres_col = ['Month', 'Actual (km)', 'Target (km)', 'Delta (km)', 'Actual (cumul.)', 'Target (cumul.)', 'Delta (cumul.)', 'Avg (km/d)', 'Avg (km/w)'];
 const target_an = 1000;
 
@@ -228,10 +227,10 @@ function init() {
   // select
   let select = document.createElement('select');
   select.id = 'select';
-  for (let i = 0; i < liste_annees.length; i++) {
+  for (let i = 0; i < annees.length; i++) {
     var option = document.createElement("option");
-    option.value = liste_annees[i];
-    option.text = liste_annees[i];
+    option.value = annees[i];
+    option.text = annees[i];
     select.appendChild(option);
   }
   // création de la page
