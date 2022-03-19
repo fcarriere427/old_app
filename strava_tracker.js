@@ -1,16 +1,37 @@
 import {getMonthDistances, daysInYear, daysInMonth} from './functions.js';
 
+const liste_annees = [2022,2021,2020,2019,2018,2017,2016,2015];
+const mois = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
 function main(){
   init();
-//  addGraph();
+  // Par défaut, on affiche le dashboard de l'année en cours
+  const select = document.getElementById('select');
+  createGraph(2022);
+  // Action si on change l'année
+  select.addEventListener('change', function(e) {
+    let year = select.value;
+    createGraph(year);
+  });
 }
 
 function init() {
   const main = document.getElementById('main');
+
   //// création des éléments
   // blocs de texte
   const titre = document.createElement('h2');
   titre.innerHTML = 'Tracker Strava';
+
+  // select
+  let select = document.createElement('select');
+  select.id = 'select';
+  for (let i = 0; i < liste_annees.length; i++) {
+    var option = document.createElement("option");
+    option.value = liste_annees[i];
+    option.text = liste_annees[i];
+    select.appendChild(option);
+  }
 
   const chart = document.createElement('div');
   chart.setAttribute('id', 'container');
@@ -18,9 +39,12 @@ function init() {
   // création de la page
   main.appendChild(titre);
   main.appendChild(chart);
+  main.appendChild(select);
 
+}
+
+function createGraph(year){
   //  TO DO : définitions à rendre dynamique
-  let year = 2022;
   let target = 1000;
 
   // récupération du cumul courant
@@ -53,7 +77,7 @@ function addGraph(actual){
   // convert into array
   let array = new Array(1);
   array[0] = actual;
-  
+
   var gaugeOptions = {
       chart: {
           type: 'solidgauge'
