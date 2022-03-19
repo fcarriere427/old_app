@@ -51,9 +51,11 @@ function updateTracker(){
     // dernière activité
 
 ////////// TO DO
-    var last_act = new Date();
+    getLastActivityDate()
+    .then(data => {
+      last_activity.innerHTML = 'Last activity: ' + data;
+    })
 
-    last_activity.innerHTML = 'Last activity: ' + last_act;
     // ajout du graphe
     document.addEventListener('DOMContentLoaded', addGraph(delta));
   })

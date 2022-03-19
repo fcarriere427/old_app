@@ -85,6 +85,22 @@ function getMonthDistances(){
   })
 }
 
+// récupération de la date de la dernière activité
+function getLastActivityDate(){
+  let year = annees[0];
+  return new Promise((resolve, reject) => {
+    fetch(`/strava_app/list?id=${year}`)
+    .then(response => response.json())
+    .then(data => {
+      console.log('data[0] = ' + data[0]);
+      let last_activity = data[0].start_date;
+      resolve(last_activity);
+    })
+    .catch((err) => {
+      console.log('"Activities" fetch problem: ' + err.message);
+    })
+}
+
 // Month in JavaScript is 0-indexed (January is 0, February is 1, etc),
 // but by using 0 as the day it will give us the last day of the prior
 // month. So passing in 1 as the month number will return the last day
@@ -108,6 +124,7 @@ export {
    strSpeed,
    strDate,
    getMonthDistances,
+   getLastActivityDate,
    daysInYear,
    daysInMonth
  };
