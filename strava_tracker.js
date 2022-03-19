@@ -7,18 +7,11 @@ function main(){
   // préparation des éléments de la page
   init();
   // récupération des inputs
-  // const select = document.getElementById('select');
-  // const target = document.getElementById('target');
-  // const summary_l1 = document.getElementById('summary_l1');
-  // const summary_l2 = document.getElementById('summary_l2');
-  // const summary_l3 = document.getElementById('summary_l3');
-  // const summary_l4 = document.getElementById('summary_l4');
-  // const summary_l5 = document.getElementById('summary_l5');
   let tgt = target.value;
   let year = select.value;
 
   // récupération du cumul courant
-  // inutile ??? let reduce = [];
+  let reduce = [];
   let actual = 0;
   getMonthDistances()
   .then(reduce => {
