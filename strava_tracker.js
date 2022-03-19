@@ -65,7 +65,7 @@ function addGraph(value){
           type: 'solidgauge'
       },
 
-      title: null,
+      title: 'On track?',
 
       pane: {
           center: ['50%', '85%'],
@@ -136,8 +136,7 @@ function addGraph(value){
 
       series: [{
           name: 'Delta',
-          data: array,
-          //data: [-80],
+          data: array, //data: [-80],
           dataLabels: {
               format:
                   '<div style="text-align:center">' +
