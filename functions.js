@@ -94,7 +94,7 @@ function getLastActivityDate(){
     .then(response => response.json())
     .then(data => {
       console.log('data[0] = ' + data[0]);
-      let last_activity = data[0].start_date;
+      let last_activity = data[0].doc.start_date;
       resolve(last_activity);
     })
     .catch((err) => {
