@@ -29,7 +29,7 @@ function testGraph(){
 
       pane: {
           center: ['50%', '85%'],
-          size: '140%',
+          size: '100%',
           startAngle: -90,
           endAngle: 90,
           background: {
@@ -52,9 +52,10 @@ function testGraph(){
       // the value axis
       yAxis: {
           stops: [
-              [0.1, '#55BF3B'], // green
-              [0.5, '#DDDF0D'], // yellow
-              [0.9, '#DF5353'] // red
+              // green = #55BF3B, yellow = #DDDF0D, red = '#DF5353'
+              [0.1, '#DF5353'],// red
+              [0.5, '#55BF3B'], // green
+              [0.9, '#DDDF0D'] // red
           ],
           lineWidth: 0,
           tickWidth: 0,
@@ -82,10 +83,10 @@ function testGraph(){
   // The speed gauge
   var chartSpeed = Highcharts.chart('container', Highcharts.merge(gaugeOptions, {
       yAxis: {
-          min: 0,
-          max: 200,
+          min: -100,
+          max: 100,
           title: {
-              text: 'Speed'
+              text: 'Delta'
           }
       },
 
@@ -94,43 +95,21 @@ function testGraph(){
       },
 
       series: [{
-          name: 'Speed',
+          name: 'Delta',
           data: [80],
           dataLabels: {
               format:
                   '<div style="text-align:center">' +
                   '<span style="font-size:25px">{y}</span><br/>' +
-                  '<span style="font-size:12px;opacity:0.4">km/h</span>' +
+                  '<span style="font-size:12px;opacity:0.4">km</span>' +
                   '</div>'
           },
           tooltip: {
-              valueSuffix: ' km/h'
+              valueSuffix: ' km'
           }
       }]
 
   }));
-
-  // Bring life to the dials
-  // setInterval(function () {
-  //     // Speed
-  //     var point,
-  //         newVal,
-  //         inc;
-  //
-  //     if (chartSpeed) {
-  //         point = chartSpeed.series[0].points[0];
-  //         inc = Math.round((Math.random() - 0.5) * 100);
-  //         newVal = point.y + inc;
-  //
-  //         if (newVal < 0 || newVal > 200) {
-  //             newVal = point.y - inc;
-  //         }
-  //
-  //         point.update(newVal);
-  //     }
-  // }, 2000);
-
-
 
 }
 
