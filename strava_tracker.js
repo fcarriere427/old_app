@@ -5,13 +5,23 @@ const mois = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oc
 
 function main(){
   init();
-  // Par défaut, on affiche le dashboard de l'année en cours
+  // récupération des inputs
   const select = document.getElementById('select');
-  createGraph(2022);
+  const target = document.getElementById('target');
+  let tgt = target.value;
+  let year = select.value;
+  // Par défaut, on affiche le tracker de l'année en cours
+  createGraph(year, tgt);
+
   // Action si on change l'année
   select.addEventListener('change', function(e) {
     let year = select.value;
-    createGraph(year);
+    createGraph(year, target);
+  });
+  // Action si on change la target
+  target.addEventListener('change', function(e) {
+    let tgt = target.value;
+    createGraph(year, tgt);
   });
 }
 
@@ -23,7 +33,13 @@ function init() {
   const titre = document.createElement('h2');
   titre.innerHTML = 'Tracker Strava';
 
-  // select
+  // inputs de la target
+  const target = document.createElement('input');
+  target.id = 'target';
+  target.type = 'number';
+  target.value = 1000;
+
+  // select de l'année
   let select = document.createElement('select');
   select.id = 'select';
   for (let i = 0; i < liste_annees.length; i++) {
@@ -43,11 +59,8 @@ function init() {
 
 }
 
-function createGraph(year){
-  //  TO DO : définitions à rendre dynamique
-  let target = 1000;
-
-  // récupération du cumul courant
+function createGraph(year, target){
+    // récupération du cumul courant
   let reduce = [];
   let current = 0;
   getMonthDistances()
