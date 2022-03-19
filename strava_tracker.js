@@ -34,6 +34,9 @@ function init() {
   titre.innerHTML = 'Tracker Strava';
 
   // inputs de la target
+  let tgt_name = document.createElement('p');
+  tgt_name.setAttribute('id', 'tgt_name');
+  tgt_name.innerHTML = 'Current year target: ';
   let target = document.createElement('input');
   target.setAttribute('id', 'target');
   target.setAttribute('type', 'number');
@@ -55,6 +58,7 @@ function init() {
   // création de la page
   main.appendChild(titre);
   main.appendChild(chart);
+  main.appendChild(tgt_name);
   main.appendChild(target);
   main.appendChild(select);
 
