@@ -7,7 +7,7 @@ function main(){
   // préparation des éléments de la page
   init();
   // récupération des inputs
-  let tgt = target.value;
+  let target = target.value;
   let year = select.value;
 
   // récupération du cumul courant
