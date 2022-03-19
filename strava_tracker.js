@@ -32,6 +32,16 @@ function init() {
   // blocs de texte
   let titre = document.createElement('h2');
   titre.innerHTML = 'Tracker Strava';
+  let summary_l1 = document.createElement('p');
+  summary_l1.innerHTML = '... waiting...';
+  let summary_l2 = document.createElement('p');
+  summary_l2.innerHTML = '... waiting...';
+  let summary_l3 = document.createElement('p');
+  summary_l3.innerHTML = '... waiting...';
+  let summary_l4 = document.createElement('p');
+  summary_l4.innerHTML = '... waiting...';
+  let summary_l5 = document.createElement('p');
+  summary_l5.innerHTML = '... waiting...';
 
   // inputs de la target
   let tgt_name = document.createElement('p');
@@ -57,6 +67,11 @@ function init() {
   chart.setAttribute('class', 'graph');
   // création de la page
   main.appendChild(titre);
+  main.appendChild(summary_l1);
+  main.appendChild(summary_l2);
+  main.appendChild(summary_l3);
+  main.appendChild(summary_l4);
+  main.appendChild(summary_l5);
   main.appendChild(chart);
   main.appendChild(tgt_name);
   main.appendChild(target);
@@ -78,7 +93,7 @@ function createGraph(year, target){
       }
     }
     let actual = Math.round(current/1000*10)/10;; // div par 1000 pour passer en km, puis arrondi au dixième
-    console.log('actual = ' + actual);
+    summary_l2.innerHTML = 'Actual to date = ' + actual + "km";
 
     // calcul de la target à date
     var now = new Date();
@@ -86,13 +101,17 @@ function createGraph(year, target){
     var diff = now - start;
     var oneDay = 1000 * 60 * 60 * 24;
     var day = Math.floor(diff / oneDay);
-    console.log('day of year = ' + day);
     let target_date = Math.round(day / daysInYear(year) * target*10)/10;
-    console.log('target date = ' + target_date);
+    summary_l1.innerHTML = 'Target to date = ' + target_date + "km";
 
     // calculs
     let delta = Math.round((actual - target_date)*10)/10;
     console.log('delta = ' + delta);
+    summary_l3.innerHTML = 'Delta = ' + delta + "km";
+    let delta_days = delta * target / daysInYear(year);
+    summary_l4.innerHTML = 'Days of advance / late = ' + delta_days + "days";
+    let new_avg_week = (target - delta) / daysInYear(year) * 7;
+    summary_l5.innerHTML = 'New avg/week = ' +  new_avg_week + "km";
 
     // ajout du graphe
     document.addEventListener('DOMContentLoaded', addGraph(delta));
