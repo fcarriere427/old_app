@@ -160,17 +160,26 @@ function init() {
   // blocs de texte
   const titre = document.createElement('h2');
   titre.innerHTML = 'Tracker Strava';
-  const summary_l1 = document.createElement('p');
+  const summary_l1 = document.createElement('h3');
   summary_l1.setAttribute('id', 'summary_l1');
-  const summary_l2 = document.createElement('p');
+  summary_l1.setAttribute('style','text-align:center')
+  const summary_l2 = document.createElement('h3');
   summary_l2.setAttribute('id', 'summary_l2');
-  const summary_l3 = document.createElement('p');
+  summary_l2.setAttribute('style','text-align:center')
+  const summary_l3 = document.createElement('h3');
   summary_l3.setAttribute('id', 'summary_l3');
-  const summary_l4 = document.createElement('p');
+  summary_l3.setAttribute('style','text-align:center')
+  const summary_l4 = document.createElement('h3');
   summary_l4.setAttribute('id', 'summary_l4');
-  const summary_l5 = document.createElement('p');
+  summary_l4.setAttribute('style','text-align:center')
+  const summary_l5 = document.createElement('h3');
   summary_l5.setAttribute('id', 'summary_l5');
-
+  summary_l5.setAttribute('style','text-align:center')
+  // création du graphe
+  const chart = document.createElement('div');
+  chart.setAttribute('id', 'container');
+  chart.setAttribute('class', 'graph');
+  chart.setAttribute('height', '300px');
   // inputs de la target
   let tgt_name = document.createElement('p');
   tgt_name.setAttribute('id', 'tgt_name');
@@ -179,10 +188,6 @@ function init() {
   target.setAttribute('id', 'target');
   target.setAttribute('type', 'number');
   target.setAttribute('value', 1000);
-
-  const chart = document.createElement('div');
-  chart.setAttribute('id', 'container');
-  chart.setAttribute('class', 'graph');
   // création de la page
   main.appendChild(titre);
   main.appendChild(summary_l1);
