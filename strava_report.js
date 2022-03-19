@@ -1,7 +1,6 @@
-import {getMonthDistances, daysInYear, daysInMonth} from './functions.js';
+import {getMonthDistances, daysInYear, daysInMonth, mois} from './functions.js';
 
 const liste_annees = [2022,2021,2020,2019,2018,2017,2016,2015];
-const mois = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const titres_col = ['Month', 'Actual (km)', 'Target (km)', 'Delta (km)', 'Actual (cumul.)', 'Target (cumul.)', 'Delta (cumul.)', 'Avg (km/d)', 'Avg (km/w)'];
 const target_an = 1000;
 
