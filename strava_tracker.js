@@ -78,23 +78,32 @@ function createGraph(year, target){
       }
     }
     let actual = Math.round(current/1000*10)/10;; // div par 1000 pour passer en km, puis arrondi au dixième
+    console.log('actual = ' + actual);
 
     // calcul de la target à date
-    let target_date = 200;
+    var now = new Date();
+    var start = new Date(now.getFullYear(), 0, 0);
+    var diff = now - start;
+    var oneDay = 1000 * 60 * 60 * 24;
+    var day = Math.floor(diff / oneDay);
+    console.log('day of year = ' + day);
+    let target_date = Math.round(day / daysInYear(year) * target*10)/10;
+    console.log('target date = ' + target_date);
 
     // calculs
     let delta = Math.round((actual - target_date)*10)/10;
+    console.log('delta = ' + delta);
 
     // ajout du graphe
     document.addEventListener('DOMContentLoaded', addGraph(delta));
   })
 }
 
-function addGraph(actual){
+function addGraph(value){
 
   // convert into array
   let array = new Array(1);
-  array[0] = actual;
+  array[0] = value;
 
   var gaugeOptions = {
       chart: {
