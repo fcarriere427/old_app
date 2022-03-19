@@ -99,6 +99,7 @@ function getLastActivityDate(){
     .catch((err) => {
       console.log('"Activities" fetch problem: ' + err.message);
     })
+  })
 }
 
 // Month in JavaScript is 0-indexed (January is 0, February is 1, etc),
