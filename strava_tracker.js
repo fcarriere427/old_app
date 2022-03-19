@@ -50,8 +50,10 @@ function updateTracker(){
     summary_l4.innerHTML = 'New avg/week = ' +  new_avg_week + " km";
     // dernière activité
 
-////////// TO DO 
-    last_activity.innerHTML = 'dernière activité';
+////////// TO DO
+    var last_act = new Date();
+
+    last_activity.innerHTML = 'Last activity: ' + last_act;
     // ajout du graphe
     document.addEventListener('DOMContentLoaded', addGraph(delta));
   })
