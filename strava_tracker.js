@@ -6,11 +6,6 @@ function main(){
   // préparation des éléments de la page
   init();
   updateTracker();
-
-  // Action si on change l'année
-  select.addEventListener('change', function(e) {
-    updateTracker();
-  });
   // Action si on change la target
   target.addEventListener('change', function(e) {
     updateTracker();
