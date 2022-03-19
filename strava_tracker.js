@@ -1,6 +1,8 @@
+import {getMonthDistances, daysInYear, daysInMonth} from './functions.js';
+
 function main(){
   init();
-  testGraph();
+  addGraph();
 }
 
 function init() {
@@ -16,10 +18,31 @@ function init() {
   // création de la page
   main.appendChild(titre);
   main.appendChild(chart);
-  document.addEventListener('DOMContentLoaded', testGraph());
+
+  // définition de l'année = TO DO
+  let year = 2022;
+
+  // récupération des données
+  let reduce = [];
+  let current = 0;
+  getMonthDistances()
+  .then(reduce => { // ici, reduce['2015,07'] renvoie la bonne valeur
+    for (let i = 1; i <= 12; i++){
+      let month = (i+1).toString(); if (month.length<2) { month = '0' + month };
+      let key = year + ',' + month;
+      current = current + reduce[key];
+    }
+    // écriture
+    let actual = Math.round(current/1000*10)/10;; // div par 1000 pour passer en km, puis arrondi au dixième
+    document.addEventListener('DOMContentLoaded', addGraph(actual));
+  }
 }
 
-function testGraph(){
+function addGraph(actual){
+
+  // convert into array
+  let array = new Array(actual);
+
   var gaugeOptions = {
       chart: {
           type: 'solidgauge'
@@ -96,7 +119,8 @@ function testGraph(){
 
       series: [{
           name: 'Delta',
-          data: [-80],
+          data: array,
+          //data: [-80],
           dataLabels: {
               format:
                   '<div style="text-align:center">' +
