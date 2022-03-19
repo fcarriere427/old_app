@@ -75,9 +75,3 @@ tr {
   height: 20px;
   border: 1px solid #000;
 }
-
-.chart-container {
-    width: 300px;
-    height: 200px;
-    float: left;
-}
