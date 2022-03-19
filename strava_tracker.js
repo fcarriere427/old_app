@@ -55,6 +55,7 @@ function init() {
   // création de la page
   main.appendChild(titre);
   main.appendChild(chart);
+  main.appendChild(target);
   main.appendChild(select);
 
 }
