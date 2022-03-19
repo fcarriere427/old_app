@@ -1,4 +1,4 @@
-import {strTime, strSpeed } from './functions.js';
+import {strTime, strSpeed, annees } from './functions.js';
 
 function main(){
   // Préparation de la page html
@@ -160,13 +160,12 @@ function init() {
   ligne3.width = '100%';
   ligne3.color = 'orange';
   // select
-  let liste_annees = [2022,2021,2020,2019,2018,2017,2016,2015];
   let select = document.createElement('select');
   select.id = 'select';
-  for (let i = 0; i < liste_annees.length; i++) {
+  for (let i = 0; i < annees.length; i++) {
     var option = document.createElement("option");
-    option.value = liste_annees[i];
-    option.text = liste_annees[i];
+    option.value = annees[i];
+    option.text = annees[i];
     select.appendChild(option);
   }
   // création de la page
