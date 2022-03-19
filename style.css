@@ -76,7 +76,7 @@ tr {
   border: 1px solid #000;
 }
 
-.highcharts-figure .chart-container {
+.chart-container {
     width: 300px;
     height: 200px;
     float: left;

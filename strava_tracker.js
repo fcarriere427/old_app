@@ -61,14 +61,15 @@ function addGraph(value){
 
   var gaugeOptions = {
       chart: {
-          type: 'solidgauge'
+          type: 'solidgauge',
+          height: 200;
       },
 
       title: null,
 
       pane: {
           center: ['50%', '100%'],
-          size: '100%',
+          size: '170%',
           startAngle: -90,
           endAngle: 90,
           background: {
