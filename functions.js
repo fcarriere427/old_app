@@ -9,7 +9,6 @@ for (let year = start_year; year <= last_year; year++){
   annees[i]=year;
   i = i-1;
 }
-console.log('annees = ' + annees.toString());
 
 function addInfo(info, data) {
   let mainContainer = document.getElementById('main');
