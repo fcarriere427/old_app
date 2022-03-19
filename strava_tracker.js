@@ -41,7 +41,7 @@ function init() {
     let target_date = 200;
 
     // calculs
-    let delta = actual - target_date;
+    let delta = Math.round((actual - target_date)*10)/10;
 
     // ajout du graphe
     document.addEventListener('DOMContentLoaded', addGraph(delta));
@@ -51,11 +51,9 @@ function init() {
 function addGraph(actual){
 
   // convert into array
-  console.log('actual = ' + actual);
   let array = new Array(1);
   array[0] = actual;
-  console.log('array[0] = ' + array[0]);
-
+  
   var gaugeOptions = {
       chart: {
           type: 'solidgauge'
