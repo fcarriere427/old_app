@@ -1,5 +1,15 @@
-const annees = [2022,2021,2020,2019,2018,2017,2016,2015];
 const mois = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+// Remplissage du tableau annees
+let start_year = 2015 // début des activités Strava
+const annees = [];
+let last_year = new Date().getFullYear();
+let i = 0;
+for (let year = start_year; year <= last_year; year++){
+  annees[i]=year;
+  i = i+1;
+}
+console.log('annees = ' + annees.toString());
 
 function addInfo(info, data) {
   let mainContainer = document.getElementById('main');
