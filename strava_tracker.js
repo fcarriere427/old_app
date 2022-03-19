@@ -102,7 +102,7 @@ function addGraph(value){
           minorTickInterval: null,
           tickAmount: 2,
           title: {
-              y: -70
+              y: 70
           },
           labels: {
               y: 16
