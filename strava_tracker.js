@@ -35,10 +35,10 @@ function init() {
 
   // inputs de la target
   const target = document.createElement('input');
-  target.id = 'target';
-  target.type = 'number';
-  target.value = 1000;
-
+  target.setAttribute('id', 'target');
+  target.setAttribute('type', 'number');
+  target.setAttribute('value', 1000);
+  
   // select de l'année
   let select = document.createElement('select');
   select.id = 'select';
