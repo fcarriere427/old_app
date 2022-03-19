@@ -93,9 +93,10 @@ function getLastActivityDate(){
     fetch(`/strava_app/list?id=${year}`)
     .then(response => response.json())
     .then(data => {
-      console.log('data[0] = ' + data[0]);
       let last_activity = data[0].doc.start_date;
-      resolve(last_activity);
+      let newDate = new Date(last_activity);
+      let date_str = newDate.toLocaleDateString('fr-FR') + ' à ' + newDate.toLocaleTimeString('fr-FR');
+      resolve(date_str);
     })
     .catch((err) => {
       console.log('"Activities" fetch problem: ' + err.message);

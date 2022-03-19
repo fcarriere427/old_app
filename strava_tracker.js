@@ -1,4 +1,4 @@
-import {getMonthDistances, daysInYear, mois, getLastActivityDate, strDate} from './functions.js';
+import {getMonthDistances, daysInYear, mois, getLastActivityDate} from './functions.js';
 
 function main(){
   // préparation des éléments de la page
@@ -53,9 +53,7 @@ function updateTracker(){
 ////////// TO DO
     getLastActivityDate()
     .then(data => {
-      console.log('data = ' + data);
-      console.log('strDate(data) = ' + strDate(data));
-      last_activity.innerHTML = 'Last activity: ' + strDate(data);
+      last_activity.innerHTML = 'Last activity: ' + data;
     })
 
     // ajout du graphe
