@@ -7,7 +7,7 @@ const id = urlParams.get('id');
 
 var encodedRoute = [];
 
-fetch(`/strava_app/activity?id=${id}`)
+fetch(`/strava_old/activity?id=${id}`)
 .then(response => response.json())
 .then(data => {
   //console.log('Ici on a récupéré l\'activité, par ex data.distance = ' + data.distance)
