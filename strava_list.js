@@ -26,7 +26,7 @@ function main(){
 function listActivities(year) {
   cleanDiv();
   //messageDiv.innerHTML = 'Préparation des activités...';
-  fetch(`/strava_old/list?id=${year}`)
+  fetch(`/strava/list?id=${year}`)
   .then(response => response.json())
   .then(data => {
     // pour afficher la liste des activités
@@ -96,7 +96,7 @@ function updateActivities() {
   console.log('Update button was clicked');
   cleanDiv();
   messageDiv.innerHTML = 'We are fetching latest data...';
-  fetch("/strava_old/update")
+  fetch("/strava/update")
   .then(() => {
     messageDiv.innerHTML = 'OK, latest data downloaded!';
     listActivities(2022);
@@ -108,7 +108,7 @@ function reloadActivities() {
   console.log('Reload button was clicked');
   cleanDiv();
   messageDiv.innerHTML = 'Complete download of summary activities: it might take a while...';
-  fetch("/strava_old/reload")
+  fetch("/strava/reload")
   .then(response => response.json())
   .then((data) => {
     messageDiv.innerHTML = 'OK, the ' + data + ' activities have been loaded (including "other than run")!';
