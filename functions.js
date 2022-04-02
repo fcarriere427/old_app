@@ -99,7 +99,7 @@ function getMonthDistances(){
 function getLastActivityDate(){
   let year = annees[0];
   return new Promise((resolve, reject) => {
-    fetch(`/strava/list?id=${year}`)
+    fetch(`/strava/list?year=${year}`)
     .then(response => response.json())
     .then(data => {
       let last_activity = data[0].doc.start_date;
