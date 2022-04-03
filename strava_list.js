@@ -26,7 +26,7 @@ function main(){
 function listActivities(year) {
   cleanDiv();
   //messageDiv.innerHTML = 'Préparation des activités...';
-  fetch(`/strava/list?id=${year}`)
+  fetch(`/strava/list?year=${year}`)
   .then(response => response.json())
   .then(data => {
     // pour afficher la liste des activités
