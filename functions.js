@@ -84,7 +84,7 @@ function strDate(data) {
 function getMonthDistances(){
   return new Promise((resolve, reject) => {
     let reduce = [];
-    fetch('/strava/month_distance')
+    fetch('/api/strava/month_distance')
     .then(response => response.json())
     .then(data => {
       data.rows.forEach(doc => {
@@ -99,7 +99,7 @@ function getMonthDistances(){
 function getLastActivityDate(){
   let year = annees[0];
   return new Promise((resolve, reject) => {
-    fetch(`/strava/list?year=${year}`)
+    fetch(`/api/strava/list?year=${year}`)
     .then(response => response.json())
     .then(data => {
       let last_activity = data[0].doc.start_date;
