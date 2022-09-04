@@ -1,7 +1,7 @@
 import {getMonthDistances, daysInYear, daysInMonth, mois, annees} from './functions.js';
 
 const titres_col = ['Month', 'Actual (km)', 'Target (km)', 'Delta (km)', 'Actual (cumul.)', 'Target (cumul.)', 'Delta (cumul.)', 'Avg (km/d)', 'Avg (km/w)'];
-const target_an = 1000;
+const target_an = 1095;
 
 function main(){
   // Préparation de la page html
