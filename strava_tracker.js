@@ -197,7 +197,7 @@ function init() {
   tgt_input.setAttribute('id', 'target');
   tgt_input.setAttribute('type', 'number');
   tgt_input.setAttribute('style', 'width:50px');
-  tgt_input.setAttribute('value', 1000);
+  tgt_input.setAttribute('value', 1095);
   tgt_div.appendChild(tgt_label);
   tgt_div.appendChild(tgt_input);
 
