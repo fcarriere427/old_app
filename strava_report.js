@@ -8,7 +8,7 @@ function main(){
   init();
   // Par défaut, on affiche le dashboard de l'année en cours
   const select = document.getElementById('select');
-  createTab(2023);
+  createTab(2024);
   // Action si on change l'année
   select.addEventListener('change', function(e) {
     let year = select.value;
