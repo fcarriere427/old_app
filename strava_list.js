@@ -5,7 +5,7 @@ function main(){
   init();
   // Par défaut, on affiche la liste des activités de l'année en cours
   const select = document.getElementById('select');
-  listActivities(2023);
+  listActivities(2024);
   // Action si on change l'année
   select.addEventListener('change', function(e) {
     let year = select.value;
