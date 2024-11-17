@@ -69,12 +69,19 @@ td {
 
 tr {
   font-weight: normal;
-  hover background-color: grey;
-  nth-child(even) background-color: #f2f2f2;
   text-align: left;
   height: 20px;
   border: 1px solid #000;
 }
+
+tr:hover {
+  background-color: grey;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
 
 .highcharts-figure .chart-container {
     width: 300px;
