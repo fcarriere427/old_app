@@ -53,13 +53,13 @@ function createTab(data){
   let col_1 = document.createElement('th');
   col_1.innerHTML = 'Date';
   let col_2 = document.createElement('th');
-  col_2.innerHTML = 'Name';
+  col_2.innerHTML = 'Nom';
   let col_3 = document.createElement('th');
   col_3.innerHTML = 'Distance';
   let col_4 = document.createElement('th');
-  col_4.innerHTML = 'Duration';
+  col_4.innerHTML = 'Rythme';
   let col_5 = document.createElement('th');
-  col_5.innerHTML = 'Pace';
+  col_5.innerHTML = 'Durée';
   ligne_titre.appendChild(col_1);
   ligne_titre.appendChild(col_2);
   ligne_titre.appendChild(col_3);
@@ -172,12 +172,12 @@ function init() {
   main.appendChild(titre);
   main.appendChild(ligne1);
   main.appendChild(select);
+  main.appendChild(updateButton);
+  main.appendChild(reloadButton);
   main.appendChild(messageDiv);
   main.appendChild(ligne2);
   main.appendChild(resultDiv);
   main.appendChild(ligne3);
-  main.appendChild(updateButton);
-  main.appendChild(reloadButton);
 }
 
 main()
