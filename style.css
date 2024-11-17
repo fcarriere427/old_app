@@ -74,10 +74,6 @@ tr {
   border: 1px solid #000;
 }
 
-tr:hover {
-  background-color: grey;
-}
-
 tr:nth-child(even) {
   background-color: #f2f2f2;
 }
